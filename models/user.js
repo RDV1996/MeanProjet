@@ -5,7 +5,7 @@ var schema = new Schema({
     email: {type: String, required: true},
     wachtwoord: {type: String, required: true},
     username: {type: String, required: true},
-    about: {type: String, required: true},
+    about: {type: String, required: false},
     typeGebruiker: {type: Schema.Types.ObjectId, ref: 'TypeGebruiker'},
     posts:[{type:Schema.Types.ObjectId, ref: 'Post'}],
     subscripties:[{type:Schema.Types.ObjectId, ref: 'Pagina'}],

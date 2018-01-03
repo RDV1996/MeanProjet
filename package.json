@@ -28,6 +28,7 @@
     "express": "~4.14.0",
     "hbs": "~3.1.0",
     "mongoose": "^5.0.0-rc1",
+    "mongoose-unique-validator": "^1.0.6",
     "morgan": "~1.6.1",
     "nodemon": "^1.14.6",
     "reflect-metadata": "^0.1.3",
