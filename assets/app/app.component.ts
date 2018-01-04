@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import {AuthService} from "./auth/auth.service";
+import {User} from "./auth/user.model";
 
 @Component({
     selector: 'my-app',
@@ -6,9 +8,5 @@ import { Component } from '@angular/core';
     styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-    post = {
-        url: "https://i.imgur.com/h1LyCaz.jpg",
-        author: "Roby",
-        title: "HAlleloujhah!"
-    }
+
 }

@@ -11,5 +11,5 @@ export class PostComponent {
 
     constructor(public sanitizer: DomSanitizer){}
 
-    @Input() posts: Post;
+    @Input() post: Post;
 }
