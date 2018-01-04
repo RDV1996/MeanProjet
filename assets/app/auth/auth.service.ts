@@ -17,7 +17,7 @@ export class AuthService{
     getCurrentUser(){
         const headers = new Headers({'Content-type': 'application/json'});
         var gebruikerId = localStorage.getItem("userId");
-        return this.http.get('http://localhost:3000/user' + gebruikerId, {headers: headers})
+        return this.http.get('http://localhost:3000/user/' + gebruikerId, {headers: headers})
             .map((response: Response) => response.json())
             .catch((error: Response) => {
                 return Observable.throw(error.json())

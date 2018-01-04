@@ -55,14 +55,13 @@ router.post('/signin', function (req, res, next) {
 });
 
 router.get('/:id', function (req, res, next) {
-    User.findById(req.params.id, function(err, gebruiker){
+    User.findById(req.params.id, function(err, user){
         if (err){
             return res.status(500).json({
                 title: 'Er heeft zich een fout voorgedaan',
                 error: err
             });
         }
-        console.log(user);
         var token = jwt.sign({user: user}, 'secret',{expiresIn:7200});
         res.status(200).json({
             message: 'Successfully logged in',

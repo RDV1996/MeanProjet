@@ -22,7 +22,6 @@ export class NavbarComponent implements OnInit {
                     localStorage.setItem('userId', data.user._id);
                     this.router.navigateByUrl('/');
                     this.service.setUser(data);
-                    console.log(this.service.user);
                 },
                 error => console.log(error)
             );
