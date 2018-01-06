@@ -8,7 +8,8 @@ var schema = new Schema({
     user: {type: Schema.Types.ObjectId, ref: 'User'},
     pagina: {type: Schema.Types.ObjectId, ref: 'Pagina'},
     comments:[{type:Schema.Types.ObjectId, ref: 'Comment'}],
-    likes:[{type:Schema.Types.ObjectId, ref: 'user'}]
+    likes:[{type:Schema.Types.ObjectId, ref: 'user'}],
+    madeOn: {type: Date, required: true}
 });
 
 module.exports =  mongoose.model('Post', schema);

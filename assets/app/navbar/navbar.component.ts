@@ -1,7 +1,10 @@
 import {Component, OnInit} from '@angular/core';
 
 import {Router} from "@angular/router";
-import {AuthService} from "../auth/auth.service";
+import {AuthService} from "../service/auth.service";
+import {Pagina} from "../model/pagina.model";
+import forEach = require("core-js/fn/array/for-each");
+import {PaginaService} from "../service/pagina.service";
 
 @Component({
     selector: 'app-navbar',
@@ -13,8 +16,10 @@ export class NavbarComponent implements OnInit {
     isAdmin: boolean;
     isLoggedin: boolean;
     naam: string;
+    subscribed: Pagina[];
 
-    constructor(private authService: AuthService, private router: Router) {
+    constructor(private authService: AuthService, private router: Router, private paginaService: PaginaService) {
+        this.subscribed = new Array();
         if (authService.isLoggedIn()) {
             this.authService.getCurrentUser()
                 .subscribe(
@@ -23,6 +28,7 @@ export class NavbarComponent implements OnInit {
                         localStorage.setItem('userId', data.user._id);
                         this.router.navigateByUrl('/');
                         this.authService.setUser(data);
+                       this.subscribed = this.getSubscriptions();
                     },
                     error => console.log(error)
                 );
@@ -37,9 +43,24 @@ export class NavbarComponent implements OnInit {
         authService.LoggedIn.subscribe(loggedIn => this.naam = authService.user.username);
         authService.LoggedOut.subscribe(loggedIn => this.isLoggedin = authService.isLoggedIn());
         authService.LoggedOut.subscribe(loggedIn => this.isAdmin = authService.isAdmin());
+        authService.LoggedIn.subscribe(loggedIn => this.getSubscriptions());
+
     }
 
     ngOnInit() {
+    }
+
+    getSubscriptions(){
+        var subs = new Array();
+        for (var i = 0; i < this.authService.user.subscripties.length; i++) {
+            this.paginaService.getPageById(this.authService.user.subscripties[i])
+                .subscribe(
+                    data=> {
+                        this.subscribed.push(this.paginaService.setPagina(data));
+                    }
+                )
+        }
+        return subs;
     }
 
     //when they log out, clear local storage and go to login page

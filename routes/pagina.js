@@ -35,7 +35,7 @@ router.post('/', function (req, res, next) {
             });
         }
         res.status(201).json({
-            message: 'User created',
+            message: 'Pagina created',
             obj: result
         });
     });

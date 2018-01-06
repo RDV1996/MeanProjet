@@ -1,5 +1,5 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
-import {Post} from "./post.model";
+import {Post} from "../model/post.model";
 import {DomSanitizer} from "@angular/platform-browser";
 
 @Component({

@@ -2,40 +2,53 @@ import {NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 
 import {AppComponent} from "./app.component";
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {PostListComponent} from "./post/postList.component";
 import {PostComponent} from "./post/post.component";
 import {NavbarComponent} from "./navbar/navbar.component";
 import {RouterModule} from "@angular/router";
 import {routes} from "./app.routes";
-import {AuthModule} from "./auth/auth.module";
-import {AuthService} from "./auth/auth.service";
+import {AuthService} from "./service/auth.service";
 import {HttpModule} from "@angular/http";
 import {ErrorService} from "./errors/error.service";
 import {ErrorComponent} from "./errors/error.component";
-import {PaginaModule} from "./pagina/pagina.module";
-import {PostModule} from "./post/post.module";
-import {PostService} from "./post/post.service";
+import {PostService} from "./service/post.service";
+import {HomeComponent} from "./home/home.component";
+import {MakePageComponent} from "./pagina/makePage.component";
+import {PaginaComponent} from "./pagina/pagina.component";
+import {SigninComponent} from "./auth/signin.component";
+import {SignupComponent} from "./auth/signup.component";
+import {LogoutComponent} from "./auth/logout.component";
+import {PageNumberComponent} from "./pageNumber/pageNumber.component";
+import {PaginaService} from "./service/pagina.service";
 
 @NgModule({
     declarations: [
         AppComponent,
         NavbarComponent,
-        ErrorComponent
+        ErrorComponent,
+        HomeComponent,
+        PostComponent,
+        PostListComponent,
+        PaginaComponent,
+        MakePageComponent,
+        LogoutComponent,
+        SignupComponent,
+        SigninComponent,
+        PageNumberComponent
     ],
     imports: [
         BrowserModule,
         FormsModule,
         HttpModule,
         RouterModule.forRoot(routes),
-        AuthModule,
-        PaginaModule,
-        PostModule
+        ReactiveFormsModule
     ],
     providers: [
         AuthService,
         PostService,
-        ErrorService
+        ErrorService,
+        PaginaService
     ],
     bootstrap: [
         AppComponent
