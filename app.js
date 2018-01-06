@@ -5,9 +5,10 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var mongoose=require('mongoose');
+
+var postRoutes = require('././routes/post');
 var userRoutes = require('././routes/user');
 
-var appRoutes = require('./routes/app');
 
 var app = express();
 mongoose.connect('mongodb://user1:abc123@ds133077.mlab.com:33077/meanproject', {useMongoClient: true});
@@ -31,8 +32,8 @@ app.use(function (req, res, next) {
     next();
 });
 
+app.use('/getpost', postRoutes);
 app.use('/user', userRoutes);
-app.use('/', appRoutes);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

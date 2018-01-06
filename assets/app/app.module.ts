@@ -13,12 +13,13 @@ import {AuthService} from "./auth/auth.service";
 import {HttpModule} from "@angular/http";
 import {ErrorService} from "./errors/error.service";
 import {ErrorComponent} from "./errors/error.component";
+import {PaginaModule} from "./pagina/pagina.module";
+import {PostModule} from "./post/post.module";
+import {PostService} from "./post/post.service";
 
 @NgModule({
     declarations: [
         AppComponent,
-        PostListComponent,
-        PostComponent,
         NavbarComponent,
         ErrorComponent
     ],
@@ -27,10 +28,13 @@ import {ErrorComponent} from "./errors/error.component";
         FormsModule,
         HttpModule,
         RouterModule.forRoot(routes),
-        AuthModule
+        AuthModule,
+        PaginaModule,
+        PostModule
     ],
     providers: [
         AuthService,
+        PostService,
         ErrorService
     ],
     bootstrap: [

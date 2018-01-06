@@ -14,26 +14,29 @@ export class NavbarComponent implements OnInit {
     isLoggedin: boolean;
     naam: string;
 
-    constructor(private service: AuthService, private router: Router) {
-        this.service.getCurrentUser()
-            .subscribe(
-                data => {
-                    localStorage.setItem('token', data.token);
-                    localStorage.setItem('userId', data.user._id);
-                    this.router.navigateByUrl('/');
-                    this.service.setUser(data);
-                },
-                error => console.log(error)
-            );
+    constructor(private authService: AuthService, private router: Router) {
+        if (authService.isLoggedIn()) {
+            this.authService.getCurrentUser()
+                .subscribe(
+                    data => {
+                        localStorage.setItem('token', data.token);
+                        localStorage.setItem('userId', data.user._id);
+                        this.router.navigateByUrl('/');
+                        this.authService.setUser(data);
+                    },
+                    error => console.log(error)
+                );
+        }
+
         //check on initialize
-        this.isLoggedin = service.isLoggedIn();
-        this.isAdmin = service.isAdmin();
+        this.isLoggedin = authService.isLoggedIn();
+        this.isAdmin = authService.isAdmin();
         //eventemmitters in Auth.service send warning when logged in or logged out
-        service.LoggedIn.subscribe(loggedIn => this.isLoggedin = service.isLoggedIn());
-        service.LoggedIn.subscribe(loggedIn => this.isAdmin = service.isAdmin());
-        service.LoggedIn.subscribe(loggedIn => this.naam = service.user.username);
-        service.LoggedOut.subscribe(loggedIn => this.isLoggedin = service.isLoggedIn());
-        service.LoggedOut.subscribe(loggedIn => this.isAdmin = service.isAdmin());
+        authService.LoggedIn.subscribe(loggedIn => this.isLoggedin = authService.isLoggedIn());
+        authService.LoggedIn.subscribe(loggedIn => this.isAdmin = authService.isAdmin());
+        authService.LoggedIn.subscribe(loggedIn => this.naam = authService.user.username);
+        authService.LoggedOut.subscribe(loggedIn => this.isLoggedin = authService.isLoggedIn());
+        authService.LoggedOut.subscribe(loggedIn => this.isAdmin = authService.isAdmin());
     }
 
     ngOnInit() {
@@ -41,7 +44,7 @@ export class NavbarComponent implements OnInit {
 
     //when they log out, clear local storage and go to login page
     onLogout() {
-        this.service.logout();
+        this.authService.logout();
         this.router.navigate(['/']);
     }
 }

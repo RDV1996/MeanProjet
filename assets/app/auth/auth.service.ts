@@ -6,25 +6,29 @@ import 'rxjs/Rx';
 import {Observable} from "rxjs/Observable";
 
 @Injectable()
-export class AuthService{
+export class AuthService {
     LoggedIn: EventEmitter<User> = new EventEmitter();
     LoggedOut: EventEmitter<User> = new EventEmitter();
 
-    public user:User = new User();
-    constructor(private http:Http){
+    public user: User = new User();
+
+    constructor(private http: Http) {
     }
 
-    getCurrentUser(){
+    getCurrentUser() {
+        return this.getUserById(localStorage.getItem("userId"));
+    }
+
+    getUserById(id: string) {
         const headers = new Headers({'Content-type': 'application/json'});
-        var gebruikerId = localStorage.getItem("userId");
-        return this.http.get('http://localhost:3000/user/' + gebruikerId, {headers: headers})
+        return this.http.get('http://localhost:3000/user/' + id, {headers: headers})
             .map((response: Response) => response.json())
             .catch((error: Response) => {
                 return Observable.throw(error.json())
             });
     }
 
-    setUser(data){
+    setUser(data) {
         this.user.about = data.user.about;
         this.user.comments = data.user.comments;
         this.user.email = data.user.email;
@@ -37,17 +41,18 @@ export class AuthService{
         this.LoggedIn.emit();
     }
 
-    signup(user: User){
+
+    signup(user: User) {
         const body = JSON.stringify(user);
         const headers = new Headers({'Content-type': 'application/json'});
         return this.http.post('http://localhost:3000/user', body, {headers: headers})
             .map((response: Response) => response.json())
             .catch((error: Response) => {
-            return Observable.throw(error.json())
-        });
+                return Observable.throw(error.json())
+            });
     }
 
-    signin(user: User){
+    signin(user: User) {
         const body = JSON.stringify(user);
         const headers = new Headers({'Content-type': 'application/json'});
         return this.http.post('http://localhost:3000/user/signin', body, {headers: headers})
@@ -57,16 +62,19 @@ export class AuthService{
             });
     }
 
-    logout(){
+    logout() {
         localStorage.clear();
         this.LoggedOut.emit();
     }
 
-    isAdmin(){
-
+    isAdmin() {
+        if (this.isLoggedIn()) {
+            return this.user.typeGebruiker.typeNaaam === "ADMIN";
+        }
+        return false;
     }
 
-    isLoggedIn(){
+    isLoggedIn() {
         return localStorage.getItem('token') != null;
     }
 }

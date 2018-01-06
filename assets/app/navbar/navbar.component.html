@@ -22,7 +22,7 @@
           <a class="nav-link" [routerLink]="['/signin']" >Login</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" [routerLink]="['/user', service.user._id]" >{{naam}}</a>
+          <a class="nav-link" [routerLink]="['/user', authService.user.id]" >{{naam}}</a>
         </li>
         <li class="nav-item" *ngIf="isLoggedin">
           <a class="nav-link"  (click)="onLogout()" >Logout</a>

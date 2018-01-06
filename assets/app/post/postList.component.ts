@@ -1,6 +1,9 @@
 import {Component} from '@angular/core';
 import {Post} from "./post.model";
 import {DomSanitizer} from "@angular/platform-browser";
+import {Router} from "@angular/router";
+import {AuthService} from "../auth/auth.service";
+import {PostService} from "./post.service";
 
 @Component({
     selector: 'app-postList',
@@ -8,9 +11,8 @@ import {DomSanitizer} from "@angular/platform-browser";
     styleUrls: ['./postList.component.css']
 })
 export class PostListComponent {
-    constructor(public sanitizer: DomSanitizer){}
-    posts = [
-        new Post("HAlleloujah!", "https://i.imgur.com/WrQiw0w.jpg", false, "aaa", "eee",["kkk"], "mmm"),
-        new Post("PUBG!!!!", "FaYhGMoacoE", true, "aaa", "eee",["kkk"], "mmm", ["lll","bbb"])
-    ];
+    constructor(public sanitizer: DomSanitizer, public router: Router,public postService:PostService){}
+
+    posts = this.postService.getAllPosts();
+
 }
