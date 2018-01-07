@@ -21,6 +21,7 @@ import {SignupComponent} from "./auth/signup.component";
 import {LogoutComponent} from "./auth/logout.component";
 import {PageNumberComponent} from "./pageNumber/pageNumber.component";
 import {PaginaService} from "./service/pagina.service";
+import {SubscriptionListComponent} from "./home/SubscriptionList.component";
 
 @NgModule({
     declarations: [
@@ -35,7 +36,8 @@ import {PaginaService} from "./service/pagina.service";
         LogoutComponent,
         SignupComponent,
         SigninComponent,
-        PageNumberComponent
+        PageNumberComponent,
+        SubscriptionListComponent
     ],
     imports: [
         BrowserModule,

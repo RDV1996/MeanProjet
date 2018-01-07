@@ -6,6 +6,7 @@ import {SignupComponent} from "./auth/signup.component";
 import {MakePageComponent} from "./pagina/makePage.component";
 import {PaginaComponent} from "./pagina/pagina.component";
 import {HomeComponent} from "./home/home.component";
+import {MakePostComponent} from "./post/makePost.component";
 
 
 export const routes: Routes = [
@@ -14,5 +15,5 @@ export const routes: Routes = [
     {path: "signin", component: SigninComponent},
     {path: "signup", component: SignupComponent},
     {path: "p/:id", component: PaginaComponent},
-    {path: "makepage", component: MakePageComponent},
+    {path: "p/makepost/:id", component: MakePostComponent},
 ];

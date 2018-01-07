@@ -1,4 +1,11 @@
 <div class="container-ful">
-    <app-postList [posts]="posts"></app-postList>
-    <app-pageNumber></app-pageNumber>
+    <div class="row">
+        <div class="col-xs-2">
+            <app-subsciption></app-subsciption>
+        </div>
+        <div class="col-xs-6">
+            <app-postList [posts]="posts"></app-postList>
+            <app-pageNumber></app-pageNumber>
+        </div>
+    </div>
 </div>

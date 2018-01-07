@@ -7,7 +7,21 @@ var Pagina = require('../models/pagina');
 
 
 router.get('/', function (req, res, next) {
-    Post.find(function(err, pagina){
+    Pagina.find(function(err, pagina){
+        if (err){
+            return res.status(500).json({
+                title: 'Er heeft zich een fout voorgedaan',
+                error: err
+            });
+        }
+        res.status(200).json({
+            pagina:pagina
+        })
+    });
+});
+
+router.get('/:id', function (req, res, next) {
+    Pagina.findById(req.params.id, function(err, pagina){
         if (err){
             return res.status(500).json({
                 title: 'Er heeft zich een fout voorgedaan',

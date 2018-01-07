@@ -8,9 +8,29 @@ import {Pagina} from "../model/pagina.model";
 @Injectable()
 export class PaginaService {
     pagina: Pagina = new Pagina();
+    allPages: Pagina[];
 
 
     constructor(private http: Http) {
+        this.allPages = new Array();
+    }
+
+    getPaginas() {
+        const headers = new Headers({'Content-type': 'application/json'});
+        return this.http.get('http://localhost:3000/pagina', {headers: headers})
+            .map((response: Response) => {
+                const paginas = response.json().pagina;
+                let transformedPaginas: Pagina[] = [];
+                for (let pagina of paginas) {
+                    transformedPaginas.push(this.setPagina(pagina));
+                }
+                this.allPages = transformedPaginas;
+                return transformedPaginas;
+            })
+            .catch((error: Response) => {
+                console.log(error);
+                return Observable.throw(error.json)
+            });
     }
 
 
@@ -19,13 +39,14 @@ export class PaginaService {
         return this.http.get('http://localhost:3000/pagina/' + id, {headers: headers})
             .map((response: Response) => response.json())
             .catch((error: Response) => {
-                return Observable.throw(error.json())
+                console.log(error);
+                return Observable.throw(error.json)
             });
     }
 
-    setPagina(data){
+    setPagina(pagina) {
         var pagina = new Pagina(
-            data.pagina.naam, data.pagina.omschrijving, data.pagina.eigenaar, data.pagina.moderators, data.pagina._id
+            pagina.naam, pagina.omschrijving, pagina.eigenaar, pagina.moderators, pagina._id
         );
         return pagina;
     }
@@ -37,7 +58,9 @@ export class PaginaService {
         console.log(body);
         const headers = new Headers({'Content-type': 'application/json'});
         return this.http.post('http://localhost:3000/pagina', body, {headers: headers})
-            .map((response: Response) => response.json())
+            .map((response: Response) => {
+                response.json();
+            })
             .catch((error: Response) => {
                 return Observable.throw(error.json())
             });

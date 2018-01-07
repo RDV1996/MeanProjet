@@ -71,4 +71,11 @@ router.get('/:id', function (req, res, next) {
     });
 });
 
+router.put('/:id', function(req, res, next){
+    User.findOneAndUpdate({_id:req.params.id}, req.body, function (err, user) {
+        user.about = "";
+        res.send(user);
+    });
+});
+
 module.exports = router;

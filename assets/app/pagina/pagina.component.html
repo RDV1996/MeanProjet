@@ -2,12 +2,12 @@
     <header class="row">
         <nav class="col-md-12">
             <ul class="nav nav-pills">
-                <li *ngIf="subscribed"><a >Subscribe</a></li>
-                <li *ngIf="!sbscribed"><a>Subscribe</a></li>
-                <li *ngIf=""><a>Make Post</a></li>
+                <li *ngIf="!subscribed && !owner" (click)="SetSubscribe()"><a >Subscribe</a></li>
+                <li *ngIf="subscribed && !owner" (click)="unsubscribe()"><a>unubscribe</a></li>
+                <li *ngIf="ingelogd" [routerLink]="['/p/makepost', thsiID]"><a>Make Post</a></li>
             </ul>
         </nav>
     </header>
     <app-postList [posts]="posts"></app-postList>
-    <app-
+
 </div>

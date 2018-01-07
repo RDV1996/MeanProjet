@@ -10,16 +10,8 @@
                 <li class="nav-item">
                     <a class="nav-link" [routerLink]="['/']">Home</a>
                 </li>
-                <li uib-dropdown on-toggle="toggled(open)" class="nav-item">
-                    <a href="#" id="simple-dropdown" class="nav-link" uib-dropdown-toggle>Link 3 <span class="caret"></span></a>
-                    <ul class="dropdown-menu" uib-dropdown-menu aria-labelledby="simple-dropdown">
-                        <li><a href="#">SubItem 1</a></li>
-                        <li><a href="#">SubItem 2</a></li>
-                        <li><a href="#">SubItem 3</a></li>
-                        <li role="separator" class="divider"></li>
-                        <li><a href="#">SubItem 4</a></li>
-                    </ul>
-                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="modal" data-target="#popup">Subscriptions<span class="caret"></span></a>
                 <li class="nav-item" *ngIf="!isLoggedin">
                     <a class="nav-link" [routerLink]="['/signin']">Login</a>
                 </li>
@@ -45,3 +37,25 @@
         </div>
     </div>
 </nav>
+
+<div id="popup" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Your Subscriptions:</h4>
+                <button class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="container">
+                    <div *ngIf="subscribed.length == 0" class="row">
+                        <label class="col-xs-12">You don't have any subscriptions yet!</label>
+                    </div>
+                    <div *ngFor="let sub of subscribed" class="row">
+                        <a class="col-cs-12" [routerLink]="['/p', sub.id]">{{sub.naam}}</a><button class="col-xs-6" *ngIf="isOwner(sub.id)" (click)="unsubscribe()">Unsubscribe</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
