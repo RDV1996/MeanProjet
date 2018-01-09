@@ -1,0 +1,32 @@
+<div class="row post">
+    <div class="col-xs-2 listnumber">
+        <button type="button" class="btn btn-default" (click)="upvote()">
+            {{post.likes.length}}
+            <span *ngIf="post.likes.indexOf(authService.user.id) != -1" class="glyphicon glyphicon-arrow-up sm upvoted" aria-hidden="true"></span>
+            <span *ngIf="post.likes.indexOf(authService.user.id) == -1" class="glyphicon glyphicon-arrow-up sm" aria-hidden="true"></span>
+        </button>
+    </div>
+    <div class="col-xs-2 img-center">
+        <a target="_blank" *ngIf="!post.isVideo" href="{{post.url}}">
+            <img  class="img-responsive center-block"
+                  src="{{post.url}}">
+        </a>
+        <a target="_blank" *ngIf="post.isVideo" href="https://www.youtube.com/watch?v={{post.url}}">
+            <img  class="img-responsive center-block"
+                  [src]="sanitizer.bypassSecurityTrustResourceUrl('https://img.youtube.com/vi/' + post.url + '/hqdefault.jpg')">
+        </a>
+    </div>
+    <div class="col-xs-8 listname">
+        <div class="col-xs-12">
+            <h3 class="row">
+                <a [routerLink]="['/p/post/', post.id]">
+                    {{post.title}}
+                </a>
+            </h3>
+            <div class="row">
+                <div class="author">{{ post.user.username }}</div>
+                <div *ngIf="post.user === authService.user.id" class="config"><a href="#">Delete</a></div>
+            </div>
+        </div>
+    </div>
+</div>

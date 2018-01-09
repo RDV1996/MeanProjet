@@ -6,9 +6,9 @@
     </div>
     <div class="panel-body" *ngIf="post.isVideo">
         <div class="embed-responsive embed-responsive-16by9">
-            <iframe  [src]="sanitizer.bypassSecurityTrustResourceUrl(post.url)" frameborder="0"  allowfullscreen></iframe>
+            <iframe [src]="url"
+                    frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
         </div>
-
     </div>
 
     <footer class="panel-footer">
@@ -16,3 +16,4 @@
         <div class="config"><a href="#">Delete</a></div>
     </footer>
 </article>
+

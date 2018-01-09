@@ -1,0 +1,31 @@
+.post{
+    border-bottom: solid #c2c2c2 1px;
+    padding-bottom: 5px;
+    padding-bottom: 5px;
+}
+
+.listpost{
+    height: 50px;
+}
+.listname{
+}
+
+.listimg{
+
+}
+
+.listnumber{
+    margin:auto;
+}
+.upvoted{
+    color: darkcyan;
+}
+.btn{
+    font-size: 1em;
+    brder:none;
+}
+.btn:hover{
+    color: #444444;
+    background-color: #FFFFFF;
+    border: none;
+}

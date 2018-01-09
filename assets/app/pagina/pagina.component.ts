@@ -5,6 +5,7 @@ import {Pagina} from "../model/pagina.model";
 import {ActivatedRoute, Router} from "@angular/router";
 import {AuthService} from "../service/auth.service";
 import {PaginaService} from "../service/pagina.service";
+import {PostService} from "../service/post.service";
 
 @Component({
     selector: 'app-pagina',
@@ -18,7 +19,9 @@ export class PaginaComponent implements OnInit{
     ingelogd: boolean;
     owner:boolean;
     thsiID;
-    constructor(public sanitizer: DomSanitizer,public route: ActivatedRoute, public authService: AuthService, public paginaService: PaginaService){}
+    maxpages=0;
+    pagina =1;
+    constructor(public sanitizer: DomSanitizer,public route: ActivatedRoute, public authService: AuthService, public paginaService: PaginaService, public postService: PostService){}
     ngOnInit() {
         this.route.params.subscribe(params => {
             this.thsiID = params['id'];
@@ -30,7 +33,11 @@ export class PaginaComponent implements OnInit{
                 }
             );
         });
-        this.ingelogd = this.authService.isLoggedIn()
+        this.ingelogd = this.authService.isLoggedIn();
+        this.postService.getPostsBySub(this.thsiID, this.pagina).subscribe(data => {
+            this.posts = this.postService.setSubData(data);
+            this.maxpages = this.postService.subPages;
+        })
     }
     isSubscribed(){
         return this.authService.user.subscripties.includes(this.thispage.id);

@@ -53,14 +53,12 @@ export class PaginaService {
 
 
     createPage(pagina: Pagina) {
-        console.log(pagina);
         const body = JSON.stringify(pagina);
-        console.log(body);
         const headers = new Headers({'Content-type': 'application/json'});
         return this.http.post('http://localhost:3000/pagina', body, {headers: headers})
             .map((response: Response) => {
                 response.json();
-            })
+        })
             .catch((error: Response) => {
                 return Observable.throw(error.json())
             });

@@ -27,7 +27,7 @@ export class MakePageComponent implements OnInit {
 
     onSubmit() {
 
-        const pagina = new Pagina(
+        var pagina = new Pagina(
             this.makePageForm.value.naam,
             this.makePageForm.value.omschrijving,
             this.authService.user.id,
@@ -36,7 +36,7 @@ export class MakePageComponent implements OnInit {
         this.paginaService.createPage(pagina)
             .subscribe(
                 data => {
-                    this.router.navigateByUrl('/p/' + data.obj._id);
+                    this.router.navigateByUrl('/p/' + data.pagina._id);
                 },
                 error => console.log(error)
             );

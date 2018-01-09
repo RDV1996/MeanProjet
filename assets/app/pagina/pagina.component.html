@@ -8,6 +8,16 @@
             </ul>
         </nav>
     </header>
-    <app-postList [posts]="posts"></app-postList>
+    <div class="col-xs-12">
+        <div class="row">
+            <app-postList [posts]="posts"></app-postList>
+        </div>
+        <div class="row">
+            <form>
+                <input class="form-controlcol-xs-4" min="1" max="{{maxpages}}" type="number"
+                       placeholder="Page" value="{{pagina}}" required>
+            </form>
+        </div>
+    </div>
 
 </div>

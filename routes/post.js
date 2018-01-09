@@ -5,15 +5,15 @@ var Post = require('../models/post');
 
 router.post('/', function (req, res, next) {
     var post = new Post({
-            title: req.body.title,
-            url: req.body.url,
-            isVideo: req.body.isVideo,
-            user: req.body.user,
-            pagina: req.body.pagina,
-            comments: [],
-            likes: req.body.comments,
-            madeOn: req.body.madeOn
-        });
+        title: req.body.title,
+        url: req.body.url,
+        isVideo: req.body.isVideo,
+        user: req.body.user,
+        pagina: req.body.pagina,
+        comments: [],
+        likes: req.body.likes,
+        madeOn: req.body.madeOn
+    });
     post.save(function (err, result) {
         if (err) {
             return res.status(500).json({
@@ -36,62 +36,79 @@ router.get('/', function (req, res, next) {
                 error: err
             });
         }
-        if (req.query.page === null) {
-            return res.status(500).json({
-                title: 'Give Page number',
-                error: err
-            });
-        }
+        posts.sort(function(a, b){
+            var keyA = new Date(a.madeOn),
+                keyB = new Date(b.madeOn);
+            // Compare the 2 dates
+            if(keyA < keyB) return -1;
+            if(keyA > keyB) return 1;
+            return 0;
+        });
         var result = [];
         var end;
         var start;
-        if (posts.length > 20) {
-            end = (req.query.page * 20) - 1;
+        var temp = [];
+        var page = req.query.page;
+        if (req.query.sub != null) {
+            for (var i = 0; i < posts.length; i++) {
+                if (posts[i].pagina == req.query.sub) {
+                    temp.push(posts[i]);
+                }
+            }
+        }
+        else {
+            temp = posts;
+        }
+        var pages = Math.floor(temp.length / 20) + 1;
+        if (req.query.page == null || pages < page || page < 0) {
+            page = 1;
+        }
+
+
+        if (temp.length > 20) {
+            end = (page * 20) - 1;
             start = end - 20;
         }
         else {
-            end = posts.length - 1;
+            end = temp.length - 1;
             start = 0;
         }
 
-        for (i = start; i <= end; i++) {
-            result.push(posts[i]);
+        for (var i = start; i <= end; i++) {
+            result.push(temp[i]);
         }
-        res.status(200).json(result);
+
+
+        res.status(200).json({
+            result: result,
+            page: page,
+            pages: pages
+        });
     })
 });
 
 router.get('/:id', function (req, res, next) {
-    Post.findById(req.params.id, function (err, posts) {
+    Post.findById(req.params.id, function (err, post) {
         if (err) {
             return res.status(500).json({
                 title: 'Er heeft zich een fout voorgedaan',
                 error: err
             });
         }
-        if (!req.query.page) {
+        res.status(200).json(post);
+    })
+});
+
+router.put('/like/:id', function(req, res, next){
+    Post.findOneAndUpdate({_id:req.params.id}, req.body, function (err, post) {
+        if (err) {
             return res.status(500).json({
-                title: 'Give Page number',
+                title: 'Er heeft zich een fout voorgedaan',
                 error: err
             });
         }
-        var result = [];
-        var end;
-        var start;
-        if (posts.length > 20) {
-            end = (req.query.page * 20) - 1;
-            start = end - 20;
-        }
-        else {
-            end = posts.length - 1;
-            start = 0;
-        }
-
-        for (i = start; i <= end; i++) {
-            result.push(posts[i]);
-        }
-        res.status(200).json(result);
-    })
+        res.send(post);
+    });
 });
 
 

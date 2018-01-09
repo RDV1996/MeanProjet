@@ -33,15 +33,12 @@ export class AuthService {
         this.user.comments = data.user.comments;
         this.user.email = data.user.email;
         this.user.posts = data.user.posts;
-        this.user.subscripties = new Array();
-        for(var i =0; i < data.user.subscripties.length;i++){
-            this.user.subscripties.push(data.user.subscripties[i])
-        }
+        this.user.subscripties = data.user.subscripties;
+
         this.user.typeGebruiker = data.user.typeGebruiker;
         this.user.username = data.user.username;
         this.user.wachtwoord = data.user.wachtwoord;
         this.user.id = data.user._id;
-        console.log(this.user);
     }
 
 
@@ -86,10 +83,8 @@ export class AuthService {
     }
 
     saveUser(user: User) {
-        console.log(user);
         const body = JSON.stringify(user);
         const headers = new Headers({'Content-Type': 'application/json'});
-        console.log("start http");
         return this.http.put('http://localhost:3000/user/' + user.id, body, {headers: headers})
             .map((response: Response) =>
                 response.json())

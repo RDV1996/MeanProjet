@@ -1,11 +1,16 @@
 <div class="container-ful">
-    <div class="row">
-        <div class="col-xs-2">
-            <app-subsciption></app-subsciption>
-        </div>
-        <div class="col-xs-6">
+    <div class="col-xs-2 allsubs">
+        <app-subsciption [pages]="pages"></app-subsciption>
+    </div>
+    <div class="col-xs-6">
+        <div class="row">
             <app-postList [posts]="posts"></app-postList>
-            <app-pageNumber></app-pageNumber>
+        </div>
+        <div class="row">
+            <form>
+                <input class="form-controlcol-xs-4" min="1" max="{{maxpages}}" type="number"
+                       placeholder="Page" value="{{page}}" required>
+            </form>
         </div>
     </div>
 </div>

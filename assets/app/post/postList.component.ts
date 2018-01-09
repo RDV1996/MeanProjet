@@ -13,5 +13,5 @@ import {PostService} from "../service/post.service";
 export class PostListComponent {
     @Input() posts: Post[];
 
-    constructor(public sanitizer: DomSanitizer, public router: Router,public postService:PostService){}
+    constructor(public sanitizer: DomSanitizer, public router: Router,public postService:PostService, public authService: AuthService){}
 }

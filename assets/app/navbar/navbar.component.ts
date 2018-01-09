@@ -28,7 +28,7 @@ export class NavbarComponent{
                         localStorage.setItem('token', data.token);
                         localStorage.setItem('userId', data.user._id);
                         this.authService.LoggedIn.emit();
-                        this.router.navigateByUrl('/');
+                        this.naam = authService.user.username;
                         this.authService.setUser(data);
                         this.getSubscriptions();
                     },

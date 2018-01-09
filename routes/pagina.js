@@ -48,9 +48,9 @@ router.post('/', function (req, res, next) {
                 error: err
             });
         }
-        res.status(201).json({
-            message: 'Pagina created',
-            obj: result
+        res.status(200).json({
+            message: 'pagina created',
+            pagina: result
         });
     });
 });

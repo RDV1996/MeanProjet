@@ -13,7 +13,7 @@ export class Post {
     madeOn: Date;
 
 
-    constructor(title: string, url: string, isVideo: boolean, user: string, pagina?: string, comments?: string[], id?: string, likes?: string[], madeOn?:Date) {
+    constructor(title?: string, url?: string, isVideo?: boolean, user?: string, pagina?: string, comments?: string[], id?: string, likes?: string[], madeOn?:Date) {
         this.id = id;
         this.title = title;
         this.url = url;
@@ -22,9 +22,6 @@ export class Post {
         this.pagina = pagina;
         this.comments = comments;
         this.likes = likes;
-        if(likes==null){
-            this.likes = [user];
-        }
         this.madeOn = madeOn;
     }
 }

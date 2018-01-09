@@ -18,10 +18,10 @@ import {MakePageComponent} from "./pagina/makePage.component";
 import {PaginaComponent} from "./pagina/pagina.component";
 import {SigninComponent} from "./auth/signin.component";
 import {SignupComponent} from "./auth/signup.component";
-import {LogoutComponent} from "./auth/logout.component";
-import {PageNumberComponent} from "./pageNumber/pageNumber.component";
 import {PaginaService} from "./service/pagina.service";
 import {SubscriptionListComponent} from "./home/SubscriptionList.component";
+import {MakePostComponent} from "./post/makePost.component";
+import {PostListItemComponent} from "./post/postListItem.component";
 
 @NgModule({
     declarations: [
@@ -33,11 +33,11 @@ import {SubscriptionListComponent} from "./home/SubscriptionList.component";
         PostListComponent,
         PaginaComponent,
         MakePageComponent,
-        LogoutComponent,
         SignupComponent,
         SigninComponent,
-        PageNumberComponent,
-        SubscriptionListComponent
+        SubscriptionListComponent,
+        MakePostComponent,
+        PostListItemComponent
     ],
     imports: [
         BrowserModule,

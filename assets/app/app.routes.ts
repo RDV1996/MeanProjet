@@ -12,8 +12,10 @@ import {MakePostComponent} from "./post/makePost.component";
 export const routes: Routes = [
     {path: "", component: HomeComponent},
     {path: "p/post/:id", component: PostComponent},
+    {path: "makepage", component: MakePageComponent},
     {path: "signin", component: SigninComponent},
     {path: "signup", component: SignupComponent},
     {path: "p/:id", component: PaginaComponent},
     {path: "p/makepost/:id", component: MakePostComponent},
+    {path: "p/post/:id", component: MakePostComponent},
 ];

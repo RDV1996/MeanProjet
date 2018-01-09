@@ -10,6 +10,7 @@ import {Router} from "@angular/router";
 })
 export class SigninComponent implements OnInit {
     myForm: FormGroup;
+    error = "";
 
     constructor(private authService: AuthService, private router: Router) {
     }
@@ -32,12 +33,16 @@ export class SigninComponent implements OnInit {
                     localStorage.setItem('token', data.token);
                     localStorage.setItem('userId', data.user._id);
                     this.authService.LoggedIn.emit();
+                    this.myForm.reset();
                     this.router.navigateByUrl('/');
                     this.authService.setUser(data);
                 },
-                error => console.log(error)
+                error => {
+                    console.log(error);
+                    this.error = "Login failed, wrong email or password";
+                }
             );
-        this.myForm.reset();
+
     }
 
 }

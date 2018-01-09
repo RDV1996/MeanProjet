@@ -11,25 +11,17 @@
                     <a class="nav-link" [routerLink]="['/']">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" data-toggle="modal" data-target="#popup">Subscriptions<span class="caret"></span></a>
+                    <a class="nav-link" data-toggle="modal" data-target="#popup">Subscriptions<span
+                            class="caret"></span></a>
                 <li class="nav-item" *ngIf="!isLoggedin">
                     <a class="nav-link" [routerLink]="['/signin']">Login</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" [routerLink]="['/user', authService.user.id]">{{naam}}</a>
+                    <a class="nav-link" [routerLink]="['/profile', authService.user.id]">{{naam}}</a>
                 </li>
                 <li class="nav-item" *ngIf="isLoggedin">
                     <a class="nav-link" (click)="onLogout()">Logout</a>
                 </li>
-
-            </ul>
-            <form class="navbar-form navbar-left">
-                <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Search Page">
-                </div>
-                <button type="submit" class="btn btn-default">Search</button>
-            </form>
-            <ul class="navbar-nav">
                 <li>
                     <a class="nav-link" *ngIf="isLoggedin" [routerLink]="['/makepage']">Make Page</a>
                 </li>
@@ -52,7 +44,8 @@
                         <label class="col-xs-12">You don't have any subscriptions yet!</label>
                     </div>
                     <div *ngFor="let sub of subscribed" class="row">
-                        <a class="col-cs-12" [routerLink]="['/p', sub.id]">{{sub.naam}}</a><button class="col-xs-6" *ngIf="isOwner(sub.id)" (click)="unsubscribe()">Unsubscribe</button>
+                        <a class="col-cs-12" [routerLink]="['/p', sub.id]">{{sub.naam}}</a>
+                        <button class="col-xs-6" *ngIf="isOwner(sub.id)" (click)="unsubscribe()">Unsubscribe</button>
                     </div>
                 </div>
             </div>

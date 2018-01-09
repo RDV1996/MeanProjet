@@ -7,7 +7,7 @@ var User = require('../models/user');
 
 router.post('/', function (req, res, next) {
     var user = new User({
-        email: req.body.email,
+        email: req.body.email.toLowerCase(),
         wachtwoord:  bcrypt.hashSync(req.body.wachtwoord,10),
         username: req.body.username
     });
@@ -26,7 +26,7 @@ router.post('/', function (req, res, next) {
 });
 
 router.post('/signin', function (req, res, next) {
-    User.findOne({email: req.body.email}, function(err, user){
+    User.findOne({email: req.body.email.toLowerCase()}, function(err, user){
         if (err) {
             return res.status(500).json({
                 title: 'An error occurred',
@@ -71,7 +71,7 @@ router.get('/:id', function (req, res, next) {
     });
 });
 
-router.put('/:id', function(req, res, next){
+router.patch('/:id', function(req, res, next){
     User.findOneAndUpdate({_id:req.params.id}, req.body, function (err, user) {
         user.about = "";
         res.send(user);
