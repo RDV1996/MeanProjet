@@ -1,7 +1,7 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Post} from "../model/post.model";
 import {DomSanitizer} from "@angular/platform-browser";
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {AuthService} from "../service/auth.service";
 import {PaginaService} from "../service/pagina.service";
 import {PostService} from "../service/post.service";
@@ -14,10 +14,12 @@ import {PostService} from "../service/post.service";
 export class PostComponent implements OnInit {
     thisID: number;
     post: Post;
-    url;
-    videoReady = false;
+    url = undefined;
+    urlReady = false;
+    userName;
+    pageName;
 
-    constructor(public sanitizer: DomSanitizer, public route: ActivatedRoute, public authService: AuthService, public paginaService: PaginaService, public postService: PostService) {
+    constructor(public sanitizer: DomSanitizer, public router: Router, public route: ActivatedRoute, public authService: AuthService, public paginaService: PaginaService, public postService: PostService) {
     }
 
 
@@ -27,12 +29,18 @@ export class PostComponent implements OnInit {
             this.thisID = params['id'];
             this.postService.getPostById(this.thisID).subscribe(data => {
                 this.post = this.postService.setOnePost(data);
-                console.log(this.post);
                 this.url = this.getVideoUrl();
-                this.videoReady = true;
-                console.log(this.url);
+                this.urlReady = true;
+                this.authService.getName(this.post.user).subscribe(data => {
+                    this.userName = data;
+                });
+                this.paginaService.getName(this.post.pagina).subscribe(data => {
+                    this.pageName = data;
+                });
             });
         });
+
+
     }
 
     constructor(public
@@ -41,5 +49,11 @@ export class PostComponent implements OnInit {
 
     getVideoUrl() {
         return this.sanitizer.bypassSecurityTrustResourceUrl('https://www.youtube.com/embed/' + this.post.url);
+    }
+
+    onDelete(id) {
+        this.postService.deletePost(id).subscribe(data => {
+            this.router.navigateByUrl('/p/' + this.post.pagina);
+        });
     }
 }

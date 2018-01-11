@@ -77,5 +77,16 @@ router.patch('/:id', function(req, res, next){
         res.send(user);
     });
 });
+router.get('/naam/:id', function (req, res, next) {
+    User.findById(req.params.id, function(err, user){
+        if (err){
+            return res.status(500).json({
+                title: 'Er heeft zich een fout voorgedaan',
+                error: err
+            });
+        }
+        res.status(200).json(user.username)
+    });
+});
 
 module.exports = router;

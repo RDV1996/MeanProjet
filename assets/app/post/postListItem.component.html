@@ -1,19 +1,24 @@
-<div class="row post">
+<div class="row post" *ngIf="post !=null">
     <div class="col-xs-2 listnumber">
-        <button type="button" class="btn btn-default" (click)="upvote()">
             {{post.likes.length}}
-            <span *ngIf="post.likes.indexOf(authService.user.id) != -1" class="glyphicon glyphicon-arrow-up sm upvoted" aria-hidden="true"></span>
-            <span *ngIf="post.likes.indexOf(authService.user.id) == -1" class="glyphicon glyphicon-arrow-up sm" aria-hidden="true"></span>
+        <button *ngIf="post.likes.indexOf(authService.user.id) != -1" type="button" class="upvoted btn btn-default" (click)="upvote()">
+            <span  class="glyphicon glyphicon-arrow-up sm"
+                  aria-hidden="true"></span>
+        </button>
+            <button *ngIf="post.likes.indexOf(authService.user.id) == -1" type="button" class="unUpvoted btn btn-default" (click)="upvote()">
+
+            <span  class="glyphicon glyphicon-arrow-up sm"
+                  aria-hidden="true"></span>
         </button>
     </div>
     <div class="col-xs-2 img-center">
         <a target="_blank" *ngIf="!post.isVideo" href="{{post.url}}">
-            <img  class="img-responsive center-block"
-                  src="{{post.url}}">
+            <img class="img-responsive center-block"
+                 [src]="sanitizer.bypassSecurityTrustResourceUrl(post.url)">
         </a>
         <a target="_blank" *ngIf="post.isVideo" href="https://www.youtube.com/watch?v={{post.url}}">
-            <img  class="img-responsive center-block"
-                  [src]="sanitizer.bypassSecurityTrustResourceUrl('https://img.youtube.com/vi/' + post.url + '/hqdefault.jpg')">
+            <img class="img-responsive center-block"
+                 [src]="sanitizer.bypassSecurityTrustResourceUrl('https://img.youtube.com/vi/' + post.url + '/hqdefault.jpg')">
         </a>
     </div>
     <div class="col-xs-8 listname">
@@ -24,8 +29,23 @@
                 </a>
             </h3>
             <div class="row">
-                <div class="author">{{ post.user.username }}</div>
-                <div *ngIf="post.user === authService.user.id" class="config"><a href="#">Delete</a></div>
+                <div class="page">
+                    <a [routerLink]="['/p/', post.pagina]">
+                        {{pageName}}
+                    </a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="author">
+                    <a [routerLink]="['/profile/', post.user]">
+                        {{ userName }}
+                    </a>
+                </div>
+                <div *ngIf="post.user === authService.user.id" class="config">&nbsp;|
+                    <button class="button" (click)="onDelete(post.id)">
+                        Delete
+                    </button>
+                </div>
             </div>
         </div>
     </div>

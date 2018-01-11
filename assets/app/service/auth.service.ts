@@ -92,4 +92,13 @@ export class AuthService {
                 return Observable.throw(error.json())
             });
     }
+
+    getName(id){
+        const headers = new Headers({'Content-type': 'application/json'});
+        return this.http.get('http://localhost:3000/user/naam/' + id, {headers: headers})
+            .map((response: Response) => response.json())
+            .catch((error: Response) => {
+                return Observable.throw(error.json())
+            });
+    }
 }

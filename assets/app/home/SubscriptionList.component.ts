@@ -5,9 +5,14 @@ import {Pagina} from "../model/pagina.model";
 @Component({
     selector: 'app-subsciption',
     template: `
-        <div class="row" *ngFor="let page of pages">
-            <a [routerLink]="['/p', page.id]">{{page.naam}}</a>
-        </div>
+        <table class="col-xs-12 table table-striped" >
+            <tr *ngFor="let page of pages">
+                <td>
+                    <a [routerLink]="['/p', page.id]">{{page.naam}}</a>
+
+                </td>
+            </tr>
+        </table>
     `,
     style: ``
 })

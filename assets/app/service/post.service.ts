@@ -101,4 +101,13 @@ export class PostService {
             });
     }
 
+    deletePost(id){
+        const headers = new Headers({'Content-type': 'application/json'});
+        return this.http.delete('http://localhost:3000/post/' + id, {headers: headers})
+            .map((response: Response) => response.json())
+            .catch((error: Response) => {
+                return Observable.throw(error.json())
+            });
+    }
+
 }

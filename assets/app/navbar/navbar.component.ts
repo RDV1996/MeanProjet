@@ -28,8 +28,8 @@ export class NavbarComponent{
                         localStorage.setItem('token', data.token);
                         localStorage.setItem('userId', data.user._id);
                         this.authService.LoggedIn.emit();
-                        this.naam = authService.user.username;
                         this.authService.setUser(data);
+                        this.naam = authService.user.username;
                         this.getSubscriptions();
                     },
                     error => console.log(error)

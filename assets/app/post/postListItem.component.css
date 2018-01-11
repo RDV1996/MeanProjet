@@ -17,15 +17,41 @@
 .listnumber{
     margin:auto;
 }
-.upvoted{
-    color: darkcyan;
-}
+
 .btn{
     font-size: 1em;
-    brder:none;
+    border:none;
 }
 .btn:hover{
-    color: #444444;
     background-color: #FFFFFF;
     border: none;
+}
+.upvoted{
+    color: #005d5f;
+}
+.upvoted:hover{
+    color: #222222;
+}
+.unUpvoted{
+    color: #222222;
+}
+.unUpvoted:hover{
+    color: #005d5f;
+
+}
+
+.button{
+    border: none;
+    background-color: inherit;
+    color: #005d5f;
+}
+.button:hover{
+    text-decoration: underline;
+    color: darkcyan;
+}
+a{
+    color: #005d5f;
+}
+a:hover{
+    color: darkcyan;
 }

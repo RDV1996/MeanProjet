@@ -15,8 +15,11 @@ export class HomeComponent implements OnInit {
     maxpages = 0;
     pages = [];
 
+
     constructor(private paginaService: PaginaService, public postService: PostService) {
-        this.paginaService.getPaginas().subscribe(data => this.pages = this.paginaService.allPages);
+        this.paginaService.getPaginas().subscribe(data => {
+            this.pages = this.paginaService.allPages
+        });
         this.postService.getAllPosts(this.page).subscribe(data => {
             this.posts = this.postService.setAllData(data);
             this.maxpages = postService.allPages;

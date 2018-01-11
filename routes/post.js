@@ -111,5 +111,19 @@ router.put('/like/:id', function(req, res, next){
     });
 });
 
+router.delete('/:id', function(req, res, next){
+    Post.remove({_id:req.params.id}, function (err, post) {
+        if (err) {
+            return res.status(500).json({
+                title: 'Er heeft zich een fout voorgedaan',
+                error: err
+            });
+        }
+        res.send({
+            message: "Done!"
+        });
+    });
+});
+
 
 module.exports = router;

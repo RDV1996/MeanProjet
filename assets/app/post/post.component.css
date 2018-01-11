@@ -1,0 +1,88 @@
+.embed-responsive {
+    position: relative;
+    display: block;
+    height: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+
+.embed-responsive .embed-responsive-item,
+.embed-responsive iframe,
+.embed-responsive embed,
+.embed-responsive object,
+.embed-responsive video {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+    max-height: 100vh;
+}
+
+
+.embed-responsive-16by9 {
+    padding-bottom: 56.25%;
+}
+.embed-responsive-4by3 {
+    padding-bottom: 75%;
+}
+.post{
+    border-bottom: solid #c2c2c2 1px;
+    padding-bottom: 5px;
+    padding-bottom: 5px;
+}
+
+.listpost{
+    height: 50px;
+}
+.listname{
+}
+
+.listimg{
+
+}
+
+.listnumber{
+    margin:auto;
+}
+
+.btn{
+    font-size: 1em;
+    border:none;
+}
+.btn:hover{
+    background-color: #FFFFFF;
+    border: none;
+}
+.upvoted{
+    color: #005d5f;
+}
+.upvoted:hover{
+    color: #222222;
+}
+.unUpvoted{
+    color: #222222;
+}
+.unUpvoted:hover{
+    color: #005d5f;
+
+}
+
+.button{
+    border: none;
+    background-color: inherit;
+    color: #005d5f;
+}
+.button:hover{
+    text-decoration: underline;
+    color: darkcyan;
+}
+a{
+    color: #005d5f;
+}
+a:hover{
+    color: darkcyan;
+}
