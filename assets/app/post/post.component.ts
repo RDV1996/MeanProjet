@@ -5,6 +5,8 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {AuthService} from "../service/auth.service";
 import {PaginaService} from "../service/pagina.service";
 import {PostService} from "../service/post.service";
+import {CommentModel} from "../model/comment.model";
+import {CommentService} from "../service/comment.service";
 
 @Component({
     selector: 'app-post',
@@ -18,10 +20,22 @@ export class PostComponent implements OnInit {
     urlReady = false;
     userName;
     pageName;
+    collapsed: boolean;
+    comments: CommentModel[];
 
-    constructor(public sanitizer: DomSanitizer, public router: Router, public route: ActivatedRoute, public authService: AuthService, public paginaService: PaginaService, public postService: PostService) {
+    constructor(public sanitizer: DomSanitizer, public router: Router, public route: ActivatedRoute, public authService: AuthService, public paginaService: PaginaService, public postService: PostService, public commentService: CommentService) {
+        this.collapsed = true;
     }
 
+    onCollapse() {
+        if (this.collapsed) {
+            this.collapsed = false;
+        }
+        else {
+            this.collapsed = true;
+
+        }
+    }
 
     ngOnInit() {
         this.post = new Post();
@@ -37,14 +51,11 @@ export class PostComponent implements OnInit {
                 this.paginaService.getName(this.post.pagina).subscribe(data => {
                     this.pageName = data;
                 });
+                this.commentService.getComments(this.post.id).subscribe(data => {
+                    this.comments = this.commentService.setComments(data);
+                })
             });
         });
-
-
-    }
-
-    constructor(public
-                    sanitizer: DomSanitizer) {
     }
 
     getVideoUrl() {
@@ -52,8 +63,18 @@ export class PostComponent implements OnInit {
     }
 
     onDelete(id) {
+        this.deleteAllComments();
         this.postService.deletePost(id).subscribe(data => {
             this.router.navigateByUrl('/p/' + this.post.pagina);
         });
     }
+
+    deleteAllComments() {
+        for (var i = 0; i < this.comments.length; i++) {
+            this.commentService.deleteComment(this.comments[i]).subscribe(data => {
+
+            })
+        }
+    }
+
 }

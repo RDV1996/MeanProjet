@@ -40,8 +40,9 @@ export class PaginaComponent implements OnInit{
         })
     }
     isSubscribed(){
-        return this.authService.user.subscripties.includes(this.thispage.id);
-
+        if(this.authService.isLoggedIn()){
+            return this.authService.user.subscripties.includes(this.thispage.id);
+        }
     }
     SetSubscribe(){
         if(this.authService.user.subscripties.length == 0){
@@ -65,5 +66,8 @@ export class PaginaComponent implements OnInit{
 
     isOwner(){
         return this.authService.user.id === this.thispage.eigenaar;
+    }
+    ismod(){
+        return this.thispage.moderators.includes(this.authService.user.id)
     }
 }

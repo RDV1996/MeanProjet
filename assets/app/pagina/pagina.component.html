@@ -1,4 +1,4 @@
-<div class="container-full">
+<div class="container-full" *ngIf="thispage != null">
     <header class="row">
 
         <nav class="col-md-12">
@@ -6,8 +6,10 @@
                 <h1>{{thispage.naam}}</h1>
             </div>
             <ul class="nav nav-pills">
-                <li *ngIf="!subscribed && !owner" (click)="SetSubscribe()"><a>Subscribe</a></li>
-                <li *ngIf="subscribed && !owner" (click)="unsubscribe()"><a>unubscribe</a></li>
+                <li *ngIf="!subscribed && !owner && authService.isLoggedIn()" (click)="SetSubscribe()"><a>Subscribe</a>
+                </li>
+                <li *ngIf="subscribed && !owner && authService.isLoggedIn()" (click)="unsubscribe()"><a>unubscribe</a>
+                </li>
                 <li *ngIf="ingelogd" [routerLink]="['/p/makepost', thsiID]"><a>Make Post</a></li>
             </ul>
         </nav>

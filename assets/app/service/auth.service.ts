@@ -4,6 +4,7 @@ import {Http, Headers, Response} from "@angular/http";
 //om .map en andere operators mogelijk te maken
 import 'rxjs/Rx';
 import {Observable} from "rxjs/Observable";
+import {TypeGebruikerService} from "./typeGebruiker.service";
 
 @Injectable()
 export class AuthService {
@@ -11,8 +12,9 @@ export class AuthService {
     LoggedOut: EventEmitter<User> = new EventEmitter();
 
     public user: User = new User();
+    isAdmin: boolean;
 
-    constructor(private http: Http) {
+    constructor(private http: Http, private typegebruikerService: TypeGebruikerService) {
     }
 
     getCurrentUser() {
@@ -39,6 +41,7 @@ export class AuthService {
         this.user.username = data.user.username;
         this.user.wachtwoord = data.user.wachtwoord;
         this.user.id = data.user._id;
+        this.isUserAdmin();
     }
 
 
@@ -67,15 +70,15 @@ export class AuthService {
         this.LoggedOut.emit();
     }
 
-    isAdmin() {
-        try {
-            if (this.isLoggedIn()) {
-                return this.user.typeGebruiker.typeNaaam === "ADMIN";
+    isUserAdmin() {
+        this.typegebruikerService.getTypeById(this.user.typeGebruiker).subscribe(data => {
+            if (this.isLoggedIn() && data.typeNaam == "ADMIN") {
+                this.isAdmin = true;
             }
-        }
-        catch (err) {
-            return false;
-        }
+            else {
+                this.isAdmin = false;
+            }
+        });
     }
 
     isLoggedIn() {
@@ -93,7 +96,7 @@ export class AuthService {
             });
     }
 
-    getName(id){
+    getName(id) {
         const headers = new Headers({'Content-type': 'application/json'});
         return this.http.get('http://localhost:3000/user/naam/' + id, {headers: headers})
             .map((response: Response) => response.json())

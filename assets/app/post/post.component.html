@@ -1,23 +1,39 @@
 <article *ngIf="urlReady" class="panel panel-default">
-    <div class="panel-heading"><h1><a [routerLink]="['/p/', post.pagina]">
-        {{pageName}}
-    </a></h1></div>
-
-    <div class="panel-heading"><h2>{{post.title}}</h2></div>
-
-    <div class="panel-body" *ngIf="!post.isVideo">
-        <img class="img-responsive " src="{{ post.url }}">
+    <div class="panel-heading">
+        <h1>
+            <a [routerLink]="['/p/', post.pagina]">
+                {{pageName}}
+            </a>
+        </h1>
+        <h2>
+            {{post.title}}
+        </h2>
     </div>
-    <div class="panel-body" *ngIf="post.isVideo">
-        <div class="row">
-            <div class="col-lg-8 offset-lg-2 ">
-                <div class="embed-responsive embed-responsive-16by9">
-                    <iframe class="embed-responsive-item" [src]="url" frameborder="0"
-                            allowfullscreen></iframe>
+    <div class="panel-body">
+        <p>
+            <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample"
+                    aria-expanded="false" aria-controls="collapseExample" (click)="onCollapse()">
+                <span *ngIf="collapsed" class="glyphicon glyphicon-chevron-down sm"
+                       aria-hidden="true"></span>
+                <span *ngIf="!collapsed" class="glyphicon glyphicon-remove-circle sm"
+                       aria-hidden="true" (click)="onCollapse()"></span>
+            </button>
+        </p>
+        <div class="collapse" id="collapseExample">
+
+
+            <div class="row" *ngIf="!post.isVideo">
+                <img class="img-responsive " src="{{ post.url }}">
+            </div>
+            <div class="row" *ngIf="post.isVideo">
+                <div class="col-lg-8 offset-lg-2 ">
+                    <div class="embed-responsive embed-responsive-16by9">
+                        <iframe class="embed-responsive-item" [src]="url" frameborder="0"
+                                allowfullscreen></iframe>
+                    </div>
                 </div>
             </div>
         </div>
-
     </div>
 
 
@@ -34,5 +50,8 @@
                 </button>
             </div>
         </div>
+        <hr/>
+        <app-MakeComment *ngIf="authService.isLoggedIn()" [post]="post" [topcomment]="true"></app-MakeComment>
     </footer>
+    <app-topComments [comments]="comments" [post]="post"></app-topComments>
 </article>

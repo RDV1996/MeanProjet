@@ -36,6 +36,7 @@ export class SigninComponent implements OnInit {
                     this.myForm.reset();
                     this.router.navigateByUrl('/');
                     this.authService.setUser(data);
+                    this.authService.isLoggedIn().emit();
                 },
                 error => {
                     console.log(error);

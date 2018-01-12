@@ -6,6 +6,16 @@ import 'rxjs/Rx';
 import {Observable} from "rxjs/Observable";
 
 @Injectable()
-export class typeGebruikerService{
+export class TypeGebruikerService{
+    constructor(private http: Http) {
+    }
 
+    getTypeById(id: string) {
+        const headers = new Headers({'Content-type': 'application/json'});
+        return this.http.get('http://localhost:3000/type/' + id, {headers: headers})
+            .map((response: Response) => response.json())
+            .catch((error: Response) => {
+                return Observable.throw(error.json())
+            });
+    }
 }

@@ -1,13 +1,15 @@
 <div class="row post" *ngIf="post !=null">
     <div class="col-xs-2 listnumber">
-            {{post.likes.length}}
-        <button *ngIf="post.likes.indexOf(authService.user.id) != -1" type="button" class="upvoted btn btn-default" (click)="upvote()">
-            <span  class="glyphicon glyphicon-arrow-up sm"
+        {{post.likes.length}}
+        <button *ngIf="post.likes.indexOf(authService.user.id) != -1 && authService.isLoggedIn()" type="button"
+                class="upvoted btn btn-default" (click)="upvote()">
+            <span class="glyphicon glyphicon-arrow-up sm"
                   aria-hidden="true"></span>
         </button>
-            <button *ngIf="post.likes.indexOf(authService.user.id) == -1" type="button" class="unUpvoted btn btn-default" (click)="upvote()">
+        <button *ngIf="post.likes.indexOf(authService.user.id) == -1 && authService.isLoggedIn()" type="button"
+                class="unUpvoted btn btn-default" (click)="upvote()">
 
-            <span  class="glyphicon glyphicon-arrow-up sm"
+            <span class="glyphicon glyphicon-arrow-up sm"
                   aria-hidden="true"></span>
         </button>
     </div>
@@ -41,7 +43,7 @@
                         {{ userName }}
                     </a>
                 </div>
-                <div *ngIf="post.user === authService.user.id" class="config">&nbsp;|
+                <div *ngIf="post.user === authService.user.id || authService.isAdmin" class="config">&nbsp;|
                     <button class="button" (click)="onDelete(post.id)">
                         Delete
                     </button>

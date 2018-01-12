@@ -6,6 +6,8 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var mongoose=require('mongoose');
 
+var typeRoutes = require('././routes/typeGebruiker');
+var commentRoutes = require('././routes/comment');
 var paginaRoutes = require('././routes/pagina');
 var postRoutes = require('././routes/post');
 var userRoutes = require('././routes/user');
@@ -33,6 +35,8 @@ app.use(function (req, res, next) {
     next();
 });
 
+app.use('/type', typeRoutes);
+app.use('/comment', commentRoutes);
 app.use('/pagina', paginaRoutes);
 app.use('/post', postRoutes);
 app.use('/user', userRoutes);

@@ -40,13 +40,17 @@ export class NavbarComponent{
 
         //check on initialize
         this.isLoggedin = authService.isLoggedIn();
-        this.isAdmin = authService.isAdmin();
+        this.isAdmin = authService.isAdmin;
         //eventemmitters in Auth.service send warning when logged in or logged out
-        authService.LoggedIn.subscribe(loggedIn => this.isLoggedin = authService.isLoggedIn());
-        authService.LoggedIn.subscribe(loggedIn => this.isAdmin = authService.isAdmin());
-        authService.LoggedIn.subscribe(loggedIn => this.naam = authService.user.username);
-        authService.LoggedOut.subscribe(loggedIn => this.isLoggedin = authService.isLoggedIn());
-        authService.LoggedOut.subscribe(loggedIn => this.isAdmin = authService.isAdmin());
+        authService.LoggedIn.subscribe(loggedIn => {
+            this.isLoggedin = authService.isLoggedIn();
+            this.isAdmin = authService.isAdmin;
+            this.naam = authService.user.username
+        });
+        authService.LoggedOut.subscribe(loggedIn => {
+            this.isLoggedin = authService.isLoggedIn();
+            this.isAdmin = authService.isAdmin;
+        });
     }
 
     isOwner(id){

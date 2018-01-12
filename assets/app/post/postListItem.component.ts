@@ -63,4 +63,5 @@ export class PostListItemComponent implements OnInit{
         this.post=null;
         });
     }
+
 }

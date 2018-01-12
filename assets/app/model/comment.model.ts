@@ -1,7 +1,6 @@
-import {User} from "./user.model";
-import {Post} from "./post.model";
 
-export class Comment {
+
+export class CommentModel {
     id:string;
     body: string;
     lastEditedOn: Date;
@@ -12,7 +11,7 @@ export class Comment {
     likes:string[];
 
 
-    constructor(id: string, body: string, lastEditedOn: Date, isTopComment: boolean, user: string, post: string, childComments: string[], likes: string[]) {
+    constructor(id?: string, body?: string, lastEditedOn?: Date, isTopComment?: boolean, user?: string, post?: string, childComments?: string[], likes?: string[]) {
         this.id = id;
         this.body = body;
         this.lastEditedOn = lastEditedOn;

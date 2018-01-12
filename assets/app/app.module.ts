@@ -22,6 +22,11 @@ import {PaginaService} from "./service/pagina.service";
 import {SubscriptionListComponent} from "./home/SubscriptionList.component";
 import {MakePostComponent} from "./post/makePost.component";
 import {PostListItemComponent} from "./post/postListItem.component";
+import {MakeCommentComponent} from "./comment/makeComment.component";
+import {CommentService} from "./service/comment.service";
+import {CommentComponent} from "./comment/comment.component";
+import {TopCommentsComponent} from "./comment/TopCommentList.component";
+import {TypeGebruikerService} from "./service/typeGebruiker.service";
 
 @NgModule({
     declarations: [
@@ -37,7 +42,10 @@ import {PostListItemComponent} from "./post/postListItem.component";
         SigninComponent,
         SubscriptionListComponent,
         MakePostComponent,
-        PostListItemComponent
+        PostListItemComponent,
+        MakeCommentComponent,
+        CommentComponent,
+        TopCommentsComponent
     ],
     imports: [
         BrowserModule,
@@ -50,7 +58,9 @@ import {PostListItemComponent} from "./post/postListItem.component";
         AuthService,
         PostService,
         ErrorService,
-        PaginaService
+        PaginaService,
+        CommentService,
+        TypeGebruikerService
     ],
     bootstrap: [
         AppComponent
