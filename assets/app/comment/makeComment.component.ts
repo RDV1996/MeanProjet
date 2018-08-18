@@ -3,7 +3,7 @@ import {PaginaService} from "../service/pagina.service";
 import {Pagina} from "../model/pagina.model";
 import {PostService} from "../service/post.service";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
-import {CommentModel} from "../model/comment.model";
+import {Comment} from "../model/comment.model";
 import {AuthService} from "../service/auth.service";
 import {Post} from "../model/post.model";
 import {CommentService} from "../service/comment.service";
@@ -17,10 +17,9 @@ import {Router} from "@angular/router";
 export class MakeCommentComponent implements OnInit {
     @Input() post: Post;
     myForm: FormGroup;
-    @Input() topcomment: boolean;
-    @Input() comment: CommentModel;
-    @Input() show: boolean;
-show:boolean;
+    @Input() topcomment: boolean = true;
+    @Input() comment: Comment;
+    @Input() show: boolean = true;
 
     constructor(private commentService: CommentService, public postService: PostService, public authService: AuthService, public router: Router) {
     }
@@ -29,13 +28,13 @@ show:boolean;
         this.myForm = new FormGroup({
             comment: new FormControl(null, Validators.required)
         });
-        this.show = this.topcomment;
+        this.show = <boolean>this.topcomment;
     }
 
     onSubmit() {
         console.log(this.comment);
         console.log(this.post);
-        var comment = new CommentModel(
+        var comment = new Comment(
             "",
             this.myForm.value.comment,
             null,
@@ -57,7 +56,7 @@ show:boolean;
             location.reload()
         });
         if(!this.topcomment){
-            this.show=false;
+            this.show = false;
         }
 
         console.log(comment);

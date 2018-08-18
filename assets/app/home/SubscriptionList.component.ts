@@ -14,7 +14,7 @@ import {Pagina} from "../model/pagina.model";
             </tr>
         </table>
     `,
-    style: ``
+    styles: [``]
 })
 export class SubscriptionListComponent{
     @Input() pages: Pagina[];

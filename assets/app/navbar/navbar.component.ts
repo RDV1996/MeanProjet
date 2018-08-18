@@ -3,9 +3,9 @@ import {Component, OnInit} from '@angular/core';
 import {Router} from "@angular/router";
 import {AuthService} from "../service/auth.service";
 import {Pagina} from "../model/pagina.model";
-import forEach = require("core-js/fn/array/for-each");
 import {PaginaService} from "../service/pagina.service";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
+import {User} from "../model/user.model";
 
 @Component({
     selector: 'app-navbar',
@@ -18,6 +18,7 @@ export class NavbarComponent{
     isLoggedin: boolean;
     naam: string;
     subscribed: Pagina[];
+    user: User;
 
     constructor(private authService: AuthService, private router: Router, private paginaService: PaginaService) {
         this.subscribed = new Array();
@@ -34,6 +35,7 @@ export class NavbarComponent{
                     },
                     error => console.log(error)
                 );
+            this.user = authService.user;
         }
 
 

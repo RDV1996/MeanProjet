@@ -1,6 +1,6 @@
 export class Error {
     constructor(
-        public title: string,
+        public name: string,
         public message: string
     ) {
 

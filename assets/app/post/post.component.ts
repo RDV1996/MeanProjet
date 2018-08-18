@@ -5,7 +5,7 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {AuthService} from "../service/auth.service";
 import {PaginaService} from "../service/pagina.service";
 import {PostService} from "../service/post.service";
-import {CommentModel} from "../model/comment.model";
+import {Comment} from "../model/comment.model";
 import {CommentService} from "../service/comment.service";
 
 @Component({
@@ -21,7 +21,7 @@ export class PostComponent implements OnInit {
     userName;
     pageName;
     collapsed: boolean;
-    comments: CommentModel[];
+    comments: Comment[];
 
     constructor(public sanitizer: DomSanitizer, public router: Router, public route: ActivatedRoute, public authService: AuthService, public paginaService: PaginaService, public postService: PostService, public commentService: CommentService) {
         this.collapsed = true;

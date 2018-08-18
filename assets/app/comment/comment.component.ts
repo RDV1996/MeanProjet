@@ -3,7 +3,7 @@ import {PaginaService} from "../service/pagina.service";
 import {Pagina} from "../model/pagina.model";
 import {Post} from "../model/post.model";
 import {PostService} from "../service/post.service";
-import {CommentModel} from "../model/comment.model";
+import {Comment} from "../model/comment.model";
 import {AuthService} from "../service/auth.service";
 import {CommentService} from "../service/comment.service";
 
@@ -14,13 +14,13 @@ import {CommentService} from "../service/comment.service";
 })
 export class CommentComponent implements OnInit {
     @Input() post: Post;
-    @Input() comment: CommentModel;
+    @Input() comment: Comment;
     @Input() topcomment: boolean;
-    @Input() comments: CommentModel[];
+    @Input() comments: Comment[];
     userName: string;
-    hasupvoted: true;
-    showReply = false;
-    childComments: CommentModel[];
+    hasupvoted: boolean = true;
+    showReply: boolean = false;
+    childComments: Comment[];
 
     constructor(private authService: AuthService, public commentService: CommentService) {
     }

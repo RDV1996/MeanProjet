@@ -1,6 +1,6 @@
 
 
-export class CommentModel {
+export class Comment {
     id:string;
     body: string;
     lastEditedOn: Date;

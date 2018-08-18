@@ -45,10 +45,9 @@ export class PaginaService {
     }
 
     setPagina(pagina) {
-        var pagina = new Pagina(
+        return new Pagina(
             pagina.naam, pagina.omschrijving, pagina.eigenaar, pagina.moderators, pagina._id
         );
-        return pagina;
     }
 
 

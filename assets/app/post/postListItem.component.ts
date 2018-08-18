@@ -15,7 +15,7 @@ export class PostListItemComponent implements OnInit{
     @Input() post: Post;
     userName;
     pageName;
-    hasupvoted: true;
+    hasupvoted: boolean = true;
 
     constructor(public sanitizer: DomSanitizer, public router: Router, public postService: PostService, public authService: AuthService, private paginaService: PaginaService) {
 

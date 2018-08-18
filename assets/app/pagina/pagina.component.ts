@@ -6,6 +6,7 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {AuthService} from "../service/auth.service";
 import {PaginaService} from "../service/pagina.service";
 import {PostService} from "../service/post.service";
+import {User} from "../model/user.model";
 
 @Component({
     selector: 'app-pagina',
@@ -51,7 +52,7 @@ export class PaginaComponent implements OnInit{
         this.authService.user.subscripties.push(this.thispage.id);
         console.log(this.authService.user);
         this.authService.saveUser(this.authService.user).subscribe(data => {
-            this.authService.user = this.authService.setUser(data);
+            this.authService.setUser(data);
         });
         this.subscribed = true;
     }

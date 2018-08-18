@@ -1,7 +1,7 @@
 import {Component, Input, OnInit} from "@angular/core";
 import {PaginaService} from "../service/pagina.service";
 import {Pagina} from "../model/pagina.model";
-import {CommentModel} from "../model/comment.model";
+import {Comment} from "../model/comment.model";
 import {Post} from "../model/post.model";
 
 @Component({
@@ -11,10 +11,10 @@ import {Post} from "../model/post.model";
             <app-comment [comment]="comment" [post]="post" *ngIf="comment.isTopComment" [comments]="comments" [topcomment]="true"></app-comment>
         </div>
     `,
-    style: ``
+    styles: [``]
 })
 export class TopCommentsComponent implements OnInit{
-    @Input() comments: CommentModel[];
+    @Input() comments: Comment[];
     @Input() post:Post;
 
     constructor(){

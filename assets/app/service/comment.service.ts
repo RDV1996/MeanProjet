@@ -4,7 +4,7 @@ import {Http, Headers, Response} from "@angular/http";
 //om .map en andere operators mogelijk te maken
 import 'rxjs/Rx';
 import {Observable} from "rxjs/Observable";
-import {CommentModel} from "../model/comment.model";
+import {Comment} from "../model/comment.model";
 
 @Injectable()
 export class CommentService {
@@ -12,7 +12,7 @@ export class CommentService {
     }
 
     setComment(data) {
-        var comment = new CommentModel(
+        var comment = new Comment(
             data._id,
             data.body,
             data.lastEditedOn,
@@ -26,7 +26,7 @@ export class CommentService {
     }
 
 
-    createComment(comment: CommentModel) {
+    createComment(comment: Comment) {
         const body = JSON.stringify(comment);
         const headers = new Headers({'Content-type': 'application/json'});
         return this.http.post('http://localhost:3000/comment', body, {headers: headers})
@@ -62,7 +62,7 @@ export class CommentService {
         return comments;
     }
 
-    saveComment(comment: CommentModel) {
+    saveComment(comment: Comment) {
         const body = JSON.stringify(comment);
         const headers = new Headers({'Content-Type': 'application/json'});
         return this.http.put('http://localhost:3000/comment/' + comment.id, body, {headers: headers})
@@ -73,7 +73,7 @@ export class CommentService {
             });
     }
 
-    deleteComment(comment: CommentModel) {
+    deleteComment(comment: Comment) {
         const body = JSON.stringify(comment);
         const headers = new Headers({'Content-Type': 'application/json'});
         return this.http.delete('http://localhost:3000/comment/' + comment.id, {headers: headers})
