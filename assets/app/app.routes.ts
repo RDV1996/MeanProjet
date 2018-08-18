@@ -1,4 +1,4 @@
-import {Routes} from '@Angular/router';
+import {RouterModule, Routes} from '@Angular/router';
 import {PostComponent} from "./post/post.component";
 import {PostListComponent} from "./post/postList.component";
 import {SigninComponent} from "./auth/signin.component";
@@ -9,7 +9,7 @@ import {HomeComponent} from "./home/home.component";
 import {MakePostComponent} from "./post/makePost.component";
 
 
-export const routes: Routes = [
+const APP_ROUTES: Routes = [
     {path: "", component: HomeComponent},
     {path: "p/post/:id", component: PostComponent},
     {path: "makepage", component: MakePageComponent},
@@ -19,3 +19,5 @@ export const routes: Routes = [
     {path: "p/makepost/:id", component: MakePostComponent},
     {path: "p/post/:id", component: MakePostComponent},
 ];
+
+export const approuting = RouterModule.forChild(APP_ROUTES);
