@@ -45,6 +45,9 @@ app.use('/user', userRoutes);
 app.use(function (req, res, next) {
     return res.render('index');
 });
+app.listen(app.get('port'), function () {
+    console.log("nodeServer is running on port " + app.get('port'));
+});
 
 
 module.exports = app;
