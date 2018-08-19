@@ -12,7 +12,7 @@ export class TypeGebruikerService{
 
     getTypeById(id: string) {
         const headers = new Headers({'Content-type': 'application/json'});
-        return this.http.get('http://localhost:3000/type/' + id, {headers: headers})
+        return this.http.get('https://postsite.herokuapp.com/type/' + id, {headers: headers})
             .map((response: Response) => response.json())
             .catch((error: Response) => {
                 return Observable.throw(error.json())

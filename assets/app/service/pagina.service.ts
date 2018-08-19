@@ -17,7 +17,7 @@ export class PaginaService {
 
     getPaginas() {
         const headers = new Headers({'Content-type': 'application/json'});
-        return this.http.get('http://localhost:3000/pagina', {headers: headers})
+        return this.http.get('https://postsite.herokuapp.com/pagina', {headers: headers})
             .map((response: Response) => {
                 const paginas = response.json().pagina;
                 let transformedPaginas: Pagina[] = [];
@@ -36,7 +36,7 @@ export class PaginaService {
 
     getPageById(id: string) {
         const headers = new Headers({'Content-type': 'application/json'});
-        return this.http.get('http://localhost:3000/pagina/' + id, {headers: headers})
+        return this.http.get('https://postsite.herokuapp.com/pagina/' + id, {headers: headers})
             .map((response: Response) => response.json())
             .catch((error: Response) => {
                 console.log(error);
@@ -54,7 +54,7 @@ export class PaginaService {
     createPage(pagina: Pagina) {
         const body = JSON.stringify(pagina);
         const headers = new Headers({'Content-type': 'application/json'});
-        return this.http.post('http://localhost:3000/pagina', body, {headers: headers})
+        return this.http.post('https://postsite.herokuapp.com/pagina', body, {headers: headers})
             .map((response: Response) => {
                 response.json();
         })
@@ -65,7 +65,7 @@ export class PaginaService {
 
     getName(id){
         const headers = new Headers({'Content-type': 'application/json'});
-        return this.http.get('http://localhost:3000/pagina/naam/' + id, {headers: headers})
+        return this.http.get('https://postsite.herokuapp.com/pagina/naam/' + id, {headers: headers})
             .map((response: Response) => response.json())
             .catch((error: Response) => {
                 return Observable.throw(error.json())

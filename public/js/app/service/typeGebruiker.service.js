@@ -18,7 +18,7 @@ var TypeGebruikerService = /** @class */ (function () {
     }
     TypeGebruikerService.prototype.getTypeById = function (id) {
         var headers = new Headers({ 'Content-type': 'application/json' });
-        return this.http.get('http://localhost:3000/type/' + id, { headers: headers })
+        return this.http.get('https://postsite.herokuapp.com/type/' + id, { headers: headers })
             .map(function (response) { return response.json(); })
             .catch(function (error) {
             return Observable.throw(error.json());

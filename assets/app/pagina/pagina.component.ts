@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output, OnChanges, SimpleChanges} from '@angular/core';
 import {Post} from "../model/post.model";
 import {DomSanitizer} from "@angular/platform-browser";
 import {Pagina} from "../model/pagina.model";
@@ -13,7 +13,7 @@ import {User} from "../model/user.model";
     templateUrl: './pagina.component.html',
     styleUrls: ['./pagina.component.css']
 })
-export class PaginaComponent implements OnInit{
+export class PaginaComponent implements OnInit {
     thispage: Pagina;
     posts:Post[];
     subscribed: boolean;
@@ -22,6 +22,7 @@ export class PaginaComponent implements OnInit{
     thsiID;
     maxpages=0;
     pagina =1;
+
     constructor(public sanitizer: DomSanitizer,public route: ActivatedRoute, public authService: AuthService, public paginaService: PaginaService, public postService: PostService){}
     ngOnInit() {
         this.route.params.subscribe(params => {
@@ -34,6 +35,7 @@ export class PaginaComponent implements OnInit{
                 }
             );
         });
+
         this.ingelogd = this.authService.isLoggedIn();
         this.postService.getPostsBySub(this.thsiID, this.pagina).subscribe(data => {
             this.posts = this.postService.setSubData(data);

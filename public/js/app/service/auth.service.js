@@ -27,11 +27,9 @@ var AuthService = /** @class */ (function () {
     };
     AuthService.prototype.getUserById = function (id) {
         var headers = new Headers({ 'Content-type': 'application/json' });
-        return this.http.get('http://localhost:3000/user/' + id, { headers: headers })
+        return this.http.get('https://postsite.herokuapp.com/user/' + id, { headers: headers })
             .map(function (response) { return response.json(); })
-            .catch(function (error) {
-            return Observable.throw(error.json());
-        });
+            .catch(function (error) { return Observable.throw("Error in getUserBuId in auth.Service.ts"); });
     };
     AuthService.prototype.setUser = function (data) {
         this.user.about = data.user.about;
@@ -48,20 +46,16 @@ var AuthService = /** @class */ (function () {
     AuthService.prototype.signup = function (user) {
         var body = JSON.stringify(user);
         var headers = new Headers({ 'Content-type': 'application/json' });
-        return this.http.post('http://localhost:3000/user', body, { headers: headers })
+        return this.http.post('https://postsite.herokuapp.com/user', body, { headers: headers })
             .map(function (response) { return response.json(); })
-            .catch(function (error) {
-            return Observable.throw(error.json());
-        });
+            .catch(function (error) { return Observable.throw("Error in signup in auth.Service.ts"); });
     };
     AuthService.prototype.signin = function (user) {
         var body = JSON.stringify(user);
         var headers = new Headers({ 'Content-type': 'application/json' });
-        return this.http.post('http://localhost:3000/user/signin', body, { headers: headers })
+        return this.http.post('https://postsite.herokuapp.com/user/signin', body, { headers: headers })
             .map(function (response) { return response.json(); })
-            .catch(function (error) {
-            return Observable.throw(error.json());
-        });
+            .catch(function (error) { return Observable.throw("Error in Signin in auth.Service.ts"); });
     };
     AuthService.prototype.logout = function () {
         localStorage.clear();
@@ -84,21 +78,17 @@ var AuthService = /** @class */ (function () {
     AuthService.prototype.saveUser = function (user) {
         var body = JSON.stringify(user);
         var headers = new Headers({ 'Content-Type': 'application/json' });
-        return this.http.put('http://localhost:3000/user/' + user.id, body, { headers: headers })
+        return this.http.patch('https://postsite.herokuapp.com/user/' + user.id, body, { headers: headers })
             .map(function (response) {
             return response.json();
         })
-            .catch(function (error) {
-            return Observable.throw(error.json());
-        });
+            .catch(function (error) { return Observable.throw(error); });
     };
     AuthService.prototype.getName = function (id) {
         var headers = new Headers({ 'Content-type': 'application/json' });
-        return this.http.get('http://localhost:3000/user/naam/' + id, { headers: headers })
+        return this.http.get('https://postsite.herokuapp.com/user/naam/' + id, { headers: headers })
             .map(function (response) { return response.json(); })
-            .catch(function (error) {
-            return Observable.throw(error.json());
-        });
+            .catch(function (error) { return Observable.throw(error); });
     };
     AuthService = __decorate([
         Injectable(),

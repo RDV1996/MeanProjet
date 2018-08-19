@@ -22,7 +22,7 @@ var PaginaService = /** @class */ (function () {
     PaginaService.prototype.getPaginas = function () {
         var _this = this;
         var headers = new Headers({ 'Content-type': 'application/json' });
-        return this.http.get('http://localhost:3000/pagina', { headers: headers })
+        return this.http.get('https://postsite.herokuapp.com/pagina', { headers: headers })
             .map(function (response) {
             var paginas = response.json().pagina;
             var transformedPaginas = [];
@@ -40,7 +40,7 @@ var PaginaService = /** @class */ (function () {
     };
     PaginaService.prototype.getPageById = function (id) {
         var headers = new Headers({ 'Content-type': 'application/json' });
-        return this.http.get('http://localhost:3000/pagina/' + id, { headers: headers })
+        return this.http.get('https://postsite.herokuapp.com/pagina/' + id, { headers: headers })
             .map(function (response) { return response.json(); })
             .catch(function (error) {
             console.log(error);
@@ -53,7 +53,7 @@ var PaginaService = /** @class */ (function () {
     PaginaService.prototype.createPage = function (pagina) {
         var body = JSON.stringify(pagina);
         var headers = new Headers({ 'Content-type': 'application/json' });
-        return this.http.post('http://localhost:3000/pagina', body, { headers: headers })
+        return this.http.post('https://postsite.herokuapp.com/pagina', body, { headers: headers })
             .map(function (response) {
             response.json();
         })
@@ -63,7 +63,7 @@ var PaginaService = /** @class */ (function () {
     };
     PaginaService.prototype.getName = function (id) {
         var headers = new Headers({ 'Content-type': 'application/json' });
-        return this.http.get('http://localhost:3000/pagina/naam/' + id, { headers: headers })
+        return this.http.get('https://postsite.herokuapp.com/pagina/naam/' + id, { headers: headers })
             .map(function (response) { return response.json(); })
             .catch(function (error) {
             return Observable.throw(error.json());

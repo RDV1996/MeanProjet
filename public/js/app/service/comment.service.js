@@ -24,7 +24,7 @@ var CommentService = /** @class */ (function () {
     CommentService.prototype.createComment = function (comment) {
         var body = JSON.stringify(comment);
         var headers = new Headers({ 'Content-type': 'application/json' });
-        return this.http.post('http://localhost:3000/comment', body, { headers: headers })
+        return this.http.post('https://postsite.herokuapp.com/comment', body, { headers: headers })
             .map(function (response) { return response.json(); })
             .catch(function (error) {
             return Observable.throw(error.json());
@@ -32,7 +32,7 @@ var CommentService = /** @class */ (function () {
     };
     CommentService.prototype.getComments = function (id) {
         var headers = new Headers({ 'Content-type': 'application/json' });
-        return this.http.get('http://localhost:3000/comment/?post=' + id, { headers: headers })
+        return this.http.get('https://postsite.herokuapp.com/comment/?post=' + id, { headers: headers })
             .map(function (response) { return response.json(); })
             .catch(function (error) {
             return Observable.throw(error.json());
@@ -40,7 +40,7 @@ var CommentService = /** @class */ (function () {
     };
     CommentService.prototype.getComment = function (id) {
         var headers = new Headers({ 'Content-type': 'application/json' });
-        return this.http.get('http://localhost:3000/comment/' + id, { headers: headers })
+        return this.http.get('https://postsite.herokuapp.com/comment/' + id, { headers: headers })
             .map(function (response) { return response.json(); })
             .catch(function (error) {
             return Observable.throw(error.json());
@@ -56,7 +56,7 @@ var CommentService = /** @class */ (function () {
     CommentService.prototype.saveComment = function (comment) {
         var body = JSON.stringify(comment);
         var headers = new Headers({ 'Content-Type': 'application/json' });
-        return this.http.put('http://localhost:3000/comment/' + comment.id, body, { headers: headers })
+        return this.http.put('https://postsite.herokuapp.com/comment/' + comment.id, body, { headers: headers })
             .map(function (response) {
             return response.json();
         })
@@ -67,7 +67,7 @@ var CommentService = /** @class */ (function () {
     CommentService.prototype.deleteComment = function (comment) {
         var body = JSON.stringify(comment);
         var headers = new Headers({ 'Content-Type': 'application/json' });
-        return this.http.delete('http://localhost:3000/comment/' + comment.id, { headers: headers })
+        return this.http.delete('https://postsite.herokuapp.com/comment/' + comment.id, { headers: headers })
             .map(function (response) {
             return response.json();
         })

@@ -15,7 +15,7 @@ export class PostService {
 
     getAllPosts(page) {
         const headers = new Headers({'Content-type': 'application/json'});
-        return this.http.get('http://localhost:3000/post?page=' + page, {headers: headers})
+        return this.http.get('https://postsite.herokuapp.com/post?page=' + page, {headers: headers})
             .map((response: Response) =>
                 response.json()
             )
@@ -60,7 +60,7 @@ export class PostService {
 
     getPostsBySub(id, page) {
         const headers = new Headers({'Content-type': 'application/json'});
-        return this.http.get('http://localhost:3000/post?sub=' + id + '&page=' + page, {headers: headers})
+        return this.http.get('https://postsite.herokuapp.com/post?sub=' + id + '&page=' + page, {headers: headers})
             .map((response: Response) => response.json())
             .catch((error: Response) => {
                 return Observable.throw(error.json())
@@ -69,7 +69,7 @@ export class PostService {
 
     getPostById(id){
         const headers = new Headers({'Content-type': 'application/json'});
-        return this.http.get('http://localhost:3000/post/' + id, {headers: headers})
+        return this.http.get('https://postsite.herokuapp.com/post/' + id, {headers: headers})
             .map((response: Response) => response.json())
             .catch((error: Response) => {
                 return Observable.throw(error.json())
@@ -81,7 +81,7 @@ export class PostService {
         const body = JSON.stringify(post);
         console.log(body);
         const headers = new Headers({'Content-type': 'application/json'});
-        return this.http.post('http://localhost:3000/post', body, {headers: headers})
+        return this.http.post('https://postsite.herokuapp.com/post', body, {headers: headers})
             .map((response: Response) => response.json())
             .catch((error: Response) => {
                 return Observable.throw(error.json())
@@ -91,7 +91,7 @@ export class PostService {
     savePost(post: Post) {
         const body = JSON.stringify(post);
         const headers = new Headers({'Content-Type': 'application/json'});
-        return this.http.put('http://localhost:3000/post/like/' + post.id, body, {headers: headers})
+        return this.http.put('https://postsite.herokuapp.com/post/like/' + post.id, body, {headers: headers})
             .map((response: Response) => {
                     response.json();
                 }
@@ -103,7 +103,7 @@ export class PostService {
 
     deletePost(id){
         const headers = new Headers({'Content-type': 'application/json'});
-        return this.http.delete('http://localhost:3000/post/' + id, {headers: headers})
+        return this.http.delete('https://postsite.herokuapp.com/post/' + id, {headers: headers})
             .map((response: Response) => response.json())
             .catch((error: Response) => {
                 return Observable.throw(error.json())

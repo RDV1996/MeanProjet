@@ -119,7 +119,7 @@ export function View_MakePostComponent_0(_l) {
         _ck(_v, 16, 0, currVal_15);
         var currVal_23 = 'url';
         _ck(_v, 29, 0, currVal_23);
-        var currVal_28 = _ck(_v, 45, 0, '/', _co.paginaId);
+        var currVal_28 = _ck(_v, 45, 0, '/p/', _co.paginaId);
         _ck(_v, 44, 0, currVal_28);
     }, function (_ck, _v) {
         var _co = _v.component;

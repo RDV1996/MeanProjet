@@ -19,7 +19,7 @@ var PostService = /** @class */ (function () {
     }
     PostService.prototype.getAllPosts = function (page) {
         var headers = new Headers({ 'Content-type': 'application/json' });
-        return this.http.get('http://localhost:3000/post?page=' + page, { headers: headers })
+        return this.http.get('https://postsite.herokuapp.com/post?page=' + page, { headers: headers })
             .map(function (response) {
             return response.json();
         })
@@ -49,7 +49,7 @@ var PostService = /** @class */ (function () {
     };
     PostService.prototype.getPostsBySub = function (id, page) {
         var headers = new Headers({ 'Content-type': 'application/json' });
-        return this.http.get('http://localhost:3000/post?sub=' + id + '&page=' + page, { headers: headers })
+        return this.http.get('https://postsite.herokuapp.com/post?sub=' + id + '&page=' + page, { headers: headers })
             .map(function (response) { return response.json(); })
             .catch(function (error) {
             return Observable.throw(error.json());
@@ -57,7 +57,7 @@ var PostService = /** @class */ (function () {
     };
     PostService.prototype.getPostById = function (id) {
         var headers = new Headers({ 'Content-type': 'application/json' });
-        return this.http.get('http://localhost:3000/post/' + id, { headers: headers })
+        return this.http.get('https://postsite.herokuapp.com/post/' + id, { headers: headers })
             .map(function (response) { return response.json(); })
             .catch(function (error) {
             return Observable.throw(error.json());
@@ -68,7 +68,7 @@ var PostService = /** @class */ (function () {
         var body = JSON.stringify(post);
         console.log(body);
         var headers = new Headers({ 'Content-type': 'application/json' });
-        return this.http.post('http://localhost:3000/post', body, { headers: headers })
+        return this.http.post('https://postsite.herokuapp.com/post', body, { headers: headers })
             .map(function (response) { return response.json(); })
             .catch(function (error) {
             return Observable.throw(error.json());
@@ -77,7 +77,7 @@ var PostService = /** @class */ (function () {
     PostService.prototype.savePost = function (post) {
         var body = JSON.stringify(post);
         var headers = new Headers({ 'Content-Type': 'application/json' });
-        return this.http.put('http://localhost:3000/post/like/' + post.id, body, { headers: headers })
+        return this.http.put('https://postsite.herokuapp.com/post/like/' + post.id, body, { headers: headers })
             .map(function (response) {
             response.json();
         })
@@ -87,7 +87,7 @@ var PostService = /** @class */ (function () {
     };
     PostService.prototype.deletePost = function (id) {
         var headers = new Headers({ 'Content-type': 'application/json' });
-        return this.http.delete('http://localhost:3000/post/' + id, { headers: headers })
+        return this.http.delete('https://postsite.herokuapp.com/post/' + id, { headers: headers })
             .map(function (response) { return response.json(); })
             .catch(function (error) {
             return Observable.throw(error.json());

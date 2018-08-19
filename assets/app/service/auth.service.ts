@@ -23,11 +23,9 @@ export class AuthService {
 
     getUserById(id: string) {
         const headers = new Headers({'Content-type': 'application/json'});
-        return this.http.get('http://localhost:3000/user/' + id, {headers: headers})
+        return this.http.get('https://postsite.herokuapp.com/user/' + id, {headers: headers})
             .map((response: Response) => response.json())
-            .catch((error: Response) => {
-                return Observable.throw(error.json())
-            });
+            .catch(error => Observable.throw("Error in getUserBuId in auth.Service.ts"));
     }
 
     setUser(data) {
@@ -48,21 +46,17 @@ export class AuthService {
     signup(user: User) {
         const body = JSON.stringify(user);
         const headers = new Headers({'Content-type': 'application/json'});
-        return this.http.post('http://localhost:3000/user', body, {headers: headers})
+        return this.http.post('https://postsite.herokuapp.com/user', body, {headers: headers})
             .map((response: Response) => response.json())
-            .catch((error: Response) => {
-                return Observable.throw(error.json())
-            });
+            .catch(error => Observable.throw("Error in signup in auth.Service.ts"));
     }
 
     signin(user: User) {
         const body = JSON.stringify(user);
         const headers = new Headers({'Content-type': 'application/json'});
-        return this.http.post('http://localhost:3000/user/signin', body, {headers: headers})
+        return this.http.post('https://postsite.herokuapp.com/user/signin', body, {headers: headers})
             .map((response: Response) => response.json())
-            .catch((error: Response) => {
-                return Observable.throw(error.json())
-            });
+            .catch(error => Observable.throw("Error in Signin in auth.Service.ts"));
     }
 
     logout() {
@@ -88,20 +82,16 @@ export class AuthService {
     saveUser(user: User) {
         const body = JSON.stringify(user);
         const headers = new Headers({'Content-Type': 'application/json'});
-        return this.http.put('http://localhost:3000/user/' + user.id, body, {headers: headers})
+        return this.http.patch('https://postsite.herokuapp.com/user/' + user.id, body, {headers: headers})
             .map((response: Response) =>
                 response.json())
-            .catch((error: Response) => {
-                return Observable.throw(error.json())
-            });
+            .catch((error : Error) => Observable.throw(error));
     }
 
     getName(id) {
         const headers = new Headers({'Content-type': 'application/json'});
-        return this.http.get('http://localhost:3000/user/naam/' + id, {headers: headers})
+        return this.http.get('https://postsite.herokuapp.com/user/naam/' + id, {headers: headers})
             .map((response: Response) => response.json())
-            .catch((error: Response) => {
-                return Observable.throw(error.json())
-            });
+            .catch((error : Error) => Observable.throw(error));
     }
 }

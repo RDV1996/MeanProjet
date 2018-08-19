@@ -29,7 +29,7 @@ export class CommentService {
     createComment(comment: Comment) {
         const body = JSON.stringify(comment);
         const headers = new Headers({'Content-type': 'application/json'});
-        return this.http.post('http://localhost:3000/comment', body, {headers: headers})
+        return this.http.post('https://postsite.herokuapp.com/comment', body, {headers: headers})
             .map((response: Response) => response.json())
             .catch((error: Response) => {
                 return Observable.throw(error.json())
@@ -38,7 +38,7 @@ export class CommentService {
 
     getComments(id){
         const headers = new Headers({'Content-type': 'application/json'});
-        return this.http.get('http://localhost:3000/comment/?post=' + id, {headers: headers})
+        return this.http.get('https://postsite.herokuapp.com/comment/?post=' + id, {headers: headers})
             .map((response: Response) => response.json())
             .catch((error: Response) => {
                 return Observable.throw(error.json())
@@ -47,7 +47,7 @@ export class CommentService {
 
     getComment(id){
         const headers = new Headers({'Content-type': 'application/json'});
-        return this.http.get('http://localhost:3000/comment/' + id, {headers: headers})
+        return this.http.get('https://postsite.herokuapp.com/comment/' + id, {headers: headers})
             .map((response: Response) => response.json())
             .catch((error: Response) => {
                 return Observable.throw(error.json())
@@ -65,7 +65,7 @@ export class CommentService {
     saveComment(comment: Comment) {
         const body = JSON.stringify(comment);
         const headers = new Headers({'Content-Type': 'application/json'});
-        return this.http.put('http://localhost:3000/comment/' + comment.id, body, {headers: headers})
+        return this.http.put('https://postsite.herokuapp.com/comment/' + comment.id, body, {headers: headers})
             .map((response: Response) =>
                 response.json())
             .catch((error: Response) => {
@@ -76,7 +76,7 @@ export class CommentService {
     deleteComment(comment: Comment) {
         const body = JSON.stringify(comment);
         const headers = new Headers({'Content-Type': 'application/json'});
-        return this.http.delete('http://localhost:3000/comment/' + comment.id, {headers: headers})
+        return this.http.delete('https://postsite.herokuapp.com/comment/' + comment.id, {headers: headers})
             .map((response: Response) =>
                 response.json())
             .catch((error: Response) => {
