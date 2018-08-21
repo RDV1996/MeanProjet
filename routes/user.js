@@ -89,4 +89,21 @@ router.get('/naam/:id', function (req, res, next) {
     });
 });
 
+router.get('/byname/:username', function (req, res, next) {
+    User.find({
+        username : new RegExp(req.params.username.replace(/\s+/g, "\\s+"), "i")
+
+    },function(err, user){
+        if (err){
+            return res.status(500).json({
+                title: 'Er heeft zich een fout voorgedaan',
+                error: err
+            });
+        }
+        res.status(200).json({
+            user:user
+        })
+    });
+});
+
 module.exports = router;

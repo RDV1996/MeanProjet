@@ -110,4 +110,19 @@ export class AuthService {
             .map((response: Response) => response.json())
             .catch((error : Error) => Observable.throw(error));
     }
+
+    getByName(name) {
+        let users: User[];
+        const headers = new Headers({'Content-type': 'application/json'});
+        return this.http.get('https://postsite.herokuapp.com/user/byname/' + name, {headers: headers})
+            .map((response: Response) => {
+            let tempusers = response.json();
+
+                for(let i =0; i<= tempusers.length; i++){
+                    users.push(this.setTempUser(tempusers[i]));
+                }
+                return users;
+            })
+            .catch((error : Error) => Observable.throw(error));
+    }
 }

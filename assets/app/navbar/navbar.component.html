@@ -12,6 +12,7 @@
                 <li class="nav-item">
                     <a class="nav-link" data-toggle="modal" data-target="#popup">Subscriptions<span
                             class="caret"></span></a>
+                </li>
                 <li class="nav-item" *ngIf="!isLoggedin">
                     <a class="nav-link" [routerLink]="['/signin']">Login</a>
                 </li>
@@ -23,6 +24,10 @@
                 </li>
                 <li>
                     <a class="nav-link" *ngIf="isLoggedin" [routerLink]="['/makepage']">Make Page</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="modal" data-target="#namePopup">Search User<span
+                            class="caret"></span></a>
                 </li>
             </ul>
         </div>
@@ -44,6 +49,37 @@
                     <div *ngFor="let sub of subscribed" class="row">
                         <a class="col-cs-12" [routerLink]="['/p', sub.id]">{{sub.naam}}</a>
                         <button class="col-xs-6" *ngIf="isOwner(sub.id)" (click)="unsubscribe()">Unsubscribe</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="namePopup" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Search User:</h4>
+                <button class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="container">
+                    <div>
+                        <div>
+                            <form [formGroup]="myForm">
+                                <input id="username" class="form-control" formControlName="username" placeholder="Search pages..." (input)="setUsers()" autocomplete="off"/>
+                            </form>
+                        </div>
+                        <table class="col-xs-12 table table-striped" >
+                            <tr *ngFor="let user1 of users">
+                                <td>
+                                    <a [routerLink]="['/profile', user1.id]">{{user1.username}}</a>
+
+                                </td>
+                            </tr>
+                        </table>
                     </div>
                 </div>
             </div>

@@ -9,7 +9,7 @@ import {FormControl, FormGroup, Validators} from "@angular/forms";
         <div>
         <div>
             <form [formGroup]="myForm">
-                <input id="pagename" class="form-control" formControlName="pagename" (change)="setPages()"/>
+                <input id="pagename" class="form-control" formControlName="pagename" placeholder="Search pages..." (input)="setPages()" autocomplete="off"/>
             </form>
         </div>
         <table class="col-xs-12 table table-striped" >
@@ -37,9 +37,11 @@ export class SubscriptionListComponent implements OnInit{
     }
 
     setPages(){
-        this.paginaService.getPagesByName(this.myForm.value.pageName).subscribe(data => {
-            this.pages = this.paginaService.transformPaginas(data);
-        });
+        if(this.myForm.value.pagename !== ""){
+            this.paginaService.getPagesByName(this.myForm.value.pagename).subscribe(data => {
+                this.pages = this.paginaService.transformPaginas(data);
+            });
+        }
     }
 
 

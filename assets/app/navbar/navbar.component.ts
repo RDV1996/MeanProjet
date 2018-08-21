@@ -12,13 +12,21 @@ import {User} from "../model/user.model";
     templateUrl: './navbar.component.html',
     styleUrls: ['./navbar.component.css']
 })
-export class NavbarComponent{
+export class NavbarComponent implements OnInit{
     //used to check if person is logged in and if they are admin
     isAdmin: boolean;
     isLoggedin: boolean;
     naam: string;
     subscribed: Pagina[];
     user: User;
+    users:User[];
+    myForm: FormGroup;
+
+    ngOnInit(){
+        this.myForm = new FormGroup({
+            username: new FormControl(null)
+        });
+    }
 
     constructor(private authService: AuthService, private router: Router, private paginaService: PaginaService) {
         this.subscribed = new Array();
@@ -72,6 +80,13 @@ export class NavbarComponent{
                         this.subscribed.push(this.paginaService.setPagina(data.pagina));
                     }
                 )
+        }
+    }
+    setUsers(){
+        if(this.myForm.value.username !== ""){
+            this.authService.getByName(this.myForm.value.username).subscribe(data => {
+                this.users = data;
+            })
         }
     }
 
