@@ -19,7 +19,7 @@ export class PaginaService {
         const headers = new Headers({'Content-type': 'application/json'});
         return this.http.get('https://postsite.herokuapp.com/pagina', {headers: headers})
             .map((response: Response) => {
-                this.allPages = this.transformPaginas(response);
+                this.allPages = this.transformPaginas(response.json());
                 return this.allPages;
             })
             .catch((error: Response) => {
@@ -29,7 +29,7 @@ export class PaginaService {
     }
 
     transformPaginas(data){
-        const paginas = data.json().pagina;
+        const paginas = data.pagina;
         let transformedPaginas: Pagina[] = [];
         for (let pagina of paginas) {
             transformedPaginas.push(this.setPagina(pagina));
