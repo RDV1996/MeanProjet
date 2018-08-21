@@ -7,6 +7,8 @@ import {MakePageComponent} from "./pagina/makePage.component";
 import {PaginaComponent} from "./pagina/pagina.component";
 import {HomeComponent} from "./home/home.component";
 import {MakePostComponent} from "./post/makePost.component";
+import {UserPageComponent} from "./user/userPage.component";
+import {PageModsComponent} from "./pagina/pageMods.component";
 
 
 export const routes: Routes = [
@@ -18,4 +20,6 @@ export const routes: Routes = [
     {path: "p/:id", component: PaginaComponent},
     {path: "p/makepost/:id", component: MakePostComponent},
     {path: "p/post/:id", component: MakePostComponent},
+    {path: "p/mods/:id", component: PageModsComponent},
+    {path: "profile/:id", component: UserPageComponent}
 ];

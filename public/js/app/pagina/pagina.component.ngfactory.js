@@ -56,65 +56,118 @@ function View_PaginaComponent_4(_l) {
         _ck(_v, 1, 0, currVal_0);
     }, null);
 }
+function View_PaginaComponent_5(_l) {
+    return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 3, 'a', [], [[1, 'target', 0], [8, 'href', 4]], [[null, 'click']], function (_v, en, $event) {
+            var ad = true;
+            if (('click' === en)) {
+                var pd_0 = (i1.ɵnov(_v, 1).onClick($event.button, $event.ctrlKey, $event.metaKey, $event.shiftKey) !== false);
+                ad = (pd_0 && ad);
+            }
+            return ad;
+        }, null, null)), i1.ɵdid(1, 671744, null, 0, i2.RouterLinkWithHref, [i2.Router, i2.ActivatedRoute, i3.LocationStrategy], { routerLink: [0, 'routerLink'] }, null), i1.ɵpad(2, 2), (_l()(), i1.ɵted(-1, null, ['(edit mods)']))], function (_ck, _v) {
+        var _co = _v.component;
+        var currVal_2 = _ck(_v, 2, 0, '/p/mods/', _co.thispage.id);
+        _ck(_v, 1, 0, currVal_2);
+    }, function (_ck, _v) {
+        var currVal_0 = i1.ɵnov(_v, 1).target;
+        var currVal_1 = i1.ɵnov(_v, 1).href;
+        _ck(_v, 0, 0, currVal_0, currVal_1);
+    });
+}
+function View_PaginaComponent_6(_l) {
+    return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 6, 'div', [], null, null, null, null, null)), (_l()(),
+            i1.ɵted(-1, null, ['\n            '])), (_l()(), i1.ɵeld(2, 0, null, null, 3, 'a', [], [[1, 'target', 0], [8, 'href', 4]], [[null,
+                'click']], function (_v, en, $event) {
+            var ad = true;
+            if (('click' === en)) {
+                var pd_0 = (i1.ɵnov(_v, 3).onClick($event.button, $event.ctrlKey, $event.metaKey, $event.shiftKey) !== false);
+                ad = (pd_0 && ad);
+            }
+            return ad;
+        }, null, null)), i1.ɵdid(3, 671744, null, 0, i2.RouterLinkWithHref, [i2.Router, i2.ActivatedRoute, i3.LocationStrategy], { routerLink: [0, 'routerLink'] }, null), i1.ɵpad(4, 2), (_l()(), i1.ɵted(5, null, ['\n                ',
+            '\n            '])), (_l()(), i1.ɵted(-1, null, ['\n        ']))], function (_ck, _v) {
+        var currVal_2 = _ck(_v, 4, 0, '/profile/', _v.context.$implicit.id);
+        _ck(_v, 3, 0, currVal_2);
+    }, function (_ck, _v) {
+        var currVal_0 = i1.ɵnov(_v, 3).target;
+        var currVal_1 = i1.ɵnov(_v, 3).href;
+        _ck(_v, 2, 0, currVal_0, currVal_1);
+        var currVal_3 = _v.context.$implicit.username;
+        _ck(_v, 5, 0, currVal_3);
+    });
+}
 function View_PaginaComponent_1(_l) {
-    return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 46, 'div', [['class',
+    return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 65, 'div', [['class',
                 'container-full']], null, null, null, null, null)),
-        (_l()(), i1.ɵted(-1, null, ['\n    '])), (_l()(), i1.ɵeld(2, 0, null, null, 22, 'header', [['class', 'row']], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ['\n\n        '])), (_l()(), i1.ɵeld(4, 0, null, null, 19, 'nav', [['class', 'col-md-12']], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ['\n            '])), (_l()(),
+        (_l()(), i1.ɵted(-1, null, ['\n    '])), (_l()(), i1.ɵeld(2, 0, null, null, 28, 'header', [['class', 'row']], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ['\n\n        '])), (_l()(), i1.ɵeld(4, 0, null, null, 25, 'nav', [['class', 'col-md-12']], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ['\n            '])), (_l()(),
             i1.ɵeld(6, 0, null, null, 4, 'div', [['class', 'nav nav-brand nav-header']], null, null, null, null, null)),
         (_l()(), i1.ɵted(-1, null, ['\n                '])), (_l()(), i1.ɵeld(8, 0, null, null, 1, 'h1', [], null, null, null, null, null)), (_l()(), i1.ɵted(9, null, ['', ''])), (_l()(), i1.ɵted(-1, null, ['\n            '])), (_l()(),
-            i1.ɵted(-1, null, ['\n            '])), (_l()(), i1.ɵeld(12, 0, null, null, 10, 'ul', [['class', 'nav nav-pills']], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ['\n                '])), (_l()(), i1.ɵand(16777216, null, null, 1, null, View_PaginaComponent_2)), i1.ɵdid(15, 16384, null, 0, i3.NgIf, [i1.ViewContainerRef, i1.TemplateRef], { ngIf: [0, 'ngIf'] }, null),
-        (_l()(), i1.ɵted(-1, null, ['\n                '])), (_l()(), i1.ɵand(16777216, null, null, 1, null, View_PaginaComponent_3)), i1.ɵdid(18, 16384, null, 0, i3.NgIf, [i1.ViewContainerRef, i1.TemplateRef], { ngIf: [0,
+            i1.ɵted(-1, null, ['\n            '])), (_l()(), i1.ɵeld(12, 0, null, null, 4, 'div', [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ['\n                '])),
+        (_l()(), i1.ɵeld(14, 0, null, null, 1, 'p', [], null, null, null, null, null)), (_l()(), i1.ɵted(15, null, ['By: ', ''])), (_l()(), i1.ɵted(-1, null, ['\n            '])),
+        (_l()(), i1.ɵted(-1, null, ['\n            '])), (_l()(), i1.ɵeld(18, 0, null, null, 10, 'ul', [['class', 'nav nav-pills']], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ['\n                '])), (_l()(), i1.ɵand(16777216, null, null, 1, null, View_PaginaComponent_2)), i1.ɵdid(21, 16384, null, 0, i3.NgIf, [i1.ViewContainerRef, i1.TemplateRef], { ngIf: [0, 'ngIf'] }, null),
+        (_l()(), i1.ɵted(-1, null, ['\n                '])), (_l()(), i1.ɵand(16777216, null, null, 1, null, View_PaginaComponent_3)), i1.ɵdid(24, 16384, null, 0, i3.NgIf, [i1.ViewContainerRef, i1.TemplateRef], { ngIf: [0,
                 'ngIf'] }, null), (_l()(), i1.ɵted(-1, null, ['\n                '])),
         (_l()(), i1.ɵand(16777216, null, null, 1, null, View_PaginaComponent_4)),
-        i1.ɵdid(21, 16384, null, 0, i3.NgIf, [i1.ViewContainerRef, i1.TemplateRef], { ngIf: [0, 'ngIf'] }, null), (_l()(), i1.ɵted(-1, null, ['\n            '])),
-        (_l()(), i1.ɵted(-1, null, ['\n        '])), (_l()(), i1.ɵted(-1, null, ['\n    '])), (_l()(), i1.ɵted(-1, null, ['\n    '])), (_l()(), i1.ɵeld(26, 0, null, null, 19, 'div', [['class', 'col-xs-12']], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ['\n        '])), (_l()(), i1.ɵeld(28, 0, null, null, 4, 'div', [['class', 'row']], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ['\n            '])), (_l()(),
-            i1.ɵeld(30, 0, null, null, 1, 'app-postList', [], null, null, null, i4.View_PostListComponent_0, i4.RenderType_PostListComponent)), i1.ɵdid(31, 49152, null, 0, i5.PostListComponent, [i6.DomSanitizer, i2.Router, i7.PostService], { posts: [0, 'posts'] }, null),
-        (_l()(), i1.ɵted(-1, null, ['\n        '])), (_l()(), i1.ɵted(-1, null, ['\n        '])), (_l()(), i1.ɵeld(34, 0, null, null, 10, 'div', [['class', 'row']], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ['\n            '])), (_l()(),
-            i1.ɵeld(36, 0, null, null, 7, 'form', [['novalidate', '']], [[2,
+        i1.ɵdid(27, 16384, null, 0, i3.NgIf, [i1.ViewContainerRef, i1.TemplateRef], { ngIf: [0, 'ngIf'] }, null), (_l()(), i1.ɵted(-1, null, ['\n            '])),
+        (_l()(), i1.ɵted(-1, null, ['\n        '])), (_l()(), i1.ɵted(-1, null, ['\n    '])), (_l()(), i1.ɵted(-1, null, ['\n    '])), (_l()(), i1.ɵeld(32, 0, null, null, 19, 'div', [['class', 'col-xs-10']], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ['\n        '])), (_l()(), i1.ɵeld(34, 0, null, null, 4, 'div', [['class', 'row']], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ['\n            '])), (_l()(),
+            i1.ɵeld(36, 0, null, null, 1, 'app-postList', [], null, null, null, i4.View_PostListComponent_0, i4.RenderType_PostListComponent)), i1.ɵdid(37, 49152, null, 0, i5.PostListComponent, [i6.DomSanitizer, i2.Router, i7.PostService], { posts: [0, 'posts'] }, null),
+        (_l()(), i1.ɵted(-1, null, ['\n        '])), (_l()(), i1.ɵted(-1, null, ['\n        '])), (_l()(), i1.ɵeld(40, 0, null, null, 10, 'div', [['class', 'row']], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ['\n            '])), (_l()(),
+            i1.ɵeld(42, 0, null, null, 7, 'form', [['novalidate', '']], [[2,
                     'ng-untouched', null], [2, 'ng-touched', null], [2, 'ng-pristine',
                     null], [2, 'ng-dirty', null], [2, 'ng-valid', null],
                 [2, 'ng-invalid', null], [2, 'ng-pending', null]], [[null,
                     'submit'], [null, 'reset']], function (_v, en, $event) {
                 var ad = true;
                 if (('submit' === en)) {
-                    var pd_0 = (i1.ɵnov(_v, 38).onSubmit($event) !== false);
+                    var pd_0 = (i1.ɵnov(_v, 44).onSubmit($event) !== false);
                     ad = (pd_0 && ad);
                 }
                 if (('reset' === en)) {
-                    var pd_1 = (i1.ɵnov(_v, 38).onReset() !== false);
+                    var pd_1 = (i1.ɵnov(_v, 44).onReset() !== false);
                     ad = (pd_1 && ad);
                 }
                 return ad;
-            }, null, null)), i1.ɵdid(37, 16384, null, 0, i8.ɵbf, [], null, null), i1.ɵdid(38, 16384, null, 0, i8.NgForm, [[8, null], [8, null]], null, null),
-        i1.ɵprd(2048, null, i8.ControlContainer, null, [i8.NgForm]), i1.ɵdid(40, 16384, null, 0, i8.NgControlStatusGroup, [i8.ControlContainer], null, null), (_l()(), i1.ɵted(-1, null, ['\n                '])),
-        (_l()(), i1.ɵeld(42, 0, null, null, 0, 'input', [['class', 'form-controlcol-xs-4'],
+            }, null, null)), i1.ɵdid(43, 16384, null, 0, i8.ɵbf, [], null, null), i1.ɵdid(44, 16384, null, 0, i8.NgForm, [[8, null], [8, null]], null, null),
+        i1.ɵprd(2048, null, i8.ControlContainer, null, [i8.NgForm]), i1.ɵdid(46, 16384, null, 0, i8.NgControlStatusGroup, [i8.ControlContainer], null, null), (_l()(), i1.ɵted(-1, null, ['\n                '])),
+        (_l()(), i1.ɵeld(48, 0, null, null, 0, 'input', [['class', 'form-controlcol-xs-4'],
             ['min', '1'], ['placeholder', 'Page'], ['required', ''], ['type', 'number']], [[8,
                 'max', 0], [8, 'value', 0]], null, null, null, null)),
-        (_l()(), i1.ɵted(-1, null, ['\n            '])), (_l()(), i1.ɵted(-1, null, ['\n        '])), (_l()(), i1.ɵted(-1, null, ['\n    '])), (_l()(), i1.ɵted(-1, null, ['\n\n']))], function (_ck, _v) {
+        (_l()(), i1.ɵted(-1, null, ['\n            '])), (_l()(), i1.ɵted(-1, null, ['\n        '])), (_l()(), i1.ɵted(-1, null, ['\n    '])), (_l()(), i1.ɵted(-1, null, ['\n    '])), (_l()(), i1.ɵeld(53, 0, null, null, 11, 'div', [['class', 'col-xs-2']], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ['\n        '])),
+        (_l()(), i1.ɵeld(55, 0, null, null, 5, 'p', [], null, null, null, null, null)), (_l()(), i1.ɵeld(56, 0, null, null, 1, 'b', [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ['List of mods'])), (_l()(), i1.ɵted(-1, null, [' '])), (_l()(), i1.ɵand(16777216, null, null, 1, null, View_PaginaComponent_5)), i1.ɵdid(60, 16384, null, 0, i3.NgIf, [i1.ViewContainerRef, i1.TemplateRef], { ngIf: [0,
+                'ngIf'] }, null), (_l()(), i1.ɵted(-1, null, ['\n        '])),
+        (_l()(), i1.ɵand(16777216, null, null, 1, null, View_PaginaComponent_6)),
+        i1.ɵdid(63, 802816, null, 0, i3.NgForOf, [i1.ViewContainerRef, i1.TemplateRef,
+            i1.IterableDiffers], { ngForOf: [0, 'ngForOf'] }, null), (_l()(), i1.ɵted(-1, null, ['\n    '])), (_l()(), i1.ɵted(-1, null, ['\n']))], function (_ck, _v) {
         var _co = _v.component;
-        var currVal_1 = ((!_co.subscribed && !_co.owner) && _co.authService.isLoggedIn());
-        _ck(_v, 15, 0, currVal_1);
-        var currVal_2 = ((_co.subscribed && !_co.owner) && _co.authService.isLoggedIn());
-        _ck(_v, 18, 0, currVal_2);
-        var currVal_3 = _co.ingelogd;
-        _ck(_v, 21, 0, currVal_3);
-        var currVal_4 = _co.posts;
-        _ck(_v, 31, 0, currVal_4);
+        var currVal_2 = ((!_co.subscribed && !_co.isOwner()) && _co.authService.isLoggedIn());
+        _ck(_v, 21, 0, currVal_2);
+        var currVal_3 = ((_co.subscribed && !_co.isOwner()) && _co.authService.isLoggedIn());
+        _ck(_v, 24, 0, currVal_3);
+        var currVal_4 = _co.ingelogd;
+        _ck(_v, 27, 0, currVal_4);
+        var currVal_5 = _co.posts;
+        _ck(_v, 37, 0, currVal_5);
+        var currVal_15 = (_co.isOwner() || _co.isMod());
+        _ck(_v, 60, 0, currVal_15);
+        var currVal_16 = _co.mods;
+        _ck(_v, 63, 0, currVal_16);
     }, function (_ck, _v) {
         var _co = _v.component;
         var currVal_0 = _co.thispage.naam;
         _ck(_v, 9, 0, currVal_0);
-        var currVal_5 = i1.ɵnov(_v, 40).ngClassUntouched;
-        var currVal_6 = i1.ɵnov(_v, 40).ngClassTouched;
-        var currVal_7 = i1.ɵnov(_v, 40).ngClassPristine;
-        var currVal_8 = i1.ɵnov(_v, 40).ngClassDirty;
-        var currVal_9 = i1.ɵnov(_v, 40).ngClassValid;
-        var currVal_10 = i1.ɵnov(_v, 40).ngClassInvalid;
-        var currVal_11 = i1.ɵnov(_v, 40).ngClassPending;
-        _ck(_v, 36, 0, currVal_5, currVal_6, currVal_7, currVal_8, currVal_9, currVal_10, currVal_11);
-        var currVal_12 = i1.ɵinlineInterpolate(1, '', _co.maxpages, '');
-        var currVal_13 = i1.ɵinlineInterpolate(1, '', _co.pagina, '');
-        _ck(_v, 42, 0, currVal_12, currVal_13);
+        var currVal_1 = _co.owner.username;
+        _ck(_v, 15, 0, currVal_1);
+        var currVal_6 = i1.ɵnov(_v, 46).ngClassUntouched;
+        var currVal_7 = i1.ɵnov(_v, 46).ngClassTouched;
+        var currVal_8 = i1.ɵnov(_v, 46).ngClassPristine;
+        var currVal_9 = i1.ɵnov(_v, 46).ngClassDirty;
+        var currVal_10 = i1.ɵnov(_v, 46).ngClassValid;
+        var currVal_11 = i1.ɵnov(_v, 46).ngClassInvalid;
+        var currVal_12 = i1.ɵnov(_v, 46).ngClassPending;
+        _ck(_v, 42, 0, currVal_6, currVal_7, currVal_8, currVal_9, currVal_10, currVal_11, currVal_12);
+        var currVal_13 = i1.ɵinlineInterpolate(1, '', _co.maxpages, '');
+        var currVal_14 = i1.ɵinlineInterpolate(1, '', _co.pagina, '');
+        _ck(_v, 48, 0, currVal_13, currVal_14);
     });
 }
 export function View_PaginaComponent_0(_l) {

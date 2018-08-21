@@ -14,8 +14,8 @@ import * as i6 from '../service/post.service';
 import * as i7 from '@angular/forms';
 import * as i8 from './SubscriptionList.component.ngfactory';
 import * as i9 from './SubscriptionList.component';
-import * as i10 from './home.component';
-import * as i11 from '../service/pagina.service';
+import * as i10 from '../service/pagina.service';
+import * as i11 from './home.component';
 var styles_HomeComponent = [i0.styles];
 export var RenderType_HomeComponent = i1.ɵcrt({ encapsulation: 0,
     styles: styles_HomeComponent, data: {} });
@@ -45,13 +45,12 @@ export function View_HomeComponent_0(_l) {
             ['min', '1'], ['placeholder', 'Page'], ['required', ''], ['type', 'number']], [[8,
                 'max', 0], [8, 'value', 0]], null, null, null, null)),
         (_l()(), i1.ɵted(-1, null, ['\n            '])), (_l()(), i1.ɵted(-1, null, ['\n        '])), (_l()(), i1.ɵted(-1, null, ['\n    '])), (_l()(), i1.ɵted(-1, null, ['\n    '])), (_l()(), i1.ɵeld(22, 0, null, null, 4, 'div', [['class', 'col-xs-12 col-sm-12 col-md-3 col-sm-pull-9']], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ['\n        '])), (_l()(), i1.ɵeld(24, 0, null, null, 1, 'app-subsciption', [], null, null, null, i8.View_SubscriptionListComponent_0, i8.RenderType_SubscriptionListComponent)),
-        i1.ɵdid(25, 49152, null, 0, i9.SubscriptionListComponent, [], { pages: [0, 'pages'] }, null), (_l()(), i1.ɵted(-1, null, ['\n    '])),
+        i1.ɵdid(25, 114688, null, 0, i9.SubscriptionListComponent, [i10.PaginaService], null, null), (_l()(), i1.ɵted(-1, null, ['\n    '])),
         (_l()(), i1.ɵted(-1, null, ['\n']))], function (_ck, _v) {
         var _co = _v.component;
         var currVal_0 = _co.posts;
         _ck(_v, 6, 0, currVal_0);
-        var currVal_10 = _co.pages;
-        _ck(_v, 25, 0, currVal_10);
+        _ck(_v, 25, 0);
     }, function (_ck, _v) {
         var _co = _v.component;
         var currVal_1 = i1.ɵnov(_v, 15).ngClassUntouched;
@@ -69,8 +68,8 @@ export function View_HomeComponent_0(_l) {
 }
 export function View_HomeComponent_Host_0(_l) {
     return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 1, 'app-home', [], null, null, null, View_HomeComponent_0, RenderType_HomeComponent)),
-        i1.ɵdid(1, 114688, null, 0, i10.HomeComponent, [i11.PaginaService, i6.PostService], null, null)], function (_ck, _v) {
+        i1.ɵdid(1, 114688, null, 0, i11.HomeComponent, [i10.PaginaService, i6.PostService], null, null)], function (_ck, _v) {
         _ck(_v, 1, 0);
     }, null);
 }
-export var HomeComponentNgFactory = i1.ɵccf('app-home', i10.HomeComponent, View_HomeComponent_Host_0, {}, {}, []);
+export var HomeComponentNgFactory = i1.ɵccf('app-home', i11.HomeComponent, View_HomeComponent_Host_0, {}, {}, []);

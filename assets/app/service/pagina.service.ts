@@ -19,18 +19,22 @@ export class PaginaService {
         const headers = new Headers({'Content-type': 'application/json'});
         return this.http.get('https://postsite.herokuapp.com/pagina', {headers: headers})
             .map((response: Response) => {
-                const paginas = response.json().pagina;
-                let transformedPaginas: Pagina[] = [];
-                for (let pagina of paginas) {
-                    transformedPaginas.push(this.setPagina(pagina));
-                }
-                this.allPages = transformedPaginas;
-                return transformedPaginas;
+                this.allPages = this.transformPaginas(response);
+                return this.allPages;
             })
             .catch((error: Response) => {
                 console.log(error);
                 return Observable.throw(error.json)
             });
+    }
+
+    transformPaginas(data){
+        const paginas = data.json().pagina;
+        let transformedPaginas: Pagina[] = [];
+        for (let pagina of paginas) {
+            transformedPaginas.push(this.setPagina(pagina));
+        }
+        return transformedPaginas;
     }
 
 
@@ -69,6 +73,16 @@ export class PaginaService {
             .map((response: Response) => response.json())
             .catch((error: Response) => {
                 return Observable.throw(error.json())
+            });
+    }
+
+    getPagesByName(name: string) {
+        const headers = new Headers({'Content-type': 'application/json'});
+        return this.http.get('https://postsite.herokuapp.com/pagina/byname/' + name, {headers: headers})
+            .map((response: Response) => response.json())
+            .catch((error: Response) => {
+                console.log(error);
+                return Observable.throw(error.json)
             });
     }
 }

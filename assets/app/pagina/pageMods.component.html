@@ -1,0 +1,38 @@
+<div class="container-full" *ngIf="thispage != null">
+    <header class="row">
+
+        <nav class="col-md-12">
+            <div class="nav nav-brand nav-header">
+                <h1>{{thispage.naam}}: Edit mods</h1>
+            </div>
+            <div>
+                <p>By: {{owner.username}}</p>
+            </div>
+        </nav>
+    </header>
+    <div class="col-xs-12">
+        <div class="row">
+            <div >
+                <table class="table">
+                    <tr>
+                        <th>
+                            User Name
+                        </th>
+
+                    </tr>
+                    <tr *ngFor="let mod of mods">
+                        <td>
+                            <a [routerLink]="['/profile/', mod.id]">
+                                {{mod.username}}
+                            </a>
+                        </td>
+                        <td>
+                            <button class="btn" *ngIf="!isOwner()" (click)="removeMod()">Remove from modlist</button>
+                            <p *ngIf="isOwner()">{{mod.username}} is the owner of {{thispage.naam}}, cannot be removed</p>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

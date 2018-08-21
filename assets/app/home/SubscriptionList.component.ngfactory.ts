@@ -9,7 +9,9 @@
 import * as i0 from '@angular/core';
 import * as i1 from '@angular/router';
 import * as i2 from '@angular/common';
-import * as i3 from './SubscriptionList.component';
+import * as i3 from '@angular/forms';
+import * as i4 from './SubscriptionList.component';
+import * as i5 from '../service/pagina.service';
 const styles_SubscriptionListComponent:any[] = [''];
 export const RenderType_SubscriptionListComponent:i0.RendererType2 = i0.ɵcrt({encapsulation:0,
     styles:styles_SubscriptionListComponent,data:{}});
@@ -45,27 +47,117 @@ function View_SubscriptionListComponent_1(_l:any):i0.ɵViewDefinition {
 }
 export function View_SubscriptionListComponent_0(_l:any):i0.ɵViewDefinition {
   return i0.ɵvid(0,[(_l()(),i0.ɵted(-1,(null as any),['\n        '])),(_l()(),i0.ɵeld(1,
-      0,(null as any),(null as any),5,'table',[['class','col-xs-12 table table-striped']],
+      0,(null as any),(null as any),25,'div',([] as any[]),(null as any),(null as any),
+      (null as any),(null as any),(null as any))),(_l()(),i0.ɵted(-1,(null as any),
+      ['\n        '])),(_l()(),i0.ɵeld(3,0,(null as any),(null as any),15,'div',([] as any[]),
       (null as any),(null as any),(null as any),(null as any),(null as any))),(_l()(),
-      i0.ɵted(-1,(null as any),['\n            '])),(_l()(),i0.ɵeld(3,0,(null as any),
-      (null as any),3,'tbody',([] as any[]),(null as any),(null as any),(null as any),
-      (null as any),(null as any))),(_l()(),i0.ɵand(16777216,(null as any),(null as any),
-      1,(null as any),View_SubscriptionListComponent_1)),i0.ɵdid(5,802816,(null as any),
-      0,i2.NgForOf,[i0.ViewContainerRef,i0.TemplateRef,i0.IterableDiffers],{ngForOf:[0,
-          'ngForOf']},(null as any)),(_l()(),i0.ɵted(-1,(null as any),['\n        '])),
-      (_l()(),i0.ɵted(-1,(null as any),['\n    ']))],(_ck,_v) => {
-    var _co:i3.SubscriptionListComponent = _v.component;
-    const currVal_0:any = _co.pages;
-    _ck(_v,5,0,currVal_0);
-  },(null as any));
+      i0.ɵted(-1,(null as any),['\n            '])),(_l()(),i0.ɵeld(5,0,(null as any),
+      (null as any),12,'form',[['novalidate','']],[[2,'ng-untouched',(null as any)],
+          [2,'ng-touched',(null as any)],[2,'ng-pristine',(null as any)],[2,'ng-dirty',
+              (null as any)],[2,'ng-valid',(null as any)],[2,'ng-invalid',(null as any)],
+          [2,'ng-pending',(null as any)]],[[(null as any),'submit'],[(null as any),
+          'reset']],(_v,en,$event) => {
+        var ad:boolean = true;
+        if (('submit' === en)) {
+          const pd_0:any = ((<any>i0.ɵnov(_v,7).onSubmit($event)) !== false);
+          ad = (pd_0 && ad);
+        }
+        if (('reset' === en)) {
+          const pd_1:any = ((<any>i0.ɵnov(_v,7).onReset()) !== false);
+          ad = (pd_1 && ad);
+        }
+        return ad;
+      },(null as any),(null as any))),i0.ɵdid(6,16384,(null as any),0,i3.ɵbf,([] as any[]),
+      (null as any),(null as any)),i0.ɵdid(7,540672,(null as any),0,i3.FormGroupDirective,
+      [[8,(null as any)],[8,(null as any)]],{form:[0,'form']},(null as any)),i0.ɵprd(2048,
+      (null as any),i3.ControlContainer,(null as any),[i3.FormGroupDirective]),i0.ɵdid(9,
+      16384,(null as any),0,i3.NgControlStatusGroup,[i3.ControlContainer],(null as any),
+      (null as any)),(_l()(),i0.ɵted(-1,(null as any),['\n                '])),(_l()(),
+      i0.ɵeld(11,0,(null as any),(null as any),5,'input',[['class','form-control'],
+          ['formControlName','pagename'],['id','pagename']],[[2,'ng-untouched',(null as any)],
+          [2,'ng-touched',(null as any)],[2,'ng-pristine',(null as any)],[2,'ng-dirty',
+              (null as any)],[2,'ng-valid',(null as any)],[2,'ng-invalid',(null as any)],
+          [2,'ng-pending',(null as any)]],[[(null as any),'change'],[(null as any),
+          'input'],[(null as any),'blur'],[(null as any),'compositionstart'],[(null as any),
+          'compositionend']],(_v,en,$event) => {
+        var ad:boolean = true;
+        var _co:i4.SubscriptionListComponent = _v.component;
+        if (('input' === en)) {
+          const pd_0:any = ((<any>i0.ɵnov(_v,12)._handleInput($event.target.value)) !== false);
+          ad = (pd_0 && ad);
+        }
+        if (('blur' === en)) {
+          const pd_1:any = ((<any>i0.ɵnov(_v,12).onTouched()) !== false);
+          ad = (pd_1 && ad);
+        }
+        if (('compositionstart' === en)) {
+          const pd_2:any = ((<any>i0.ɵnov(_v,12)._compositionStart()) !== false);
+          ad = (pd_2 && ad);
+        }
+        if (('compositionend' === en)) {
+          const pd_3:any = ((<any>i0.ɵnov(_v,12)._compositionEnd($event.target.value)) !== false);
+          ad = (pd_3 && ad);
+        }
+        if (('change' === en)) {
+          const pd_4:any = ((<any>_co.setPages()) !== false);
+          ad = (pd_4 && ad);
+        }
+        return ad;
+      },(null as any),(null as any))),i0.ɵdid(12,16384,(null as any),0,i3.DefaultValueAccessor,
+      [i0.Renderer2,i0.ElementRef,[2,i3.COMPOSITION_BUFFER_MODE]],(null as any),(null as any)),
+      i0.ɵprd(1024,(null as any),i3.NG_VALUE_ACCESSOR,(p0_0:any) => {
+        return [p0_0];
+      },[i3.DefaultValueAccessor]),i0.ɵdid(14,671744,(null as any),0,i3.FormControlName,
+          [[3,i3.ControlContainer],[8,(null as any)],[8,(null as any)],[2,i3.NG_VALUE_ACCESSOR]],
+          {name:[0,'name']},(null as any)),i0.ɵprd(2048,(null as any),i3.NgControl,
+          (null as any),[i3.FormControlName]),i0.ɵdid(16,16384,(null as any),0,i3.NgControlStatus,
+          [i3.NgControl],(null as any),(null as any)),(_l()(),i0.ɵted(-1,(null as any),
+          ['\n            '])),(_l()(),i0.ɵted(-1,(null as any),['\n        '])),(_l()(),
+          i0.ɵted(-1,(null as any),['\n        '])),(_l()(),i0.ɵeld(20,0,(null as any),
+          (null as any),5,'table',[['class','col-xs-12 table table-striped']],(null as any),
+          (null as any),(null as any),(null as any),(null as any))),(_l()(),i0.ɵted(-1,
+          (null as any),['\n            '])),(_l()(),i0.ɵeld(22,0,(null as any),(null as any),
+          3,'tbody',([] as any[]),(null as any),(null as any),(null as any),(null as any),
+          (null as any))),(_l()(),i0.ɵand(16777216,(null as any),(null as any),1,(null as any),
+          View_SubscriptionListComponent_1)),i0.ɵdid(24,802816,(null as any),0,i2.NgForOf,
+          [i0.ViewContainerRef,i0.TemplateRef,i0.IterableDiffers],{ngForOf:[0,'ngForOf']},
+          (null as any)),(_l()(),i0.ɵted(-1,(null as any),['\n        '])),(_l()(),
+          i0.ɵted(-1,(null as any),['\n        '])),(_l()(),i0.ɵted(-1,(null as any),
+          ['\n    ']))],(_ck,_v) => {
+    var _co:i4.SubscriptionListComponent = _v.component;
+    const currVal_7:any = _co.myForm;
+    _ck(_v,7,0,currVal_7);
+    const currVal_15:any = 'pagename';
+    _ck(_v,14,0,currVal_15);
+    const currVal_16:any = _co.pages;
+    _ck(_v,24,0,currVal_16);
+  },(_ck,_v) => {
+    const currVal_0:any = i0.ɵnov(_v,9).ngClassUntouched;
+    const currVal_1:any = i0.ɵnov(_v,9).ngClassTouched;
+    const currVal_2:any = i0.ɵnov(_v,9).ngClassPristine;
+    const currVal_3:any = i0.ɵnov(_v,9).ngClassDirty;
+    const currVal_4:any = i0.ɵnov(_v,9).ngClassValid;
+    const currVal_5:any = i0.ɵnov(_v,9).ngClassInvalid;
+    const currVal_6:any = i0.ɵnov(_v,9).ngClassPending;
+    _ck(_v,5,0,currVal_0,currVal_1,currVal_2,currVal_3,currVal_4,currVal_5,currVal_6);
+    const currVal_8:any = i0.ɵnov(_v,16).ngClassUntouched;
+    const currVal_9:any = i0.ɵnov(_v,16).ngClassTouched;
+    const currVal_10:any = i0.ɵnov(_v,16).ngClassPristine;
+    const currVal_11:any = i0.ɵnov(_v,16).ngClassDirty;
+    const currVal_12:any = i0.ɵnov(_v,16).ngClassValid;
+    const currVal_13:any = i0.ɵnov(_v,16).ngClassInvalid;
+    const currVal_14:any = i0.ɵnov(_v,16).ngClassPending;
+    _ck(_v,11,0,currVal_8,currVal_9,currVal_10,currVal_11,currVal_12,currVal_13,currVal_14);
+  });
 }
 export function View_SubscriptionListComponent_Host_0(_l:any):i0.ɵViewDefinition {
   return i0.ɵvid(0,[(_l()(),i0.ɵeld(0,0,(null as any),(null as any),1,'app-subsciption',
       ([] as any[]),(null as any),(null as any),(null as any),View_SubscriptionListComponent_0,
-      RenderType_SubscriptionListComponent)),i0.ɵdid(1,49152,(null as any),0,i3.SubscriptionListComponent,
-      ([] as any[]),(null as any),(null as any))],(null as any),(null as any));
+      RenderType_SubscriptionListComponent)),i0.ɵdid(1,114688,(null as any),0,i4.SubscriptionListComponent,
+      [i5.PaginaService],(null as any),(null as any))],(_ck,_v) => {
+    _ck(_v,1,0);
+  },(null as any));
 }
-export const SubscriptionListComponentNgFactory:i0.ComponentFactory<i3.SubscriptionListComponent> = i0.ɵccf('app-subsciption',
-    i3.SubscriptionListComponent,View_SubscriptionListComponent_Host_0,{pages:'pages'},
-    {},([] as any[]));
-//# sourceMappingURL=data:application/json;base64,eyJmaWxlIjoiQzovVXNlcnMvcm9ieWQvRG9jdW1lbnRzL1NjaG9vbC9EaXRKYWFyL01FQU4vUFJPSkVDVC9hc3NldHMvYXBwL2hvbWUvU3Vic2NyaXB0aW9uTGlzdC5jb21wb25lbnQubmdmYWN0b3J5LnRzIiwidmVyc2lvbiI6Mywic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsibmc6Ly8vQzovVXNlcnMvcm9ieWQvRG9jdW1lbnRzL1NjaG9vbC9EaXRKYWFyL01FQU4vUFJPSkVDVC9hc3NldHMvYXBwL2hvbWUvU3Vic2NyaXB0aW9uTGlzdC5jb21wb25lbnQudHMiLCJuZzovLy9DOi9Vc2Vycy9yb2J5ZC9Eb2N1bWVudHMvU2Nob29sL0RpdEphYXIvTUVBTi9QUk9KRUNUL2Fzc2V0cy9hcHAvaG9tZS9TdWJzY3JpcHRpb25MaXN0LmNvbXBvbmVudC50cy5TdWJzY3JpcHRpb25MaXN0Q29tcG9uZW50Lmh0bWwiLCJuZzovLy9DOi9Vc2Vycy9yb2J5ZC9Eb2N1bWVudHMvU2Nob29sL0RpdEphYXIvTUVBTi9QUk9KRUNUL2Fzc2V0cy9hcHAvaG9tZS9TdWJzY3JpcHRpb25MaXN0LmNvbXBvbmVudC50cy5TdWJzY3JpcHRpb25MaXN0Q29tcG9uZW50X0hvc3QuaHRtbCJdLCJzb3VyY2VzQ29udGVudCI6WyIgIiwiXG4gICAgICAgIDx0YWJsZSBjbGFzcz1cImNvbC14cy0xMiB0YWJsZSB0YWJsZS1zdHJpcGVkXCIgPlxuICAgICAgICAgICAgPHRyICpuZ0Zvcj1cImxldCBwYWdlIG9mIHBhZ2VzXCI+XG4gICAgICAgICAgICAgICAgPHRkPlxuICAgICAgICAgICAgICAgICAgICA8YSBbcm91dGVyTGlua109XCJbJy9wJywgcGFnZS5pZF1cIj57e3BhZ2UubmFhbX19PC9hPlxuXG4gICAgICAgICAgICAgICAgPC90ZD5cbiAgICAgICAgICAgIDwvdHI+XG4gICAgICAgIDwvdGFibGU+XG4gICAgIiwiPGFwcC1zdWJzY2lwdGlvbj48L2FwcC1zdWJzY2lwdGlvbj4iXSwibWFwcGluZ3MiOiJBQUFBOzs7Ozs7Ozs7Ozs7Ozs7O29CQ0VZO01BQUEsd0VBQStCO2FBQUEsMkNBQzNCO01BQUE7TUFBQSw4QkFBSTtNQUNBO1VBQUE7UUFBQTtRQUFBO1VBQUE7Y0FBQTtVQUFBO1FBQUE7UUFBQTtNQUFBLHVDQUFBO1VBQUE7VUFBQSxzQkFBRyxNQUErQiwwQ0FBaUI7aUJBQUEsNkNBRWxEO1VBQUE7SUFGRTtJQUFILFdBQUcsU0FBSDs7SUFBQTtJQUFBO0lBQUEsV0FBQSxtQkFBQTtJQUFrQztJQUFBOzs7O29CQUp0RCxrREFDUTtNQUFBO01BQUEsd0VBQThDO2FBQUEsdUNBQzFDO01BQUE7TUFBQTtNQUFBLDBEQUFBO01BQUE7VUFBQSwyQkFLSztNQUNEOztJQU5BO0lBQUosV0FBSSxTQUFKOzs7O29CQ0ZaO01BQUE7MENBQUEsVUFBQTtNQUFBOzs7OyJ9
+export const SubscriptionListComponentNgFactory:i0.ComponentFactory<i4.SubscriptionListComponent> = i0.ɵccf('app-subsciption',
+    i4.SubscriptionListComponent,View_SubscriptionListComponent_Host_0,{},{},([] as any[]));
+//# sourceMappingURL=data:application/json;base64,eyJmaWxlIjoiQzovVXNlcnMvcm9ieWQvRG9jdW1lbnRzL1NjaG9vbC9EaXRKYWFyL01FQU4vUFJPSkVDVC9hc3NldHMvYXBwL2hvbWUvU3Vic2NyaXB0aW9uTGlzdC5jb21wb25lbnQubmdmYWN0b3J5LnRzIiwidmVyc2lvbiI6Mywic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsibmc6Ly8vQzovVXNlcnMvcm9ieWQvRG9jdW1lbnRzL1NjaG9vbC9EaXRKYWFyL01FQU4vUFJPSkVDVC9hc3NldHMvYXBwL2hvbWUvU3Vic2NyaXB0aW9uTGlzdC5jb21wb25lbnQudHMiLCJuZzovLy9DOi9Vc2Vycy9yb2J5ZC9Eb2N1bWVudHMvU2Nob29sL0RpdEphYXIvTUVBTi9QUk9KRUNUL2Fzc2V0cy9hcHAvaG9tZS9TdWJzY3JpcHRpb25MaXN0LmNvbXBvbmVudC50cy5TdWJzY3JpcHRpb25MaXN0Q29tcG9uZW50Lmh0bWwiLCJuZzovLy9DOi9Vc2Vycy9yb2J5ZC9Eb2N1bWVudHMvU2Nob29sL0RpdEphYXIvTUVBTi9QUk9KRUNUL2Fzc2V0cy9hcHAvaG9tZS9TdWJzY3JpcHRpb25MaXN0LmNvbXBvbmVudC50cy5TdWJzY3JpcHRpb25MaXN0Q29tcG9uZW50X0hvc3QuaHRtbCJdLCJzb3VyY2VzQ29udGVudCI6WyIgIiwiXG4gICAgICAgIDxkaXY+XG4gICAgICAgIDxkaXY+XG4gICAgICAgICAgICA8Zm9ybSBbZm9ybUdyb3VwXT1cIm15Rm9ybVwiPlxuICAgICAgICAgICAgICAgIDxpbnB1dCBpZD1cInBhZ2VuYW1lXCIgY2xhc3M9XCJmb3JtLWNvbnRyb2xcIiBmb3JtQ29udHJvbE5hbWU9XCJwYWdlbmFtZVwiIChjaGFuZ2UpPVwic2V0UGFnZXMoKVwiLz5cbiAgICAgICAgICAgIDwvZm9ybT5cbiAgICAgICAgPC9kaXY+XG4gICAgICAgIDx0YWJsZSBjbGFzcz1cImNvbC14cy0xMiB0YWJsZSB0YWJsZS1zdHJpcGVkXCIgPlxuICAgICAgICAgICAgPHRyICpuZ0Zvcj1cImxldCBwYWdlIG9mIHBhZ2VzXCI+XG4gICAgICAgICAgICAgICAgPHRkPlxuICAgICAgICAgICAgICAgICAgICA8YSBbcm91dGVyTGlua109XCJbJy9wJywgcGFnZS5pZF1cIj57e3BhZ2UubmFhbX19PC9hPlxuXG4gICAgICAgICAgICAgICAgPC90ZD5cbiAgICAgICAgICAgIDwvdHI+XG4gICAgICAgIDwvdGFibGU+XG4gICAgICAgIDwvZGl2PlxuICAgICIsIjxhcHAtc3Vic2NpcHRpb24+PC9hcHAtc3Vic2NpcHRpb24+Il0sIm1hcHBpbmdzIjoiQUFBQTs7Ozs7Ozs7Ozs7Ozs7Ozs7O29CQ1FZO01BQUEsd0VBQStCO2FBQUEsMkNBQzNCO01BQUE7TUFBQSw4QkFBSTtNQUNBO1VBQUE7UUFBQTtRQUFBO1VBQUE7Y0FBQTtVQUFBO1FBQUE7UUFBQTtNQUFBLHVDQUFBO1VBQUE7VUFBQSxzQkFBRyxNQUErQiwwQ0FBaUI7aUJBQUEsNkNBRWxEO1VBQUE7SUFGRTtJQUFILFdBQUcsU0FBSDs7SUFBQTtJQUFBO0lBQUEsV0FBQSxtQkFBQTtJQUFrQztJQUFBOzs7O29CQVZ0RCxrREFDUTtNQUFBO01BQUEsNENBQUs7TUFBQSxpQkFDTDtNQUFBLHdFQUFLO2FBQUEsdUNBQ0Q7TUFBQTtVQUFBO2NBQUE7VUFBQTtVQUFBO1FBQUE7UUFBQTtVQUFBO1VBQUE7UUFBQTtRQUFBO1VBQUE7VUFBQTtRQUFBO1FBQUE7TUFBQSx1Q0FBQTtNQUFBLG9DQUFBO01BQUEsOEVBQUE7TUFBQSxnRkFBQTtNQUFBO01BQUEsZUFBMkIsMERBQ3ZCO2FBQUE7VUFBQTtVQUFBO2NBQUE7VUFBQTtVQUFBO1VBQUE7UUFBQTtRQUFBO1FBQUE7VUFBQTtVQUFBO1FBQUE7UUFBQTtVQUFBO1VBQUE7UUFBQTtRQUFBO1VBQUE7VUFBQTtRQUFBO1FBQUE7VUFBQTtVQUFBO1FBQUE7UUFBcUU7VUFBQTtVQUFBO1FBQUE7UUFBckU7TUFBQSx1Q0FBQTtNQUFBO2FBQUE7UUFBQTtNQUFBLG9DQUFBO1VBQUE7VUFBQSx3Q0FBQTtVQUFBLDJDQUFBO1VBQUEsNENBQTRGO1VBQUEscUJBQ3pGLGtEQUNMO2lCQUFBLG1DQUNOO1VBQUE7VUFBQSwwREFBOEM7VUFBQSxtQ0FDMUM7VUFBQTtVQUFBO1VBQUEsMENBQUE7VUFBQTtVQUFBLGVBS0ssa0RBQ0Q7aUJBQUEsbUNBQ0Y7VUFBQTs7SUFaSTtJQUFOLFdBQU0sU0FBTjtJQUM4QztJQUExQyxZQUEwQyxVQUExQztJQUlBO0lBQUosWUFBSSxVQUFKOztJQUxBO0lBQUE7SUFBQTtJQUFBO0lBQUE7SUFBQTtJQUFBO0lBQUEsV0FBQSxxRUFBQTtJQUNJO0lBQUE7SUFBQTtJQUFBO0lBQUE7SUFBQTtJQUFBO0lBQUEsWUFBQSwwRUFBQTs7OztvQkNKaEI7TUFBQTswQ0FBQSxVQUFBO01BQUE7SUFBQTs7OzsifQ==

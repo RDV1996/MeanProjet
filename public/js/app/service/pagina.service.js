@@ -24,19 +24,22 @@ var PaginaService = /** @class */ (function () {
         var headers = new Headers({ 'Content-type': 'application/json' });
         return this.http.get('https://postsite.herokuapp.com/pagina', { headers: headers })
             .map(function (response) {
-            var paginas = response.json().pagina;
-            var transformedPaginas = [];
-            for (var _i = 0, paginas_1 = paginas; _i < paginas_1.length; _i++) {
-                var pagina = paginas_1[_i];
-                transformedPaginas.push(_this.setPagina(pagina));
-            }
-            _this.allPages = transformedPaginas;
-            return transformedPaginas;
+            _this.allPages = _this.transformPaginas(response);
+            return _this.allPages;
         })
             .catch(function (error) {
             console.log(error);
             return Observable.throw(error.json);
         });
+    };
+    PaginaService.prototype.transformPaginas = function (data) {
+        var paginas = data.json().pagina;
+        var transformedPaginas = [];
+        for (var _i = 0, paginas_1 = paginas; _i < paginas_1.length; _i++) {
+            var pagina = paginas_1[_i];
+            transformedPaginas.push(this.setPagina(pagina));
+        }
+        return transformedPaginas;
     };
     PaginaService.prototype.getPageById = function (id) {
         var headers = new Headers({ 'Content-type': 'application/json' });
@@ -67,6 +70,15 @@ var PaginaService = /** @class */ (function () {
             .map(function (response) { return response.json(); })
             .catch(function (error) {
             return Observable.throw(error.json());
+        });
+    };
+    PaginaService.prototype.getPagesByName = function (name) {
+        var headers = new Headers({ 'Content-type': 'application/json' });
+        return this.http.get('https://postsite.herokuapp.com/pagina/byname/' + name, { headers: headers })
+            .map(function (response) { return response.json(); })
+            .catch(function (error) {
+            console.log(error);
+            return Observable.throw(error.json);
         });
     };
     PaginaService = __decorate([

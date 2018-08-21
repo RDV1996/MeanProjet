@@ -7,7 +7,9 @@
 import * as i0 from '@angular/core';
 import * as i1 from '@angular/router';
 import * as i2 from '@angular/common';
-import * as i3 from './SubscriptionList.component';
+import * as i3 from '@angular/forms';
+import * as i4 from './SubscriptionList.component';
+import * as i5 from '../service/pagina.service';
 var styles_SubscriptionListComponent = [''];
 export var RenderType_SubscriptionListComponent = i0.ɵcrt({ encapsulation: 0,
     styles: styles_SubscriptionListComponent, data: {} });
@@ -35,16 +37,88 @@ function View_SubscriptionListComponent_1(_l) {
     });
 }
 export function View_SubscriptionListComponent_0(_l) {
-    return i0.ɵvid(0, [(_l()(), i0.ɵted(-1, null, ['\n        '])), (_l()(), i0.ɵeld(1, 0, null, null, 5, 'table', [['class', 'col-xs-12 table table-striped']], null, null, null, null, null)), (_l()(),
-            i0.ɵted(-1, null, ['\n            '])), (_l()(), i0.ɵeld(3, 0, null, null, 3, 'tbody', [], null, null, null, null, null)), (_l()(), i0.ɵand(16777216, null, null, 1, null, View_SubscriptionListComponent_1)), i0.ɵdid(5, 802816, null, 0, i2.NgForOf, [i0.ViewContainerRef, i0.TemplateRef, i0.IterableDiffers], { ngForOf: [0,
-                'ngForOf'] }, null), (_l()(), i0.ɵted(-1, null, ['\n        '])),
-        (_l()(), i0.ɵted(-1, null, ['\n    ']))], function (_ck, _v) {
+    return i0.ɵvid(0, [(_l()(), i0.ɵted(-1, null, ['\n        '])), (_l()(), i0.ɵeld(1, 0, null, null, 25, 'div', [], null, null, null, null, null)), (_l()(), i0.ɵted(-1, null, ['\n        '])), (_l()(), i0.ɵeld(3, 0, null, null, 15, 'div', [], null, null, null, null, null)), (_l()(),
+            i0.ɵted(-1, null, ['\n            '])), (_l()(), i0.ɵeld(5, 0, null, null, 12, 'form', [['novalidate', '']], [[2, 'ng-untouched', null],
+            [2, 'ng-touched', null], [2, 'ng-pristine', null], [2, 'ng-dirty',
+                null], [2, 'ng-valid', null], [2, 'ng-invalid', null],
+            [2, 'ng-pending', null]], [[null, 'submit'], [null,
+                'reset']], function (_v, en, $event) {
+            var ad = true;
+            if (('submit' === en)) {
+                var pd_0 = (i0.ɵnov(_v, 7).onSubmit($event) !== false);
+                ad = (pd_0 && ad);
+            }
+            if (('reset' === en)) {
+                var pd_1 = (i0.ɵnov(_v, 7).onReset() !== false);
+                ad = (pd_1 && ad);
+            }
+            return ad;
+        }, null, null)), i0.ɵdid(6, 16384, null, 0, i3.ɵbf, [], null, null), i0.ɵdid(7, 540672, null, 0, i3.FormGroupDirective, [[8, null], [8, null]], { form: [0, 'form'] }, null), i0.ɵprd(2048, null, i3.ControlContainer, null, [i3.FormGroupDirective]), i0.ɵdid(9, 16384, null, 0, i3.NgControlStatusGroup, [i3.ControlContainer], null, null), (_l()(), i0.ɵted(-1, null, ['\n                '])), (_l()(),
+            i0.ɵeld(11, 0, null, null, 5, 'input', [['class', 'form-control'],
+                ['formControlName', 'pagename'], ['id', 'pagename']], [[2, 'ng-untouched', null],
+                [2, 'ng-touched', null], [2, 'ng-pristine', null], [2, 'ng-dirty',
+                    null], [2, 'ng-valid', null], [2, 'ng-invalid', null],
+                [2, 'ng-pending', null]], [[null, 'change'], [null,
+                    'input'], [null, 'blur'], [null, 'compositionstart'], [null,
+                    'compositionend']], function (_v, en, $event) {
+                var ad = true;
+                var _co = _v.component;
+                if (('input' === en)) {
+                    var pd_0 = (i0.ɵnov(_v, 12)._handleInput($event.target.value) !== false);
+                    ad = (pd_0 && ad);
+                }
+                if (('blur' === en)) {
+                    var pd_1 = (i0.ɵnov(_v, 12).onTouched() !== false);
+                    ad = (pd_1 && ad);
+                }
+                if (('compositionstart' === en)) {
+                    var pd_2 = (i0.ɵnov(_v, 12)._compositionStart() !== false);
+                    ad = (pd_2 && ad);
+                }
+                if (('compositionend' === en)) {
+                    var pd_3 = (i0.ɵnov(_v, 12)._compositionEnd($event.target.value) !== false);
+                    ad = (pd_3 && ad);
+                }
+                if (('change' === en)) {
+                    var pd_4 = (_co.setPages() !== false);
+                    ad = (pd_4 && ad);
+                }
+                return ad;
+            }, null, null)), i0.ɵdid(12, 16384, null, 0, i3.DefaultValueAccessor, [i0.Renderer2, i0.ElementRef, [2, i3.COMPOSITION_BUFFER_MODE]], null, null),
+        i0.ɵprd(1024, null, i3.NG_VALUE_ACCESSOR, function (p0_0) {
+            return [p0_0];
+        }, [i3.DefaultValueAccessor]), i0.ɵdid(14, 671744, null, 0, i3.FormControlName, [[3, i3.ControlContainer], [8, null], [8, null], [2, i3.NG_VALUE_ACCESSOR]], { name: [0, 'name'] }, null), i0.ɵprd(2048, null, i3.NgControl, null, [i3.FormControlName]), i0.ɵdid(16, 16384, null, 0, i3.NgControlStatus, [i3.NgControl], null, null), (_l()(), i0.ɵted(-1, null, ['\n            '])), (_l()(), i0.ɵted(-1, null, ['\n        '])), (_l()(),
+            i0.ɵted(-1, null, ['\n        '])), (_l()(), i0.ɵeld(20, 0, null, null, 5, 'table', [['class', 'col-xs-12 table table-striped']], null, null, null, null, null)), (_l()(), i0.ɵted(-1, null, ['\n            '])), (_l()(), i0.ɵeld(22, 0, null, null, 3, 'tbody', [], null, null, null, null, null)), (_l()(), i0.ɵand(16777216, null, null, 1, null, View_SubscriptionListComponent_1)), i0.ɵdid(24, 802816, null, 0, i2.NgForOf, [i0.ViewContainerRef, i0.TemplateRef, i0.IterableDiffers], { ngForOf: [0, 'ngForOf'] }, null), (_l()(), i0.ɵted(-1, null, ['\n        '])), (_l()(),
+            i0.ɵted(-1, null, ['\n        '])), (_l()(), i0.ɵted(-1, null, ['\n    ']))], function (_ck, _v) {
         var _co = _v.component;
-        var currVal_0 = _co.pages;
-        _ck(_v, 5, 0, currVal_0);
-    }, null);
+        var currVal_7 = _co.myForm;
+        _ck(_v, 7, 0, currVal_7);
+        var currVal_15 = 'pagename';
+        _ck(_v, 14, 0, currVal_15);
+        var currVal_16 = _co.pages;
+        _ck(_v, 24, 0, currVal_16);
+    }, function (_ck, _v) {
+        var currVal_0 = i0.ɵnov(_v, 9).ngClassUntouched;
+        var currVal_1 = i0.ɵnov(_v, 9).ngClassTouched;
+        var currVal_2 = i0.ɵnov(_v, 9).ngClassPristine;
+        var currVal_3 = i0.ɵnov(_v, 9).ngClassDirty;
+        var currVal_4 = i0.ɵnov(_v, 9).ngClassValid;
+        var currVal_5 = i0.ɵnov(_v, 9).ngClassInvalid;
+        var currVal_6 = i0.ɵnov(_v, 9).ngClassPending;
+        _ck(_v, 5, 0, currVal_0, currVal_1, currVal_2, currVal_3, currVal_4, currVal_5, currVal_6);
+        var currVal_8 = i0.ɵnov(_v, 16).ngClassUntouched;
+        var currVal_9 = i0.ɵnov(_v, 16).ngClassTouched;
+        var currVal_10 = i0.ɵnov(_v, 16).ngClassPristine;
+        var currVal_11 = i0.ɵnov(_v, 16).ngClassDirty;
+        var currVal_12 = i0.ɵnov(_v, 16).ngClassValid;
+        var currVal_13 = i0.ɵnov(_v, 16).ngClassInvalid;
+        var currVal_14 = i0.ɵnov(_v, 16).ngClassPending;
+        _ck(_v, 11, 0, currVal_8, currVal_9, currVal_10, currVal_11, currVal_12, currVal_13, currVal_14);
+    });
 }
 export function View_SubscriptionListComponent_Host_0(_l) {
-    return i0.ɵvid(0, [(_l()(), i0.ɵeld(0, 0, null, null, 1, 'app-subsciption', [], null, null, null, View_SubscriptionListComponent_0, RenderType_SubscriptionListComponent)), i0.ɵdid(1, 49152, null, 0, i3.SubscriptionListComponent, [], null, null)], null, null);
+    return i0.ɵvid(0, [(_l()(), i0.ɵeld(0, 0, null, null, 1, 'app-subsciption', [], null, null, null, View_SubscriptionListComponent_0, RenderType_SubscriptionListComponent)), i0.ɵdid(1, 114688, null, 0, i4.SubscriptionListComponent, [i5.PaginaService], null, null)], function (_ck, _v) {
+        _ck(_v, 1, 0);
+    }, null);
 }
-export var SubscriptionListComponentNgFactory = i0.ɵccf('app-subsciption', i3.SubscriptionListComponent, View_SubscriptionListComponent_Host_0, { pages: 'pages' }, {}, []);
+export var SubscriptionListComponentNgFactory = i0.ɵccf('app-subsciption', i4.SubscriptionListComponent, View_SubscriptionListComponent_Host_0, {}, {}, []);

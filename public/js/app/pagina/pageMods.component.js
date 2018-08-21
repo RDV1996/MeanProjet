@@ -13,43 +13,27 @@ import { ActivatedRoute } from "@angular/router";
 import { AuthService } from "../service/auth.service";
 import { PaginaService } from "../service/pagina.service";
 import { PostService } from "../service/post.service";
-var PaginaComponent = /** @class */ (function () {
-    function PaginaComponent(sanitizer, route, authService, paginaService, postService) {
+var PageModsComponent = /** @class */ (function () {
+    function PageModsComponent(sanitizer, route, authService, paginaService, postService) {
         this.sanitizer = sanitizer;
         this.route = route;
         this.authService = authService;
         this.paginaService = paginaService;
         this.postService = postService;
-        this.maxpages = 0;
-        this.pagina = 1;
     }
-    PaginaComponent.prototype.ngOnInit = function () {
+    PageModsComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.route.params.subscribe(function (params) {
             _this.thsiID = params['id'];
             _this.paginaService.getPageById(_this.thsiID).subscribe(function (data) {
                 _this.thispage = _this.paginaService.setPagina(data.pagina);
-                _this.subscribed = _this.isSubscribed();
                 _this.getOwner();
                 _this.getMods();
-                _this.getPosts();
             });
         });
         this.ingelogd = this.authService.isLoggedIn();
     };
-    PaginaComponent.prototype.getPosts = function () {
-        var _this = this;
-        this.postService.getPostsBySub(this.thsiID, this.pagina).subscribe(function (data) {
-            _this.posts = _this.postService.setSubData(data);
-            _this.maxpages = _this.postService.subPages;
-        });
-    };
-    PaginaComponent.prototype.isSubscribed = function () {
-        if (this.authService.isLoggedIn()) {
-            return this.authService.user.subscripties.includes(this.thispage.id);
-        }
-    };
-    PaginaComponent.prototype.getMods = function () {
+    PageModsComponent.prototype.getMods = function () {
         var _this = this;
         this.mods = new Array();
         for (var i = 0; i <= this.thispage.moderators.length; i++) {
@@ -58,48 +42,30 @@ var PaginaComponent = /** @class */ (function () {
             });
         }
     };
-    PaginaComponent.prototype.getOwner = function () {
+    PageModsComponent.prototype.getOwner = function () {
         var _this = this;
         this.authService.getUserById(this.thispage.eigenaar).subscribe(function (data) {
             _this.owner = _this.authService.setTempUser(data);
         });
     };
-    PaginaComponent.prototype.SetSubscribe = function () {
-        var _this = this;
-        if (this.authService.user.subscripties.length == 0) {
-            this.authService.user.subscripties = new Array();
-        }
-        this.authService.user.subscripties.push(this.thispage.id);
-        this.authService.saveUser(this.authService.user).subscribe(function (data) {
-            _this.authService.setUser(data);
-        });
-        this.subscribed = true;
-    };
-    PaginaComponent.prototype.unsubscribe = function () {
-        var _this = this;
-        var toDelete = this.authService.user.subscripties.indexOf(this.thispage.id);
-        if (toDelete >= 0) {
-            this.authService.user.subscripties.splice(toDelete, 1);
-            this.authService.saveUser(this.authService.user).subscribe(function (data) {
-                _this.authService.setUser(data);
-            });
-        }
-        this.subscribed = false;
-    };
-    PaginaComponent.prototype.isOwner = function () {
+    PageModsComponent.prototype.isOwner = function () {
         return this.authService.user.id === this.owner.id;
     };
-    PaginaComponent.prototype.isMod = function () {
+    PageModsComponent.prototype.isMod = function () {
         return this.thispage.moderators.includes(this.authService.user.id);
     };
-    PaginaComponent = __decorate([
+    PageModsComponent.prototype.removeMod = function () {
+    };
+    PageModsComponent.prototype.makeMod = function () {
+    };
+    PageModsComponent = __decorate([
         Component({
-            selector: 'app-pagina',
-            templateUrl: './pagina.component.html',
-            styleUrls: ['./pagina.component.css']
+            selector: 'app-pageMods',
+            templateUrl: './pageMods.component.html',
+            styleUrls: ['./pageMods.component.css']
         }),
         __metadata("design:paramtypes", [DomSanitizer, ActivatedRoute, AuthService, PaginaService, PostService])
-    ], PaginaComponent);
-    return PaginaComponent;
+    ], PageModsComponent);
+    return PageModsComponent;
 }());
-export { PaginaComponent };
+export { PageModsComponent };

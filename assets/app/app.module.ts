@@ -26,6 +26,9 @@ import {MakeCommentComponent} from "./comment/makeComment.component";
 import {CommentService} from "./service/comment.service";
 import {CommentComponent} from "./comment/comment.component";
 import {TopCommentsComponent} from "./comment/TopCommentList.component";
+import {UserPageComponent} from "./user/userPage.component";
+import {PageModsComponent} from "./pagina/pageMods.component";
+
 import {TypeGebruikerService} from "./service/typeGebruiker.service";
 
 @NgModule({
@@ -45,7 +48,9 @@ import {TypeGebruikerService} from "./service/typeGebruiker.service";
         PostListItemComponent,
         MakeCommentComponent,
         CommentComponent,
-        TopCommentsComponent
+        TopCommentsComponent,
+        UserPageComponent,
+        PageModsComponent
     ],
     imports: [
         BrowserModule,

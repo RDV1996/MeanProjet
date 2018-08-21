@@ -42,6 +42,22 @@ export class AuthService {
         this.isUserAdmin();
     }
 
+    setTempUser(data){
+        let user = new User();
+        user.about = data.user.about;
+        user.comments = data.user.comments;
+        user.email = data.user.email;
+        user.posts = data.user.posts;
+        user.subscripties = data.user.subscripties;
+
+        user.typeGebruiker = data.user.typeGebruiker;
+        user.username = data.user.username;
+        user.wachtwoord = data.user.wachtwoord;
+        user.id = data.user._id;
+
+        return user;
+    }
+
 
     signup(user: User) {
         const body = JSON.stringify(user);

@@ -7,20 +7,31 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-import { Component, Input } from "@angular/core";
+import { Component } from "@angular/core";
+import { PaginaService } from "../service/pagina.service";
+import { FormControl, FormGroup } from "@angular/forms";
 var SubscriptionListComponent = /** @class */ (function () {
-    function SubscriptionListComponent() {
+    function SubscriptionListComponent(paginaService) {
+        this.paginaService = paginaService;
     }
-    __decorate([
-        Input(),
-        __metadata("design:type", Array)
-    ], SubscriptionListComponent.prototype, "pages", void 0);
+    SubscriptionListComponent.prototype.ngOnInit = function () {
+        this.myForm = new FormGroup({
+            pagename: new FormControl(null)
+        });
+    };
+    SubscriptionListComponent.prototype.setPages = function () {
+        var _this = this;
+        this.paginaService.getPagesByName(this.myForm.value.pageName).subscribe(function (data) {
+            _this.pages = _this.paginaService.transformPaginas(data);
+        });
+    };
     SubscriptionListComponent = __decorate([
         Component({
             selector: 'app-subsciption',
-            template: "\n        <table class=\"col-xs-12 table table-striped\" >\n            <tr *ngFor=\"let page of pages\">\n                <td>\n                    <a [routerLink]=\"['/p', page.id]\">{{page.naam}}</a>\n\n                </td>\n            </tr>\n        </table>\n    ",
+            template: "\n        <div>\n        <div>\n            <form [formGroup]=\"myForm\">\n                <input id=\"pagename\" class=\"form-control\" formControlName=\"pagename\" (change)=\"setPages()\"/>\n            </form>\n        </div>\n        <table class=\"col-xs-12 table table-striped\" >\n            <tr *ngFor=\"let page of pages\">\n                <td>\n                    <a [routerLink]=\"['/p', page.id]\">{{page.naam}}</a>\n\n                </td>\n            </tr>\n        </table>\n        </div>\n    ",
             styles: [""]
-        })
+        }),
+        __metadata("design:paramtypes", [PaginaService])
     ], SubscriptionListComponent);
     return SubscriptionListComponent;
 }());

@@ -43,6 +43,19 @@ var AuthService = /** @class */ (function () {
         this.user.id = data.user._id;
         this.isUserAdmin();
     };
+    AuthService.prototype.setTempUser = function (data) {
+        var user = new User();
+        user.about = data.user.about;
+        user.comments = data.user.comments;
+        user.email = data.user.email;
+        user.posts = data.user.posts;
+        user.subscripties = data.user.subscripties;
+        user.typeGebruiker = data.user.typeGebruiker;
+        user.username = data.user.username;
+        user.wachtwoord = data.user.wachtwoord;
+        user.id = data.user._id;
+        return user;
+    };
     AuthService.prototype.signup = function (user) {
         var body = JSON.stringify(user);
         var headers = new Headers({ 'Content-type': 'application/json' });

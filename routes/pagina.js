@@ -75,4 +75,22 @@ router.get('/naam/:id', function (req, res, next) {
     });
 });
 
+router.get('/byname/:name', function (req, res, next) {
+    Pagina.find({
+        where:{
+            naam : new RegExp(req.params.name, "i")
+        }
+    },function(err, pagina){
+        if (err){
+            return res.status(500).json({
+                title: 'Er heeft zich een fout voorgedaan',
+                error: err
+            });
+        }
+        res.status(200).json({
+            pagina:pagina
+        })
+    });
+});
+
 module.exports = router;
