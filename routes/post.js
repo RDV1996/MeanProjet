@@ -49,9 +49,16 @@ router.get('/', function (req, res, next) {
         var start;
         var temp = [];
         var page = req.query.page;
-        if (req.query.sub != null) {
+        if (req.query.sub) {
             for (var i = 0; i < posts.length; i++) {
                 if (posts[i].pagina == req.query.sub) {
+                    temp.push(posts[i]);
+                }
+            }
+        }
+        else if (req.query.user) {
+            for (var i = 0; i < posts.length; i++) {
+                if (posts[i].user == req.query.user) {
                     temp.push(posts[i]);
                 }
             }
@@ -124,6 +131,5 @@ router.delete('/:id', function(req, res, next){
         });
     });
 });
-
 
 module.exports = router;

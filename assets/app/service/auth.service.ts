@@ -25,7 +25,7 @@ export class AuthService {
         const headers = new Headers({'Content-type': 'application/json'});
         return this.http.get('https://postsite.herokuapp.com/user/' + id, {headers: headers})
             .map((response: Response) => response.json())
-            .catch(error => Observable.throw("Error in getUserBuId in auth.Service.ts"));
+            .catch(error => Observable.throw("Error in getUserById in auth.Service.ts"));
     }
 
     setUser(data) {
@@ -43,20 +43,31 @@ export class AuthService {
     }
 
     setTempUser(data){
-        let user = new User();
-        user.about = data.user.about;
-        user.comments = data.user.comments;
-        user.email = data.user.email;
-        user.posts = data.user.posts;
-        user.subscripties = data.user.subscripties;
+        let user = data;
+        if(data.user){
+            user = data.user;
+        }
+        let tempuser = new User();
+        tempuser.about = user.about;
+        tempuser.comments = user.comments;
+        tempuser.email = user.email;
+        tempuser.posts = user.posts;
+        tempuser.subscripties = user.subscripties;
 
-        user.typeGebruiker = data.user.typeGebruiker;
-        user.username = data.user.username;
-        user.wachtwoord = data.user.wachtwoord;
-        user.id = data.user._id;
-
-        return user;
+        tempuser.typeGebruiker = user.typeGebruiker;
+        tempuser.username = user.username;
+        tempuser.wachtwoord = user.wachtwoord;
+        tempuser.id = user._id;
+        return tempuser;
     }
+    setUsers(data){
+        let users = new Array();
+        for (let useritem of data.user) {
+            let user = this.setTempUser(useritem);
+            users.push(user);
+        }
+        return users;
+        }
 
 
     signup(user: User) {
@@ -112,17 +123,9 @@ export class AuthService {
     }
 
     getByName(name) {
-        let users: User[];
         const headers = new Headers({'Content-type': 'application/json'});
         return this.http.get('https://postsite.herokuapp.com/user/byname/' + name, {headers: headers})
-            .map((response: Response) => {
-            let tempusers = response.json();
-
-                for(let i =0; i<= tempusers.length; i++){
-                    users.push(this.setTempUser(tempusers[i]));
-                }
-                return users;
-            })
+            .map((response: Response) => response.json())
             .catch((error : Error) => Observable.throw(error));
     }
 }

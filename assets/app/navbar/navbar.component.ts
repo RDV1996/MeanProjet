@@ -85,7 +85,7 @@ export class NavbarComponent implements OnInit{
     setUsers(){
         if(this.myForm.value.username !== ""){
             this.authService.getByName(this.myForm.value.username).subscribe(data => {
-                this.users = data;
+                this.users = this.authService.setUsers(data);
             })
         }
     }

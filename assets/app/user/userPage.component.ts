@@ -17,6 +17,7 @@ export class UserPageComponent implements OnInit {
     thisUser: User;
     ingelogd: boolean;
     thsiID;
+    posts: Post[];
     maxpages=0;
     pagina =1;
 
@@ -27,10 +28,19 @@ export class UserPageComponent implements OnInit {
             this.authService.getUserById(this.thsiID).subscribe(
                 data => {
                     this.thisUser = this.authService.setTempUser(data);
+                    this.getPosts();
                 }
             );
         });
 
         this.ingelogd = this.authService.isLoggedIn();
+
+    }
+    getPosts(){
+        this.postService.getPostsByUser(this.thsiID, this.pagina).subscribe(
+            data => {
+                this.posts = this.postService.setSubData(data);
+            }
+        );
     }
 }

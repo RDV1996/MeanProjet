@@ -67,6 +67,15 @@ export class PostService {
             });
     }
 
+    getPostsByUser(id, page) {
+        const headers = new Headers({'Content-type': 'application/json'});
+        return this.http.get('https://postsite.herokuapp.com/post?user=' + id + '&page=' + page, {headers: headers})
+            .map((response: Response) => response.json())
+            .catch((error: Response) => {
+                return Observable.throw(error.json())
+            });
+    }
+
     getPostById(id){
         const headers = new Headers({'Content-type': 'application/json'});
         return this.http.get('https://postsite.herokuapp.com/post/' + id, {headers: headers})
