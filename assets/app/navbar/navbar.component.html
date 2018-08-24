@@ -9,15 +9,15 @@
                 <li class="nav-item">
                     <a class="nav-link" [routerLink]="['/']">Home</a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item" *ngIf="isLoggedin">
                     <a class="nav-link" data-toggle="modal" data-target="#popup">Subscriptions<span
                             class="caret"></span></a>
                 </li>
                 <li class="nav-item" *ngIf="!isLoggedin">
                     <a class="nav-link" [routerLink]="['/signin']">Login</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" [routerLink]="['/profile', user.id]">{{naam}}</a>
+                <li class="nav-item" *ngIf="isLoggedin">
+                    <a class="nav-link" [routerLink]="['/profile', user.id]">{{user.username}}</a>
                 </li>
                 <li class="nav-item" *ngIf="isLoggedin">
                     <a class="nav-link" (click)="onLogout()">Logout</a>

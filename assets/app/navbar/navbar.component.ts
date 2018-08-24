@@ -38,7 +38,6 @@ export class NavbarComponent implements OnInit{
                         localStorage.setItem('userId', data.user._id);
                         this.authService.LoggedIn.emit();
                         this.authService.setUser(data);
-                        this.naam = authService.user.username;
                         this.getSubscriptions();
                     },
                     error => console.log(error)
@@ -55,11 +54,13 @@ export class NavbarComponent implements OnInit{
         authService.LoggedIn.subscribe(loggedIn => {
             this.isLoggedin = authService.isLoggedIn();
             this.isAdmin = authService.isAdmin;
-            this.naam = authService.user.username
+            this.user = authService.user;
+            this.getSubscriptions();
         });
         authService.LoggedOut.subscribe(loggedIn => {
             this.isLoggedin = authService.isLoggedIn();
-            this.isAdmin = authService.isAdmin;
+            this.isAdmin = authService.isAdmin
+            this.subscribed = new Array();
         });
     }
 
@@ -72,7 +73,8 @@ export class NavbarComponent implements OnInit{
     }
 
     getSubscriptions() {
-        var subs = new Array();
+        this.subscribed = new Array();
+        if(this.authService.user.subscripties){
         for (var i = 0; i < this.authService.user.subscripties.length; i++) {
             this.paginaService.getPageById(this.authService.user.subscripties[i])
                 .subscribe(
@@ -80,6 +82,7 @@ export class NavbarComponent implements OnInit{
                         this.subscribed.push(this.paginaService.setPagina(data.pagina));
                     }
                 )
+        }
         }
     }
     setUsers(){
