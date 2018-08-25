@@ -1,7 +1,7 @@
 <div class="container-full">
     <div class="row">
         <div class="col-md-12">
-        <form [formGroup]="myForm">
+            <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
             <input id="search" class="form-control" formControlName="search" placeholder="Search posts..." autocomplete="off"/>
             <button type="submit" content="Search" class="btn btn-primary">Search</button>
         </form>

@@ -25,24 +25,34 @@ router.post('/', function (req, res, next) {
 });
 
 router.get('/', function (req, res, next) {
-    Comment.find().exec(function (err, comments) {
-        if (err) {
-            return res.status(500).json({
-                title: 'Er heeft zich een fout voorgedaan',
-                error: err
-            });
-        }
-        if (req.query.post == "") {
-            res.status(200).json(comments);
-        }
-        var result = [];
-        for (var i = 0; i < comments.length; i++) {
-            if (comments[i].post == req.query.post) {
-                result.push(comments[i]);
+    if(req.query.post) {
+        Comment.find({
+            post: req.query.post
+        }, function (err, comment) {
+            if (err) {
+                return res.status(500).json({
+                    title: 'Er heeft zich een fout voorgedaan',
+                    error: err
+                });
             }
-        }
-        res.status(200).json(result);
-    })
+            res.status(200).json({
+                comment: comment
+            })
+        });
+    }
+    else{
+        Comment.find(function (err, comment) {
+            if (err) {
+                return res.status(500).json({
+                    title: 'Er heeft zich een fout voorgedaan',
+                    error: err
+                });
+            }
+            res.status(200).json({
+                comment: comment
+            })
+        });
+    }
 });
 
 router.get('/:id', function (req, res, next) {

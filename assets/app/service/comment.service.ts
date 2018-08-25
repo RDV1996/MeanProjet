@@ -38,7 +38,7 @@ export class CommentService {
 
     getComments(id){
         const headers = new Headers({'Content-type': 'application/json'});
-        return this.http.get('https://postsite.herokuapp.com/comment/?post=' + id, {headers: headers})
+        return this.http.get('https://postsite.herokuapp.com/comment?post=' + id, {headers: headers})
             .map((response: Response) => response.json())
             .catch((error: Response) => {
                 return Observable.throw(error.json())

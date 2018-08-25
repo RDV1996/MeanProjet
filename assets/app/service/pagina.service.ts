@@ -69,7 +69,7 @@ export class PaginaService {
 
     getName(id){
         const headers = new Headers({'Content-type': 'application/json'});
-        return this.http.get('https://postsite.herokuapp.com/pagina/naam/' + id, {headers: headers})
+        return this.http.get('https://postsite.herokuapp.com/pagina?name=' + id, {headers: headers})
             .map((response: Response) => response.json())
             .catch((error: Response) => {
                 return Observable.throw(error.json())

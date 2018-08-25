@@ -29,9 +29,11 @@ export class SearchComponent implements OnInit {
     }
 
     onSubmit() {
+
         this.postService.getPostsByName(this.myForm.value.search, this.pagina).subscribe(data => {
             this.posts = this.postService.setSubData(data);
             this.maxpages = this.postService.subPages;
         });
+
     }
 }

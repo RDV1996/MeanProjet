@@ -78,7 +78,7 @@ export class PostService {
 
     getPostsByName(name, page) {
         const headers = new Headers({'Content-type': 'application/json'});
-        return this.http.get('https://postsite.herokuapp.com/post?name=' + name + '&page=' + page, {headers: headers})
+        return this.http.get('https://postsite.herokuapp.com/post?title=' + name + '&page=' + page, {headers: headers})
             .map((response: Response) => response.json())
             .catch((error: Response) => {
                 return Observable.throw(error.json())
