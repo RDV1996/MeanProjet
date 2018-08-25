@@ -2,10 +2,10 @@
     <div class="col-md-6">
         <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
             <div class="form-group">
-                <label for="comment">Comment</label>
+                <label for="comment">{{getHeaderText()}}</label>
                 <textarea maxlength="140" rows="2" id="comment" class="form-control" formControlName="comment" required></textarea>
             </div>
-            <button class="btn btn-primary" type="submit" [disabled]="!myForm.valid">Submit</button>
+            <button class="btn btn-primary" type="submit" [disabled]="!myForm.valid">{{getButtonText()}}</button>
             <button class="btn btn-primary" type="button" (click)="cancel()">Cancel</button>
         </form>
     </div>

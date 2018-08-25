@@ -63,6 +63,13 @@ router.get('/', function (req, res, next) {
                 }
             }
         }
+        if (req.query.sub) {
+            for (var i = 0; i < posts.length; i++) {
+                if (posts[i].pagina == req.query.name) {
+                    temp.push(posts[i]);
+                }
+            }
+        }
         else {
             temp = posts;
         }

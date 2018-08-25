@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from "@angular/core";
+import {Component, Input, OnInit, Output, EventEmitter} from "@angular/core";
 import {PaginaService} from "../service/pagina.service";
 import {Pagina} from "../model/pagina.model";
 import {Post} from "../model/post.model";
@@ -21,6 +21,7 @@ export class CommentComponent implements OnInit {
     hasupvoted: boolean = true;
     showReply: boolean = false;
     childComments: Comment[];
+    edit: boolean = false;
 
     constructor(private authService: AuthService, public commentService: CommentService) {
     }
@@ -33,14 +34,11 @@ export class CommentComponent implements OnInit {
     }
 
     getChildComments(){
-        console.log(this.comment);
         if(this.comment.childComments.length != 0){
             this.childComments = new Array();
             for (var i = 0; i <= this.comment.childComments.length; i++) {
                 this.commentService.getComment(this.comment.childComments[i]).subscribe(data => {
-                    console.log(data);
                     this.childComments.push(this.commentService.setComment(data));
-                    console.log(this.childComments);
                 })
             }
         }
@@ -82,7 +80,23 @@ export class CommentComponent implements OnInit {
     }
 
     onReply() {
-        this.showReply = !this.showReply;
+        if(!this.showReply  || this.edit) {
+            this.showReply = true;
+        }
+        else{
+            this.showReply = false;
+        }
+        this.edit = false;
+    }
+
+    onEdit(){
+        if(!this.showReply || !this.edit) {
+            this.showReply = true;
+        }
+        else{
+            this.showReply = false;
+        }
+        this.edit = true;
     }
 
 }

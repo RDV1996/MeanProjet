@@ -30,6 +30,7 @@ import {UserPageComponent} from "./user/userPage.component";
 import {PageModsComponent} from "./pagina/pageMods.component";
 
 import {TypeGebruikerService} from "./service/typeGebruiker.service";
+import {SearchComponent} from "./search/search.component";
 
 @NgModule({
     declarations: [
@@ -50,7 +51,8 @@ import {TypeGebruikerService} from "./service/typeGebruiker.service";
         CommentComponent,
         TopCommentsComponent,
         UserPageComponent,
-        PageModsComponent
+        PageModsComponent,
+        SearchComponent
     ],
     imports: [
         BrowserModule,
