@@ -28,16 +28,22 @@ export class CommentComponent implements OnInit {
     ngOnInit() {
         this.authService.getName(this.comment.user).subscribe(data => {
             this.userName = data;
+            this.getChildComments();
         });
+    }
+
+    getChildComments(){
         console.log(this.comment);
-        this.childComments = new Array();
-        for (var i = 0; i < this.comment.childComments.length; i++) {
-            this.commentService.getComment(this.comment.childComments[i]).subscribe(data => {
-                this.childComments.push(this.commentService.setComment(data));
-            })
-
+        if(this.comment.childComments.length != 0){
+            this.childComments = new Array();
+            for (var i = 0; i <= this.comment.childComments.length; i++) {
+                this.commentService.getComment(this.comment.childComments[i]).subscribe(data => {
+                    console.log(data);
+                    this.childComments.push(this.commentService.setComment(data));
+                    console.log(this.childComments);
+                })
+            }
         }
-
     }
 
     userhasupv() {

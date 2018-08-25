@@ -47,13 +47,14 @@ export class MakeCommentComponent implements OnInit {
         this.myForm.reset();
         this.commentService.createComment(comment).subscribe(data => {
             var temp = this.commentService.setComment(data);
-            if(this.comment != null){
+            console.log("HELLLOOOOOO");
+            if(this.comment){
                 this.comment.childComments.push(temp.id);
+                console.log(temp);
                 this.commentService.saveComment(this.comment).subscribe(data => {
-
                 });
             }
-            location.reload()
+            //location.reload()
         });
         if(!this.topcomment){
             this.show = false;

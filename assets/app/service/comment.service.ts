@@ -65,7 +65,7 @@ export class CommentService {
     saveComment(comment: Comment) {
         const body = JSON.stringify(comment);
         const headers = new Headers({'Content-Type': 'application/json'});
-        return this.http.put('https://postsite.herokuapp.com/comment/' + comment.id, body, {headers: headers})
+        return this.http.patch('https://postsite.herokuapp.com/comment/' + comment.id, body, {headers: headers})
             .map((response: Response) =>
                 response.json())
             .catch((error: Response) => {

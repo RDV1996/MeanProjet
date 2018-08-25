@@ -58,7 +58,7 @@ router.get('/:id', function (req, res, next) {
 });
 
 
-router.put('/:id', function (req, res, next) {
+router.patch('/:id', function (req, res, next) {
     Comment.findOneAndUpdate({_id: req.params.id}, req.body, function (err, comment) {
         if (err) {
             return res.status(500).json({
