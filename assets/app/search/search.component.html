@@ -1,0 +1,40 @@
+<div class="container-full" *ngIf="thispage != null">
+    <header class="row">
+
+        <nav class="col-md-12">
+            <div class="nav nav-brand nav-header">
+                <h1>{{thispage.naam}}</h1>
+            </div>
+            <div>
+                <p>By: {{owner.username}}</p>
+            </div>
+            <ul class="nav nav-pills">
+                <li *ngIf="!subscribed && !isOwner() && authService.isLoggedIn()" (click)="SetSubscribe()"><a>Subscribe</a>
+                </li>
+                <li *ngIf="subscribed && !isOwner() && authService.isLoggedIn()" (click)="unsubscribe()"><a>unubscribe</a>
+                </li>
+                <li *ngIf="ingelogd" [routerLink]="['/p/makepost', thsiID]"><a>Make Post</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="col-xs-10">
+        <div class="row">
+            <app-postList [posts]="posts"></app-postList>
+        </div>
+        <div class="row">
+            <form>
+                <input class="form-controlcol-xs-4" min="1" max="{{maxpages}}" type="number"
+                       placeholder="Page" value="{{pagina}}" required>
+            </form>
+        </div>
+    </div>
+    <div class="col-xs-2">
+        <p><b>List of mods</b> <a *ngIf="isOwner() || isMod()"
+        [routerLink]="['/p/mods/',thispage.id]">(edit mods)</a></p>
+        <div *ngFor="let mod of mods">
+            <a [routerLink]="['/profile/', mod.id]">
+                {{mod.username}}
+            </a>
+        </div>
+    </div>
+</div>
