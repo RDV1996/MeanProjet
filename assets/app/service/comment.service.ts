@@ -56,8 +56,8 @@ export class CommentService {
 
     setComments(data){
         var comments = Array();
-        for(var i =0; i< data.length; i++){
-            comments.push(this.setComment(data[i]));
+        for(var i =0; i< data.comment.length; i++){
+            comments.push(this.setComment(data.comment[i]));
         }
         return comments;
     }

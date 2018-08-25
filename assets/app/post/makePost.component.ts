@@ -27,8 +27,7 @@ export class MakePostComponent implements OnInit {
     ngOnInit() {
         this.makePostForm = new FormGroup({
             title: new FormControl(null, Validators.required),
-            url: new FormControl(null, Validators.required),
-            isVideo: new FormControl(null, Validators.required)
+            url: new FormControl(null, Validators.required)
         })
     }
 

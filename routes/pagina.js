@@ -91,5 +91,17 @@ router.get('/naam/:id', function (req, res, next) {
     });
 });
 
+router.patch('/:id', function (req, res, next) {
+    Pagina.findOneAndUpdate({_id: req.params.id}, req.body, function (err, pagina) {
+        if (err) {
+            return res.status(500).json({
+                title: 'Er heeft zich een fout voorgedaan',
+                error: err
+            });
+        }
+        res.send(pagina);
+    });
+});
+
 
 module.exports = router;

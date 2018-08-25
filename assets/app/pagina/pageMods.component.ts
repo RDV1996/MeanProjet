@@ -7,6 +7,7 @@ import {AuthService} from "../service/auth.service";
 import {PaginaService} from "../service/pagina.service";
 import {PostService} from "../service/post.service";
 import {User} from "../model/user.model";
+import {FormControl, FormGroup} from "@angular/forms";
 
 @Component({
     selector: 'app-pageMods',
@@ -20,6 +21,7 @@ export class PageModsComponent implements OnInit {
     mods:User[];
     thsiID;
     users:User[];
+    myForm: FormGroup;
 
     constructor(public sanitizer: DomSanitizer,public route: ActivatedRoute, public authService: AuthService, public paginaService: PaginaService, public postService: PostService){}
     ngOnInit() {
@@ -32,6 +34,9 @@ export class PageModsComponent implements OnInit {
                     this.getMods();
                 }
             );
+        });
+        this.myForm = new FormGroup({
+            username: new FormControl(null)
         });
 
         this.ingelogd = this.authService.isLoggedIn();
@@ -50,16 +55,35 @@ export class PageModsComponent implements OnInit {
         });
     }
 
-    isOwner(){
-        return this.authService.user.id === this.owner.id;
+    isOwner(user){
+        return this.thispage.eigenaar === user.id;
     }
-    isMod(){
-        return this.thispage.moderators.includes(this.authService.user.id)
+    setUsers(){
+        if(this.myForm.value.username !== ""){
+            this.authService.getByName(this.myForm.value.username).subscribe(data => {
+                this.users = this.authService.setUsers(data);
+            })
+        }
     }
-    removeMod(){
+    isMod(user){
+        return this.thispage.moderators.includes(user.id)
+    }
+    removeMod(user){
+        this.thispage.moderators.splice(this.thispage.moderators.indexOf(user.id),1);
+        this.paginaService.savePage(this.thispage).subscribe(data => {
+            for(let i =0; i<= this.mods.length; i++){
+                if(this.mods[i].id == user.id){
+                    this.mods.splice(i,1);
+                }
+            }
+        })
+    }
+    makeMod(user) {
+        this.thispage.moderators.push(user.id);
+        this.paginaService.savePage(this.thispage).subscribe(data => {
 
-    }
-    makeMod(){
+            this.mods.push(user);
 
+        })
     }
 }

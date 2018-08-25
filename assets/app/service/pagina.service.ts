@@ -85,4 +85,15 @@ export class PaginaService {
                 return Observable.throw(error.json)
             });
     }
+
+    savePage(page: Pagina) {
+        const body = JSON.stringify(page);
+        const headers = new Headers({'Content-Type': 'application/json'});
+        return this.http.patch('https://postsite.herokuapp.com/pagina/' + page.id, body, {headers: headers})
+            .map((response: Response) =>
+                response.json())
+            .catch((error: Response) => {
+                return Observable.throw(error.json())
+            });
+    }
 }
