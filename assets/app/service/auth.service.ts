@@ -124,7 +124,7 @@ export class AuthService {
 
     getByName(name) {
         const headers = new Headers({'Content-type': 'application/json'});
-        return this.http.get('https://postsite.herokuapp.com/user/byname/' + name, {headers: headers})
+        return this.http.get('https://postsite.herokuapp.com/user?username=' + name, {headers: headers})
             .map((response: Response) => response.json())
             .catch((error : Error) => Observable.throw(error));
     }
