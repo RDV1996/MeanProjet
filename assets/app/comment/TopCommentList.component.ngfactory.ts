@@ -9,10 +9,11 @@
 import * as i0 from '@angular/core';
 import * as i1 from './comment.component.ngfactory';
 import * as i2 from './comment.component';
-import * as i3 from '../service/auth.service';
-import * as i4 from '../service/comment.service';
-import * as i5 from '@angular/common';
-import * as i6 from './TopCommentList.component';
+import * as i3 from '../service/typeGebruiker.service';
+import * as i4 from '../service/auth.service';
+import * as i5 from '../service/comment.service';
+import * as i6 from '@angular/common';
+import * as i7 from './TopCommentList.component';
 const styles_TopCommentsComponent:any[] = [''];
 export const RenderType_TopCommentsComponent:i0.RendererType2 = i0.ɵcrt({encapsulation:0,
     styles:styles_TopCommentsComponent,data:{}});
@@ -20,14 +21,16 @@ function View_TopCommentsComponent_2(_l:any):i0.ɵViewDefinition {
   return i0.ɵvid(0,[(_l()(),i0.ɵeld(0,0,(null as any),(null as any),1,'app-comment',
       ([] as any[]),(null as any),(null as any),(null as any),i1.View_CommentComponent_0,
       i1.RenderType_CommentComponent)),i0.ɵdid(1,114688,(null as any),0,i2.CommentComponent,
-      [i3.AuthService,i4.CommentService],{post:[0,'post'],comment:[1,'comment'],topcomment:[2,
-          'topcomment'],comments:[3,'comments']},(null as any))],(_ck,_v) => {
+      [i3.TypeGebruikerService,i4.AuthService,i5.CommentService],{post:[0,'post'],
+          thiscomment:[1,'thiscomment'],topcomment:[2,'topcomment'],comments:[3,'comments'],
+          page:[4,'page']},(null as any))],(_ck,_v) => {
     var _co:any = _v.component;
     const currVal_0:any = _co.post;
     const currVal_1:any = (<any>_v.parent).context.$implicit;
     const currVal_2:any = true;
     const currVal_3:any = _co.comments;
-    _ck(_v,1,0,currVal_0,currVal_1,currVal_2,currVal_3);
+    const currVal_4:any = _co.pagina;
+    _ck(_v,1,0,currVal_0,currVal_1,currVal_2,currVal_3,currVal_4);
   },(null as any));
 }
 function View_TopCommentsComponent_1(_l:any):i0.ɵViewDefinition {
@@ -35,7 +38,7 @@ function View_TopCommentsComponent_1(_l:any):i0.ɵViewDefinition {
       (null as any),(null as any),(null as any),(null as any),(null as any))),(_l()(),
       i0.ɵted(-1,(null as any),['\n            '])),(_l()(),i0.ɵand(16777216,(null as any),
       (null as any),1,(null as any),View_TopCommentsComponent_2)),i0.ɵdid(3,16384,
-      (null as any),0,i5.NgIf,[i0.ViewContainerRef,i0.TemplateRef],{ngIf:[0,'ngIf']},
+      (null as any),0,i6.NgIf,[i0.ViewContainerRef,i0.TemplateRef],{ngIf:[0,'ngIf']},
       (null as any)),(_l()(),i0.ɵted(-1,(null as any),['\n        ']))],(_ck,_v) => {
     const currVal_0:any = _v.context.$implicit.isTopComment;
     _ck(_v,3,0,currVal_0);
@@ -44,10 +47,10 @@ function View_TopCommentsComponent_1(_l:any):i0.ɵViewDefinition {
 export function View_TopCommentsComponent_0(_l:any):i0.ɵViewDefinition {
   return i0.ɵvid(0,[(_l()(),i0.ɵted(-1,(null as any),['\n        '])),(_l()(),i0.ɵand(16777216,
       (null as any),(null as any),1,(null as any),View_TopCommentsComponent_1)),i0.ɵdid(2,
-      802816,(null as any),0,i5.NgForOf,[i0.ViewContainerRef,i0.TemplateRef,i0.IterableDiffers],
+      802816,(null as any),0,i6.NgForOf,[i0.ViewContainerRef,i0.TemplateRef,i0.IterableDiffers],
       {ngForOf:[0,'ngForOf']},(null as any)),(_l()(),i0.ɵted(-1,(null as any),['\n    ']))],
       (_ck,_v) => {
-        var _co:i6.TopCommentsComponent = _v.component;
+        var _co:i7.TopCommentsComponent = _v.component;
         const currVal_0:any = _co.comments;
         _ck(_v,2,0,currVal_0);
       },(null as any));
@@ -55,12 +58,12 @@ export function View_TopCommentsComponent_0(_l:any):i0.ɵViewDefinition {
 export function View_TopCommentsComponent_Host_0(_l:any):i0.ɵViewDefinition {
   return i0.ɵvid(0,[(_l()(),i0.ɵeld(0,0,(null as any),(null as any),1,'app-topComments',
       ([] as any[]),(null as any),(null as any),(null as any),View_TopCommentsComponent_0,
-      RenderType_TopCommentsComponent)),i0.ɵdid(1,114688,(null as any),0,i6.TopCommentsComponent,
+      RenderType_TopCommentsComponent)),i0.ɵdid(1,114688,(null as any),0,i7.TopCommentsComponent,
       ([] as any[]),(null as any),(null as any))],(_ck,_v) => {
     _ck(_v,1,0);
   },(null as any));
 }
-export const TopCommentsComponentNgFactory:i0.ComponentFactory<i6.TopCommentsComponent> = i0.ɵccf('app-topComments',
-    i6.TopCommentsComponent,View_TopCommentsComponent_Host_0,{comments:'comments',
-        post:'post'},{},([] as any[]));
-//# sourceMappingURL=data:application/json;base64,eyJmaWxlIjoiQzovVXNlcnMvcm9ieWQvRG9jdW1lbnRzL1NjaG9vbC9EaXRKYWFyL01FQU4vUFJPSkVDVC9hc3NldHMvYXBwL2NvbW1lbnQvVG9wQ29tbWVudExpc3QuY29tcG9uZW50Lm5nZmFjdG9yeS50cyIsInZlcnNpb24iOjMsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIm5nOi8vL0M6L1VzZXJzL3JvYnlkL0RvY3VtZW50cy9TY2hvb2wvRGl0SmFhci9NRUFOL1BST0pFQ1QvYXNzZXRzL2FwcC9jb21tZW50L1RvcENvbW1lbnRMaXN0LmNvbXBvbmVudC50cyIsIm5nOi8vL0M6L1VzZXJzL3JvYnlkL0RvY3VtZW50cy9TY2hvb2wvRGl0SmFhci9NRUFOL1BST0pFQ1QvYXNzZXRzL2FwcC9jb21tZW50L1RvcENvbW1lbnRMaXN0LmNvbXBvbmVudC50cy5Ub3BDb21tZW50c0NvbXBvbmVudC5odG1sIiwibmc6Ly8vQzovVXNlcnMvcm9ieWQvRG9jdW1lbnRzL1NjaG9vbC9EaXRKYWFyL01FQU4vUFJPSkVDVC9hc3NldHMvYXBwL2NvbW1lbnQvVG9wQ29tbWVudExpc3QuY29tcG9uZW50LnRzLlRvcENvbW1lbnRzQ29tcG9uZW50X0hvc3QuaHRtbCJdLCJzb3VyY2VzQ29udGVudCI6WyIgIiwiXG4gICAgICAgIDxkaXYgKm5nRm9yPVwibGV0IGNvbW1lbnQgb2YgY29tbWVudHNcIj5cbiAgICAgICAgICAgIDxhcHAtY29tbWVudCBbY29tbWVudF09XCJjb21tZW50XCIgW3Bvc3RdPVwicG9zdFwiICpuZ0lmPVwiY29tbWVudC5pc1RvcENvbW1lbnRcIiBbY29tbWVudHNdPVwiY29tbWVudHNcIiBbdG9wY29tbWVudF09XCJ0cnVlXCI+PC9hcHAtY29tbWVudD5cbiAgICAgICAgPC9kaXY+XG4gICAgIiwiPGFwcC10b3BDb21tZW50cz48L2FwcC10b3BDb21tZW50cz4iXSwibWFwcGluZ3MiOiJBQUFBOzs7Ozs7Ozs7Ozs7Ozs7Ozs7O29CQ0VZO01BQUE7b0NBQUEsVUFBQTtNQUFBO1VBQUE7O0lBQWlDO0lBQXBCO0lBQXFGO0lBQXRCO0lBQTVFLFdBQWlDLFVBQXBCLFVBQXFGLFVBQXRCLFNBQTVFOzs7O29CQURKO01BQUEsd0VBQXNDO2FBQUEsdUNBQ2xDO01BQUEsbUVBQUE7TUFBQTtNQUFBLGVBQW9JO0lBQXJGO0lBQS9DLFdBQStDLFNBQS9DOzs7O29CQUZaLGtEQUNRO01BQUEsaUZBQUE7TUFBQTtNQUFBLHVDQUVNOzs7UUFGRDtRQUFMLFdBQUssU0FBTDs7OztvQkNEUjtNQUFBO3FDQUFBLFVBQUE7TUFBQTtJQUFBOzs7OzsifQ==
+export const TopCommentsComponentNgFactory:i0.ComponentFactory<i7.TopCommentsComponent> = i0.ɵccf('app-topComments',
+    i7.TopCommentsComponent,View_TopCommentsComponent_Host_0,{comments:'comments',
+        post:'post',pagina:'pagina'},{},([] as any[]));
+//# sourceMappingURL=data:application/json;base64,eyJmaWxlIjoiQzovVXNlcnMvUkRWL0Rlc2t0b3AvTWVhblByb2plY3QvYXNzZXRzL2FwcC9jb21tZW50L1RvcENvbW1lbnRMaXN0LmNvbXBvbmVudC5uZ2ZhY3RvcnkudHMiLCJ2ZXJzaW9uIjozLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyJuZzovLy9DOi9Vc2Vycy9SRFYvRGVza3RvcC9NZWFuUHJvamVjdC9hc3NldHMvYXBwL2NvbW1lbnQvVG9wQ29tbWVudExpc3QuY29tcG9uZW50LnRzIiwibmc6Ly8vQzovVXNlcnMvUkRWL0Rlc2t0b3AvTWVhblByb2plY3QvYXNzZXRzL2FwcC9jb21tZW50L1RvcENvbW1lbnRMaXN0LmNvbXBvbmVudC50cy5Ub3BDb21tZW50c0NvbXBvbmVudC5odG1sIiwibmc6Ly8vQzovVXNlcnMvUkRWL0Rlc2t0b3AvTWVhblByb2plY3QvYXNzZXRzL2FwcC9jb21tZW50L1RvcENvbW1lbnRMaXN0LmNvbXBvbmVudC50cy5Ub3BDb21tZW50c0NvbXBvbmVudF9Ib3N0Lmh0bWwiXSwic291cmNlc0NvbnRlbnQiOlsiICIsIlxuICAgICAgICA8ZGl2ICpuZ0Zvcj1cImxldCBjb21tZW50IG9mIGNvbW1lbnRzXCI+XG4gICAgICAgICAgICA8YXBwLWNvbW1lbnQgW3RoaXNjb21tZW50XT1cImNvbW1lbnRcIiBbcG9zdF09XCJwb3N0XCIgKm5nSWY9XCJjb21tZW50LmlzVG9wQ29tbWVudFwiIFtjb21tZW50c109XCJjb21tZW50c1wiIFt0b3Bjb21tZW50XT1cInRydWVcIiBbcGFnZV09XCJwYWdpbmFcIj48L2FwcC1jb21tZW50PlxuICAgICAgICA8L2Rpdj5cbiAgICAiLCI8YXBwLXRvcENvbW1lbnRzPjwvYXBwLXRvcENvbW1lbnRzPiJdLCJtYXBwaW5ncyI6IkFBQUE7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O29CQ0VZO01BQUE7b0NBQUEsVUFBQTtNQUFBO1VBQUE7VUFBQTs7SUFBcUM7SUFBeEI7SUFBeUY7SUFBdEI7SUFBMEM7SUFBMUgsV0FBcUMsVUFBeEIsVUFBeUYsVUFBdEIsVUFBMEMsU0FBMUg7Ozs7b0JBREo7TUFBQSx3RUFBc0M7YUFBQSx1Q0FDbEM7TUFBQSxtRUFBQTtNQUFBO01BQUEsZUFBd0o7SUFBckc7SUFBbkQsV0FBbUQsU0FBbkQ7Ozs7b0JBRlosa0RBQ1E7TUFBQSxpRkFBQTtNQUFBO01BQUEsdUNBRU07OztRQUZEO1FBQUwsV0FBSyxTQUFMOzs7O29CQ0RSO01BQUE7cUNBQUEsVUFBQTtNQUFBO0lBQUE7Ozs7OyJ9

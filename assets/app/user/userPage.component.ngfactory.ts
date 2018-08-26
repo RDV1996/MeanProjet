@@ -8,18 +8,20 @@
 
 import * as i0 from './userPage.component.css.shim.ngstyle';
 import * as i1 from '@angular/core';
-import * as i2 from '@angular/common';
-import * as i3 from './userPage.component';
+import * as i2 from '../post/postList.component.ngfactory';
+import * as i3 from '../post/postList.component';
 import * as i4 from '@angular/platform-browser';
 import * as i5 from '@angular/router';
-import * as i6 from '../service/auth.service';
-import * as i7 from '../service/pagina.service';
-import * as i8 from '../service/post.service';
+import * as i6 from '../service/post.service';
+import * as i7 from '@angular/common';
+import * as i8 from './userPage.component';
+import * as i9 from '../service/auth.service';
+import * as i10 from '../service/pagina.service';
 const styles_UserPageComponent:any[] = [i0.styles];
 export const RenderType_UserPageComponent:i1.RendererType2 = i1.ɵcrt({encapsulation:0,
     styles:styles_UserPageComponent,data:{}});
 function View_UserPageComponent_1(_l:any):i1.ɵViewDefinition {
-  return i1.ɵvid(0,[(_l()(),i1.ɵeld(0,0,(null as any),(null as any),19,'div',[['class',
+  return i1.ɵvid(0,[(_l()(),i1.ɵeld(0,0,(null as any),(null as any),22,'div',[['class',
       'container-full']],(null as any),(null as any),(null as any),(null as any),(null as any))),
       (_l()(),i1.ɵted(-1,(null as any),['\n    '])),(_l()(),i1.ɵeld(2,0,(null as any),
           (null as any),10,'header',[['class','row']],(null as any),(null as any),
@@ -35,13 +37,21 @@ function View_UserPageComponent_1(_l:any):i1.ɵViewDefinition {
           ['',''])),(_l()(),i1.ɵted(-1,(null as any),['\n            '])),(_l()(),
           i1.ɵted(-1,(null as any),['\n        '])),(_l()(),i1.ɵted(-1,(null as any),
           ['\n    '])),(_l()(),i1.ɵted(-1,(null as any),['\n    '])),(_l()(),i1.ɵeld(14,
-          0,(null as any),(null as any),1,'div',[['class','col-xs-10']],(null as any),
+          0,(null as any),(null as any),4,'div',[['class','col-xs-10']],(null as any),
           (null as any),(null as any),(null as any),(null as any))),(_l()(),i1.ɵted(-1,
-          (null as any),['\n\n    '])),(_l()(),i1.ɵted(-1,(null as any),['\n    '])),
-      (_l()(),i1.ɵeld(17,0,(null as any),(null as any),1,'div',[['class','col-xs-2']],
-          (null as any),(null as any),(null as any),(null as any),(null as any))),
-      (_l()(),i1.ɵted(-1,(null as any),['\n\n    '])),(_l()(),i1.ɵted(-1,(null as any),
-          ['\n']))],(null as any),(_ck,_v) => {
+          (null as any),['\n        '])),(_l()(),i1.ɵeld(16,0,(null as any),(null as any),
+          1,'app-postList',([] as any[]),(null as any),(null as any),(null as any),
+          i2.View_PostListComponent_0,i2.RenderType_PostListComponent)),i1.ɵdid(17,
+          49152,(null as any),0,i3.PostListComponent,[i4.DomSanitizer,i5.Router,i6.PostService],
+          {posts:[0,'posts']},(null as any)),(_l()(),i1.ɵted(-1,(null as any),['\n    '])),
+      (_l()(),i1.ɵted(-1,(null as any),['\n    '])),(_l()(),i1.ɵeld(20,0,(null as any),
+          (null as any),1,'div',[['class','col-xs-2']],(null as any),(null as any),
+          (null as any),(null as any),(null as any))),(_l()(),i1.ɵted(-1,(null as any),
+          ['\n\n    '])),(_l()(),i1.ɵted(-1,(null as any),['\n']))],(_ck,_v) => {
+    var _co:any = _v.component;
+    const currVal_1:any = _co.posts;
+    _ck(_v,17,0,currVal_1);
+  },(_ck,_v) => {
     var _co:any = _v.component;
     const currVal_0:any = _co.thisUser.username;
     _ck(_v,9,0,currVal_0);
@@ -49,9 +59,9 @@ function View_UserPageComponent_1(_l:any):i1.ɵViewDefinition {
 }
 export function View_UserPageComponent_0(_l:any):i1.ɵViewDefinition {
   return i1.ɵvid(0,[(_l()(),i1.ɵand(16777216,(null as any),(null as any),1,(null as any),
-      View_UserPageComponent_1)),i1.ɵdid(1,16384,(null as any),0,i2.NgIf,[i1.ViewContainerRef,
+      View_UserPageComponent_1)),i1.ɵdid(1,16384,(null as any),0,i7.NgIf,[i1.ViewContainerRef,
       i1.TemplateRef],{ngIf:[0,'ngIf']},(null as any))],(_ck,_v) => {
-    var _co:i3.UserPageComponent = _v.component;
+    var _co:i8.UserPageComponent = _v.component;
     const currVal_0:any = (_co.thisUser != (null as any));
     _ck(_v,1,0,currVal_0);
   },(null as any));
@@ -59,12 +69,12 @@ export function View_UserPageComponent_0(_l:any):i1.ɵViewDefinition {
 export function View_UserPageComponent_Host_0(_l:any):i1.ɵViewDefinition {
   return i1.ɵvid(0,[(_l()(),i1.ɵeld(0,0,(null as any),(null as any),1,'app-userPage',
       ([] as any[]),(null as any),(null as any),(null as any),View_UserPageComponent_0,
-      RenderType_UserPageComponent)),i1.ɵdid(1,114688,(null as any),0,i3.UserPageComponent,
-      [i4.DomSanitizer,i5.ActivatedRoute,i6.AuthService,i7.PaginaService,i8.PostService],
+      RenderType_UserPageComponent)),i1.ɵdid(1,114688,(null as any),0,i8.UserPageComponent,
+      [i4.DomSanitizer,i5.ActivatedRoute,i9.AuthService,i10.PaginaService,i6.PostService],
       (null as any),(null as any))],(_ck,_v) => {
     _ck(_v,1,0);
   },(null as any));
 }
-export const UserPageComponentNgFactory:i1.ComponentFactory<i3.UserPageComponent> = i1.ɵccf('app-userPage',
-    i3.UserPageComponent,View_UserPageComponent_Host_0,{},{},([] as any[]));
-//# sourceMappingURL=data:application/json;base64,eyJmaWxlIjoiQzovVXNlcnMvcm9ieWQvRG9jdW1lbnRzL1NjaG9vbC9EaXRKYWFyL01FQU4vUFJPSkVDVC9hc3NldHMvYXBwL3VzZXIvdXNlclBhZ2UuY29tcG9uZW50Lm5nZmFjdG9yeS50cyIsInZlcnNpb24iOjMsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIm5nOi8vL0M6L1VzZXJzL3JvYnlkL0RvY3VtZW50cy9TY2hvb2wvRGl0SmFhci9NRUFOL1BST0pFQ1QvYXNzZXRzL2FwcC91c2VyL3VzZXJQYWdlLmNvbXBvbmVudC50cyIsIm5nOi8vL0M6L1VzZXJzL3JvYnlkL0RvY3VtZW50cy9TY2hvb2wvRGl0SmFhci9NRUFOL1BST0pFQ1QvYXNzZXRzL2FwcC91c2VyL3VzZXJwYWdlLmNvbXBvbmVudC5odG1sIiwibmc6Ly8vQzovVXNlcnMvcm9ieWQvRG9jdW1lbnRzL1NjaG9vbC9EaXRKYWFyL01FQU4vUFJPSkVDVC9hc3NldHMvYXBwL3VzZXIvdXNlclBhZ2UuY29tcG9uZW50LnRzLlVzZXJQYWdlQ29tcG9uZW50X0hvc3QuaHRtbCJdLCJzb3VyY2VzQ29udGVudCI6WyIgIiwiPGRpdiBjbGFzcz1cImNvbnRhaW5lci1mdWxsXCIgKm5nSWY9XCJ0aGlzVXNlciAhPSBudWxsXCI+XHJcbiAgICA8aGVhZGVyIGNsYXNzPVwicm93XCI+XHJcblxyXG4gICAgICAgIDxuYXYgY2xhc3M9XCJjb2wtbWQtMTJcIj5cclxuICAgICAgICAgICAgPGRpdiBjbGFzcz1cIm5hdiBuYXYtYnJhbmQgbmF2LWhlYWRlclwiPlxyXG4gICAgICAgICAgICAgICAgPGgxPnt7dGhpc1VzZXIudXNlcm5hbWV9fTwvaDE+XHJcbiAgICAgICAgICAgIDwvZGl2PlxyXG4gICAgICAgIDwvbmF2PlxyXG4gICAgPC9oZWFkZXI+XHJcbiAgICA8ZGl2ICBjbGFzcz1cImNvbC14cy0xMFwiPlxyXG5cclxuICAgIDwvZGl2PlxyXG4gICAgPGRpdiAgIGNsYXNzPVwiY29sLXhzLTJcIj5cclxuXHJcbiAgICA8L2Rpdj5cclxuPC9kaXY+IiwiPGFwcC11c2VyUGFnZT48L2FwcC11c2VyUGFnZT4iXSwibWFwcGluZ3MiOiJBQUFBOzs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7b0JDQUE7TUFBQTtNQUFxRCw4Q0FDakQ7VUFBQTtVQUFBLDRDQUFvQjtVQUFBLG1CQUVoQjtVQUFBO1VBQUEsZ0JBQXVCLHNEQUNuQjtpQkFBQTtjQUFBO01BQXNDLDBEQUNsQztVQUFBO1VBQUEsNENBQUk7VUFBQSxVQUEwQixzREFDNUI7aUJBQUEsbUNBQ0o7VUFBQSxhQUNELDhDQUNUO1VBQUE7VUFBQSwwREFBd0I7VUFBQSw2QkFFbEI7TUFDTjtVQUFBO01BQXdCLGdEQUVsQjtVQUFBOztJQVRVO0lBQUE7Ozs7b0JBTHBCO01BQUEsa0NBQUE7b0JBQUE7O0lBQTRCO0lBQTVCLFdBQTRCLFNBQTVCOzs7O29CQ0FBO01BQUE7a0NBQUEsVUFBQTtNQUFBO01BQUE7SUFBQTs7OzsifQ==
+export const UserPageComponentNgFactory:i1.ComponentFactory<i8.UserPageComponent> = i1.ɵccf('app-userPage',
+    i8.UserPageComponent,View_UserPageComponent_Host_0,{},{},([] as any[]));
+//# sourceMappingURL=data:application/json;base64,eyJmaWxlIjoiQzovVXNlcnMvUkRWL0Rlc2t0b3AvTWVhblByb2plY3QvYXNzZXRzL2FwcC91c2VyL3VzZXJQYWdlLmNvbXBvbmVudC5uZ2ZhY3RvcnkudHMiLCJ2ZXJzaW9uIjozLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyJuZzovLy9DOi9Vc2Vycy9SRFYvRGVza3RvcC9NZWFuUHJvamVjdC9hc3NldHMvYXBwL3VzZXIvdXNlclBhZ2UuY29tcG9uZW50LnRzIiwibmc6Ly8vQzovVXNlcnMvUkRWL0Rlc2t0b3AvTWVhblByb2plY3QvYXNzZXRzL2FwcC91c2VyL3VzZXJwYWdlLmNvbXBvbmVudC5odG1sIiwibmc6Ly8vQzovVXNlcnMvUkRWL0Rlc2t0b3AvTWVhblByb2plY3QvYXNzZXRzL2FwcC91c2VyL3VzZXJQYWdlLmNvbXBvbmVudC50cy5Vc2VyUGFnZUNvbXBvbmVudF9Ib3N0Lmh0bWwiXSwic291cmNlc0NvbnRlbnQiOlsiICIsIjxkaXYgY2xhc3M9XCJjb250YWluZXItZnVsbFwiICpuZ0lmPVwidGhpc1VzZXIgIT0gbnVsbFwiPlxyXG4gICAgPGhlYWRlciBjbGFzcz1cInJvd1wiPlxyXG5cclxuICAgICAgICA8bmF2IGNsYXNzPVwiY29sLW1kLTEyXCI+XHJcbiAgICAgICAgICAgIDxkaXYgY2xhc3M9XCJuYXYgbmF2LWJyYW5kIG5hdi1oZWFkZXJcIj5cclxuICAgICAgICAgICAgICAgIDxoMT57e3RoaXNVc2VyLnVzZXJuYW1lfX08L2gxPlxyXG4gICAgICAgICAgICA8L2Rpdj5cclxuICAgICAgICA8L25hdj5cclxuICAgIDwvaGVhZGVyPlxyXG4gICAgPGRpdiAgY2xhc3M9XCJjb2wteHMtMTBcIj5cclxuICAgICAgICA8YXBwLXBvc3RMaXN0IFtwb3N0c109XCJwb3N0c1wiPjwvYXBwLXBvc3RMaXN0PlxyXG4gICAgPC9kaXY+XHJcbiAgICA8ZGl2ICAgY2xhc3M9XCJjb2wteHMtMlwiPlxyXG5cclxuICAgIDwvZGl2PlxyXG48L2Rpdj4iLCI8YXBwLXVzZXJQYWdlPjwvYXBwLXVzZXJQYWdlPiJdLCJtYXBwaW5ncyI6IkFBQUE7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O29CQ0FBO01BQUE7TUFBcUQsOENBQ2pEO1VBQUE7VUFBQSw0Q0FBb0I7VUFBQSxtQkFFaEI7VUFBQTtVQUFBLGdCQUF1QixzREFDbkI7aUJBQUE7Y0FBQTtNQUFzQywwREFDbEM7VUFBQTtVQUFBLDRDQUFJO1VBQUEsVUFBMEIsc0RBQzVCO2lCQUFBLG1DQUNKO1VBQUEsYUFDRCw4Q0FDVDtVQUFBO1VBQUEsMERBQXdCO1VBQUEsK0JBQ3BCO1VBQUE7cUVBQUEsVUFBQTtVQUFBO1VBQUEsbUNBQTZDO01BQzNDLDhDQUNOO1VBQUE7VUFBQSw0Q0FBd0I7VUFBQSxlQUVsQjs7SUFKWTtJQUFkLFlBQWMsU0FBZDs7O0lBTFk7SUFBQTs7OztvQkFMcEI7TUFBQSxrQ0FBQTtvQkFBQTs7SUFBNEI7SUFBNUIsV0FBNEIsU0FBNUI7Ozs7b0JDQUE7TUFBQTtrQ0FBQSxVQUFBO01BQUE7TUFBQTtJQUFBOzs7OyJ9

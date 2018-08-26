@@ -10,13 +10,15 @@ import * as i0 from './postList.component.css.shim.ngstyle';
 import * as i1 from '@angular/core';
 import * as i2 from './postListItem.component.ngfactory';
 import * as i3 from './postListItem.component';
-import * as i4 from '@angular/platform-browser';
-import * as i5 from '@angular/router';
-import * as i6 from '../service/post.service';
-import * as i7 from '../service/auth.service';
-import * as i8 from '../service/pagina.service';
-import * as i9 from '@angular/common';
-import * as i10 from './postList.component';
+import * as i4 from '../service/comment.service';
+import * as i5 from '../service/typeGebruiker.service';
+import * as i6 from '@angular/platform-browser';
+import * as i7 from '@angular/router';
+import * as i8 from '../service/post.service';
+import * as i9 from '../service/auth.service';
+import * as i10 from '../service/pagina.service';
+import * as i11 from '@angular/common';
+import * as i12 from './postList.component';
 const styles_PostListComponent:any[] = [i0.styles];
 export const RenderType_PostListComponent:i1.RendererType2 = i1.ɵcrt({encapsulation:0,
     styles:styles_PostListComponent,data:{}});
@@ -24,8 +26,9 @@ function View_PostListComponent_1(_l:any):i1.ɵViewDefinition {
   return i1.ɵvid(0,[(_l()(),i1.ɵeld(0,0,(null as any),(null as any),1,'app-postListItem',
       ([] as any[]),(null as any),(null as any),(null as any),i2.View_PostListItemComponent_0,
       i2.RenderType_PostListItemComponent)),i1.ɵdid(1,114688,(null as any),0,i3.PostListItemComponent,
-      [i4.DomSanitizer,i5.Router,i6.PostService,i7.AuthService,i8.PaginaService],{post:[0,
-          'post']},(null as any))],(_ck,_v) => {
+      [i4.CommentService,i5.TypeGebruikerService,i6.DomSanitizer,i7.Router,i8.PostService,
+          i9.AuthService,i10.PaginaService],{post:[0,'post']},(null as any))],(_ck,
+      _v) => {
     const currVal_0:any = _v.context.$implicit;
     _ck(_v,1,0,currVal_0);
   },(null as any));
@@ -38,10 +41,10 @@ export function View_PostListComponent_0(_l:any):i1.ɵViewDefinition {
           (null as any),(null as any),(null as any))),(_l()(),i1.ɵted(-1,(null as any),
           ['\n        '])),(_l()(),i1.ɵand(16777216,(null as any),(null as any),1,
           (null as any),View_PostListComponent_1)),i1.ɵdid(5,802816,(null as any),
-          0,i9.NgForOf,[i1.ViewContainerRef,i1.TemplateRef,i1.IterableDiffers],{ngForOf:[0,
+          0,i11.NgForOf,[i1.ViewContainerRef,i1.TemplateRef,i1.IterableDiffers],{ngForOf:[0,
               'ngForOf']},(null as any)),(_l()(),i1.ɵted(-1,(null as any),['\n    '])),
       (_l()(),i1.ɵted(-1,(null as any),['\n']))],(_ck,_v) => {
-    var _co:i10.PostListComponent = _v.component;
+    var _co:i12.PostListComponent = _v.component;
     const currVal_0:any = _co.posts;
     _ck(_v,5,0,currVal_0);
   },(null as any));
@@ -49,10 +52,10 @@ export function View_PostListComponent_0(_l:any):i1.ɵViewDefinition {
 export function View_PostListComponent_Host_0(_l:any):i1.ɵViewDefinition {
   return i1.ɵvid(0,[(_l()(),i1.ɵeld(0,0,(null as any),(null as any),1,'app-postList',
       ([] as any[]),(null as any),(null as any),(null as any),View_PostListComponent_0,
-      RenderType_PostListComponent)),i1.ɵdid(1,49152,(null as any),0,i10.PostListComponent,
-      [i4.DomSanitizer,i5.Router,i6.PostService],(null as any),(null as any))],(null as any),
+      RenderType_PostListComponent)),i1.ɵdid(1,49152,(null as any),0,i12.PostListComponent,
+      [i6.DomSanitizer,i7.Router,i8.PostService],(null as any),(null as any))],(null as any),
       (null as any));
 }
-export const PostListComponentNgFactory:i1.ComponentFactory<i10.PostListComponent> = i1.ɵccf('app-postList',
-    i10.PostListComponent,View_PostListComponent_Host_0,{posts:'posts'},{},([] as any[]));
-//# sourceMappingURL=data:application/json;base64,eyJmaWxlIjoiQzovVXNlcnMvcm9ieWQvRG9jdW1lbnRzL1NjaG9vbC9EaXRKYWFyL01FQU4vUFJPSkVDVC9hc3NldHMvYXBwL3Bvc3QvcG9zdExpc3QuY29tcG9uZW50Lm5nZmFjdG9yeS50cyIsInZlcnNpb24iOjMsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIm5nOi8vL0M6L1VzZXJzL3JvYnlkL0RvY3VtZW50cy9TY2hvb2wvRGl0SmFhci9NRUFOL1BST0pFQ1QvYXNzZXRzL2FwcC9wb3N0L3Bvc3RMaXN0LmNvbXBvbmVudC50cyIsIm5nOi8vL0M6L1VzZXJzL3JvYnlkL0RvY3VtZW50cy9TY2hvb2wvRGl0SmFhci9NRUFOL1BST0pFQ1QvYXNzZXRzL2FwcC9wb3N0L3Bvc3RMaXN0LmNvbXBvbmVudC5odG1sIiwibmc6Ly8vQzovVXNlcnMvcm9ieWQvRG9jdW1lbnRzL1NjaG9vbC9EaXRKYWFyL01FQU4vUFJPSkVDVC9hc3NldHMvYXBwL3Bvc3QvcG9zdExpc3QuY29tcG9uZW50LnRzLlBvc3RMaXN0Q29tcG9uZW50X0hvc3QuaHRtbCJdLCJzb3VyY2VzQ29udGVudCI6WyIgIiwiPGRpdiBjbGFzcz1cImNvbnRhaW5lci1mdWxsXCI+XHJcbiAgICA8ZGl2IGNsYXNzPVwiY29sLXhzLTEyXCI+XHJcbiAgICAgICAgPGFwcC1wb3N0TGlzdEl0ZW0gKm5nRm9yPVwibGV0IHBvc3Qgb2YgcG9zdHNcIiBbcG9zdF09XCJwb3N0XCI+PC9hcHAtcG9zdExpc3RJdGVtPlxyXG4gICAgPC9kaXY+XHJcbjwvZGl2PiIsIjxhcHAtcG9zdExpc3Q+PC9hcHAtcG9zdExpc3Q+Il0sIm1hcHBpbmdzIjoiQUFBQTs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7b0JDRVE7TUFBQTt5Q0FBQSxVQUFBO01BQUE7VUFBQTtJQUE2QztJQUE3QyxXQUE2QyxTQUE3Qzs7OztvQkFGUjtNQUFBO01BQTRCLDhDQUN4QjtVQUFBO1VBQUEsNENBQXVCO1VBQUEsaUJBQ25CO1VBQUEsZ0RBQUE7VUFBQTtjQUFBLDJCQUE4RTtNQUM1RTs7SUFEZ0I7SUFBbEIsV0FBa0IsU0FBbEI7Ozs7b0JDRlI7TUFBQTtrQ0FBQSxVQUFBO01BQUE7Ozs7In0=
+export const PostListComponentNgFactory:i1.ComponentFactory<i12.PostListComponent> = i1.ɵccf('app-postList',
+    i12.PostListComponent,View_PostListComponent_Host_0,{posts:'posts'},{},([] as any[]));
+//# sourceMappingURL=data:application/json;base64,eyJmaWxlIjoiQzovVXNlcnMvUkRWL0Rlc2t0b3AvTWVhblByb2plY3QvYXNzZXRzL2FwcC9wb3N0L3Bvc3RMaXN0LmNvbXBvbmVudC5uZ2ZhY3RvcnkudHMiLCJ2ZXJzaW9uIjozLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyJuZzovLy9DOi9Vc2Vycy9SRFYvRGVza3RvcC9NZWFuUHJvamVjdC9hc3NldHMvYXBwL3Bvc3QvcG9zdExpc3QuY29tcG9uZW50LnRzIiwibmc6Ly8vQzovVXNlcnMvUkRWL0Rlc2t0b3AvTWVhblByb2plY3QvYXNzZXRzL2FwcC9wb3N0L3Bvc3RMaXN0LmNvbXBvbmVudC5odG1sIiwibmc6Ly8vQzovVXNlcnMvUkRWL0Rlc2t0b3AvTWVhblByb2plY3QvYXNzZXRzL2FwcC9wb3N0L3Bvc3RMaXN0LmNvbXBvbmVudC50cy5Qb3N0TGlzdENvbXBvbmVudF9Ib3N0Lmh0bWwiXSwic291cmNlc0NvbnRlbnQiOlsiICIsIjxkaXYgY2xhc3M9XCJjb250YWluZXItZnVsbFwiPlxyXG4gICAgPGRpdiBjbGFzcz1cImNvbC14cy0xMlwiPlxyXG4gICAgICAgIDxhcHAtcG9zdExpc3RJdGVtICpuZ0Zvcj1cImxldCBwb3N0IG9mIHBvc3RzXCIgW3Bvc3RdPVwicG9zdFwiPjwvYXBwLXBvc3RMaXN0SXRlbT5cclxuICAgIDwvZGl2PlxyXG48L2Rpdj4iLCI8YXBwLXBvc3RMaXN0PjwvYXBwLXBvc3RMaXN0PiJdLCJtYXBwaW5ncyI6IkFBQUE7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7b0JDRVE7TUFBQTt5Q0FBQSxVQUFBO01BQUE7MENBQUE7O0lBQTZDO0lBQTdDLFdBQTZDLFNBQTdDOzs7O29CQUZSO01BQUE7TUFBNEIsOENBQ3hCO1VBQUE7VUFBQSw0Q0FBdUI7VUFBQSxpQkFDbkI7VUFBQSxnREFBQTtVQUFBO2NBQUEsMkJBQThFO01BQzVFOztJQURnQjtJQUFsQixXQUFrQixTQUFsQjs7OztvQkNGUjtNQUFBO2tDQUFBLFVBQUE7TUFBQTs7OzsifQ==

@@ -10,12 +10,13 @@ import * as i0 from './comment.component.css.shim.ngstyle';
 import * as i1 from '@angular/core';
 import * as i2 from '@angular/common';
 import * as i3 from './comment.component';
-import * as i4 from '../service/auth.service';
-import * as i5 from '../service/comment.service';
-import * as i6 from '@angular/router';
-import * as i7 from './makeComment.component.ngfactory';
-import * as i8 from './makeComment.component';
-import * as i9 from '../service/post.service';
+import * as i4 from '../service/typeGebruiker.service';
+import * as i5 from '../service/auth.service';
+import * as i6 from '../service/comment.service';
+import * as i7 from '@angular/router';
+import * as i8 from './makeComment.component.ngfactory';
+import * as i9 from './makeComment.component';
+import * as i10 from '../service/post.service';
 const styles_CommentComponent:any[] = [i0.styles];
 export const RenderType_CommentComponent:i1.RendererType2 = i1.ɵcrt({encapsulation:0,
     styles:styles_CommentComponent,data:{}});
@@ -59,41 +60,61 @@ function View_CommentComponent_5(_l:any):i1.ɵViewDefinition {
     var ad:boolean = true;
     var _co:any = _v.component;
     if (('click' === en)) {
-      const pd_0:any = ((<any>_co.onDelete(_co.comment.id)) !== false);
+      const pd_0:any = ((<any>_co.onDelete(_co.thiscomment.id)) !== false);
       ad = (pd_0 && ad);
     }
     return ad;
   },(null as any),(null as any))),(_l()(),i1.ɵted(-1,(null as any),['\n                Delete\n            ']))],
       (null as any),(null as any));
 }
+function View_CommentComponent_6(_l:any):i1.ɵViewDefinition {
+  return i1.ɵvid(0,[(_l()(),i1.ɵeld(0,0,(null as any),(null as any),1,'button',[['class',
+      'button btn btn-default']],(null as any),[[(null as any),'click']],(_v,en,$event) => {
+    var ad:boolean = true;
+    var _co:any = _v.component;
+    if (('click' === en)) {
+      const pd_0:any = ((<any>_co.onEdit()) !== false);
+      ad = (pd_0 && ad);
+    }
+    return ad;
+  },(null as any),(null as any))),(_l()(),i1.ɵted(-1,(null as any),['\n                Edit\n            ']))],
+      (null as any),(null as any));
+}
 function View_CommentComponent_4(_l:any):i1.ɵViewDefinition {
-  return i1.ɵvid(0,[(_l()(),i1.ɵeld(0,0,(null as any),(null as any),4,'div',[['class',
-      'col-xs-10']],(null as any),(null as any),(null as any),(null as any),(null as any))),
+  return i1.ɵvid(0,[(_l()(),i1.ɵeld(0,0,(null as any),(null as any),7,'div',[['class',
+      'col-xs-2']],(null as any),(null as any),(null as any),(null as any),(null as any))),
       (_l()(),i1.ɵted(-1,(null as any),[' |\n            '])),(_l()(),i1.ɵand(16777216,
           (null as any),(null as any),1,(null as any),View_CommentComponent_5)),i1.ɵdid(3,
           16384,(null as any),0,i2.NgIf,[i1.ViewContainerRef,i1.TemplateRef],{ngIf:[0,
-              'ngIf']},(null as any)),(_l()(),i1.ɵted(-1,(null as any),['\n        ']))],
+              'ngIf']},(null as any)),(_l()(),i1.ɵted(-1,(null as any),[' |\n            '])),
+      (_l()(),i1.ɵand(16777216,(null as any),(null as any),1,(null as any),View_CommentComponent_6)),
+      i1.ɵdid(6,16384,(null as any),0,i2.NgIf,[i1.ViewContainerRef,i1.TemplateRef],
+          {ngIf:[0,'ngIf']},(null as any)),(_l()(),i1.ɵted(-1,(null as any),['\n        ']))],
       (_ck,_v) => {
         var _co:any = _v.component;
-        const currVal_0:any = ((_co.comment.user == _co.authService.user.id) || _co.authService.isAdmin());
+        const currVal_0:any = ((_co.thiscomment.user == _co.authService.user.id) || _co.isAdmin);
         _ck(_v,3,0,currVal_0);
+        const currVal_1:any = (_co.thiscomment.user == _co.authService.user.id);
+        _ck(_v,6,0,currVal_1);
       },(null as any));
 }
-function View_CommentComponent_6(_l:any):i1.ɵViewDefinition {
+function View_CommentComponent_7(_l:any):i1.ɵViewDefinition {
   return i1.ɵvid(0,[(_l()(),i1.ɵeld(0,0,(null as any),(null as any),4,'div',([] as any[]),
       (null as any),(null as any),(null as any),(null as any),(null as any))),(_l()(),
       i1.ɵted(-1,(null as any),['\n        '])),(_l()(),i1.ɵeld(2,0,(null as any),
       (null as any),1,'app-comment',([] as any[]),(null as any),(null as any),(null as any),
       View_CommentComponent_0,RenderType_CommentComponent)),i1.ɵdid(3,114688,(null as any),
-      0,i3.CommentComponent,[i4.AuthService,i5.CommentService],{post:[0,'post'],comment:[1,
-          'comment'],topcomment:[2,'topcomment'],comments:[3,'comments']},(null as any)),
-      (_l()(),i1.ɵted(-1,(null as any),['\n    ']))],(_ck,_v) => {
+      0,i3.CommentComponent,[i4.TypeGebruikerService,i5.AuthService,i6.CommentService],
+      {post:[0,'post'],thiscomment:[1,'thiscomment'],topcomment:[2,'topcomment'],comments:[3,
+          'comments'],parentComment:[4,'parentComment']},(null as any)),(_l()(),i1.ɵted(-1,
+      (null as any),['\n    ']))],(_ck,_v) => {
     var _co:any = _v.component;
     const currVal_0:any = _co.post;
     const currVal_1:any = _v.context.$implicit;
     const currVal_2:any = true;
     const currVal_3:any = _co.comments;
-    _ck(_v,3,0,currVal_0,currVal_1,currVal_2,currVal_3);
+    const currVal_4:any = _co.thiscomment;
+    _ck(_v,3,0,currVal_0,currVal_1,currVal_2,currVal_3,currVal_4);
   },(null as any));
 }
 function View_CommentComponent_1(_l:any):i1.ɵViewDefinition {
@@ -126,8 +147,8 @@ function View_CommentComponent_1(_l:any):i1.ɵViewDefinition {
           ad = (pd_0 && ad);
         }
         return ad;
-      },(null as any),(null as any))),i1.ɵdid(18,671744,(null as any),0,i6.RouterLinkWithHref,
-          [i6.Router,i6.ActivatedRoute,i2.LocationStrategy],{routerLink:[0,'routerLink']},
+      },(null as any),(null as any))),i1.ɵdid(18,671744,(null as any),0,i7.RouterLinkWithHref,
+          [i7.Router,i7.ActivatedRoute,i2.LocationStrategy],{routerLink:[0,'routerLink']},
           (null as any)),i1.ɵpad(19,2),(_l()(),i1.ɵted(20,(null as any),['\n                    ',
           '\n                '])),(_l()(),i1.ɵted(-1,(null as any),['\n            '])),
       (_l()(),i1.ɵted(-1,(null as any),['\n            '])),(_l()(),i1.ɵeld(23,0,(null as any),
@@ -157,41 +178,42 @@ function View_CommentComponent_1(_l:any):i1.ɵViewDefinition {
           i2.NgIf,[i1.ViewContainerRef,i1.TemplateRef],{ngIf:[0,'ngIf']},(null as any)),
       (_l()(),i1.ɵted(-1,(null as any),['\n    '])),(_l()(),i1.ɵted(-1,(null as any),
           ['\n    '])),(_l()(),i1.ɵeld(40,0,(null as any),(null as any),1,'app-MakeComment',
-          ([] as any[]),(null as any),(null as any),(null as any),i7.View_MakeCommentComponent_0,
-          i7.RenderType_MakeCommentComponent)),i1.ɵdid(41,114688,(null as any),0,i8.MakeCommentComponent,
-          [i5.CommentService,i9.PostService,i4.AuthService,i6.Router],{post:[0,'post'],
-              topcomment:[1,'topcomment'],comment:[2,'comment'],show:[3,'show']},(null as any)),
-      (_l()(),i1.ɵted(-1,(null as any),['\n    '])),(_l()(),i1.ɵand(16777216,(null as any),
-          (null as any),1,(null as any),View_CommentComponent_6)),i1.ɵdid(44,802816,
-          (null as any),0,i2.NgForOf,[i1.ViewContainerRef,i1.TemplateRef,i1.IterableDiffers],
-          {ngForOf:[0,'ngForOf']},(null as any)),(_l()(),i1.ɵted(-1,(null as any),
-          ['\n']))],(_ck,_v) => {
+          ([] as any[]),(null as any),(null as any),(null as any),i8.View_MakeCommentComponent_0,
+          i8.RenderType_MakeCommentComponent)),i1.ɵdid(41,114688,(null as any),0,i9.MakeCommentComponent,
+          [i6.CommentService,i10.PostService,i5.AuthService,i7.Router],{post:[0,'post'],
+              topcomment:[1,'topcomment'],comment:[2,'comment'],show:[3,'show'],Edit:[4,
+                  'Edit']},(null as any)),(_l()(),i1.ɵted(-1,(null as any),['\n    '])),
+      (_l()(),i1.ɵand(16777216,(null as any),(null as any),1,(null as any),View_CommentComponent_7)),
+      i1.ɵdid(44,802816,(null as any),0,i2.NgForOf,[i1.ViewContainerRef,i1.TemplateRef,
+          i1.IterableDiffers],{ngForOf:[0,'ngForOf']},(null as any)),(_l()(),i1.ɵted(-1,
+          (null as any),['\n']))],(_ck,_v) => {
     var _co:any = _v.component;
-    const currVal_1:any = ((_co.comment.likes.indexOf(_co.authService.user.id) != (0 - 1)) && _co.authService.isLoggedIn());
+    const currVal_1:any = ((_co.thiscomment.likes.indexOf(_co.authService.user.id) != (0 - 1)) && _co.authService.isLoggedIn());
     _ck(_v,7,0,currVal_1);
-    const currVal_2:any = ((_co.comment.likes.indexOf(_co.authService.user.id) == (0 - 1)) && _co.authService.isLoggedIn());
+    const currVal_2:any = ((_co.thiscomment.likes.indexOf(_co.authService.user.id) == (0 - 1)) && _co.authService.isLoggedIn());
     _ck(_v,10,0,currVal_2);
-    const currVal_5:any = _ck(_v,19,0,'/profile/',_co.comment.user);
+    const currVal_5:any = _ck(_v,19,0,'/profile/',_co.thiscomment.user);
     _ck(_v,18,0,currVal_5);
-    const currVal_8:any = (_co.comment.user === _co.authService.user.id);
+    const currVal_8:any = (_co.thiscomment.user === _co.authService.user.id);
     _ck(_v,37,0,currVal_8);
     const currVal_9:any = _co.post;
     const currVal_10:any = false;
-    const currVal_11:any = _co.comment;
+    const currVal_11:any = _co.thiscomment;
     const currVal_12:any = _co.showReply;
-    _ck(_v,41,0,currVal_9,currVal_10,currVal_11,currVal_12);
-    const currVal_13:any = _co.childComments;
-    _ck(_v,44,0,currVal_13);
+    const currVal_13:any = _co.edit;
+    _ck(_v,41,0,currVal_9,currVal_10,currVal_11,currVal_12,currVal_13);
+    const currVal_14:any = _co.childComments;
+    _ck(_v,44,0,currVal_14);
   },(_ck,_v) => {
     var _co:any = _v.component;
-    const currVal_0:any = _co.comment.likes.length;
+    const currVal_0:any = _co.thiscomment.likes.length;
     _ck(_v,5,0,currVal_0);
     const currVal_3:any = i1.ɵnov(_v,18).target;
     const currVal_4:any = i1.ɵnov(_v,18).href;
     _ck(_v,17,0,currVal_3,currVal_4);
     const currVal_6:any = _co.userName;
     _ck(_v,20,0,currVal_6);
-    const currVal_7:any = _co.comment.body;
+    const currVal_7:any = _co.thiscomment.body;
     _ck(_v,24,0,currVal_7);
   });
 }
@@ -201,7 +223,7 @@ export function View_CommentComponent_0(_l:any):i1.ɵViewDefinition {
       16384,(null as any),0,i2.NgIf,[i1.ViewContainerRef,i1.TemplateRef],{ngIf:[0,
           'ngIf']},(null as any))],(_ck,_v) => {
     var _co:i3.CommentComponent = _v.component;
-    const currVal_0:any = (_co.comment != (null as any));
+    const currVal_0:any = _co.thiscomment;
     _ck(_v,2,0,currVal_0);
   },(null as any));
 }
@@ -209,11 +231,13 @@ export function View_CommentComponent_Host_0(_l:any):i1.ɵViewDefinition {
   return i1.ɵvid(0,[(_l()(),i1.ɵeld(0,0,(null as any),(null as any),1,'app-comment',
       ([] as any[]),(null as any),(null as any),(null as any),View_CommentComponent_0,
       RenderType_CommentComponent)),i1.ɵdid(1,114688,(null as any),0,i3.CommentComponent,
-      [i4.AuthService,i5.CommentService],(null as any),(null as any))],(_ck,_v) => {
-    _ck(_v,1,0);
-  },(null as any));
+      [i4.TypeGebruikerService,i5.AuthService,i6.CommentService],(null as any),(null as any))],
+      (_ck,_v) => {
+        _ck(_v,1,0);
+      },(null as any));
 }
 export const CommentComponentNgFactory:i1.ComponentFactory<i3.CommentComponent> = i1.ɵccf('app-comment',
-    i3.CommentComponent,View_CommentComponent_Host_0,{post:'post',comment:'comment',
-        topcomment:'topcomment',comments:'comments'},{},([] as any[]));
-//# sourceMappingURL=data:application/json;base64,eyJmaWxlIjoiQzovVXNlcnMvcm9ieWQvRG9jdW1lbnRzL1NjaG9vbC9EaXRKYWFyL01FQU4vUFJPSkVDVC9hc3NldHMvYXBwL2NvbW1lbnQvY29tbWVudC5jb21wb25lbnQubmdmYWN0b3J5LnRzIiwidmVyc2lvbiI6Mywic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsibmc6Ly8vQzovVXNlcnMvcm9ieWQvRG9jdW1lbnRzL1NjaG9vbC9EaXRKYWFyL01FQU4vUFJPSkVDVC9hc3NldHMvYXBwL2NvbW1lbnQvY29tbWVudC5jb21wb25lbnQudHMiLCJuZzovLy9DOi9Vc2Vycy9yb2J5ZC9Eb2N1bWVudHMvU2Nob29sL0RpdEphYXIvTUVBTi9QUk9KRUNUL2Fzc2V0cy9hcHAvY29tbWVudC9jb21tZW50LmNvbXBvbmVudC5odG1sIiwibmc6Ly8vQzovVXNlcnMvcm9ieWQvRG9jdW1lbnRzL1NjaG9vbC9EaXRKYWFyL01FQU4vUFJPSkVDVC9hc3NldHMvYXBwL2NvbW1lbnQvY29tbWVudC5jb21wb25lbnQudHMuQ29tbWVudENvbXBvbmVudF9Ib3N0Lmh0bWwiXSwic291cmNlc0NvbnRlbnQiOlsiICIsIlxyXG48ZGl2ICpuZ0lmPVwiY29tbWVudCAhPSBudWxsXCIgY2xhc3M9XCJjb21tZW50XCI+XHJcbiAgICA8ZGl2IGNsYXNzPVwicm93XCI+XHJcbiAgICAgICAgPGRpdiBjbGFzcz1cImNvbC14cy0xIG51bWJlclwiPlxyXG4gICAgICAgICAgICB7e2NvbW1lbnQubGlrZXMubGVuZ3RofX1cclxuICAgICAgICAgICAgPGJ1dHRvbiAqbmdJZj1cImNvbW1lbnQubGlrZXMuaW5kZXhPZihhdXRoU2VydmljZS51c2VyLmlkKSAhPSAtMSAmJiBhdXRoU2VydmljZS5pc0xvZ2dlZEluKClcIiB0eXBlPVwiYnV0dG9uXCJcclxuICAgICAgICAgICAgICAgICAgICBjbGFzcz1cInVwdm90ZWQgYnRuIGJ0bi1kZWZhdWx0XCIgKGNsaWNrKT1cInVwdm90ZSgpXCI+XHJcbiAgICAgICAgICAgIDxzcGFuIGNsYXNzPVwiZ2x5cGhpY29uIGdseXBoaWNvbi1hcnJvdy11cCBzbVwiXHJcbiAgICAgICAgICAgICAgICAgIGFyaWEtaGlkZGVuPVwidHJ1ZVwiPjwvc3Bhbj5cclxuICAgICAgICAgICAgPC9idXR0b24+XHJcbiAgICAgICAgICAgIDxidXR0b24gKm5nSWY9XCJjb21tZW50Lmxpa2VzLmluZGV4T2YoYXV0aFNlcnZpY2UudXNlci5pZCkgPT0gLTEgJiYgYXV0aFNlcnZpY2UuaXNMb2dnZWRJbigpXCIgdHlwZT1cImJ1dHRvblwiXHJcbiAgICAgICAgICAgICAgICAgICAgY2xhc3M9XCJ1blVwdm90ZWQgYnRuIGJ0bi1kZWZhdWx0XCIgKGNsaWNrKT1cInVwdm90ZSgpXCI+XHJcbiAgICAgICAgICAgIDxzcGFuIGNsYXNzPVwiZ2x5cGhpY29uIGdseXBoaWNvbi1hcnJvdy11cCBzbVwiXHJcbiAgICAgICAgICAgICAgICAgIGFyaWEtaGlkZGVuPVwidHJ1ZVwiPjwvc3Bhbj5cclxuICAgICAgICAgICAgPC9idXR0b24+XHJcbiAgICAgICAgPC9kaXY+XHJcbiAgICAgICAgPGRpdiBjbGFzcz1cImNvbC14cy0xMVwiPlxyXG4gICAgICAgICAgICA8ZGl2PlxyXG4gICAgICAgICAgICAgICAgPGEgW3JvdXRlckxpbmtdPVwiWycvcHJvZmlsZS8nLCBjb21tZW50LnVzZXJdXCI+XHJcbiAgICAgICAgICAgICAgICAgICAge3sgdXNlck5hbWUgfX1cclxuICAgICAgICAgICAgICAgIDwvYT5cclxuICAgICAgICAgICAgPC9kaXY+XHJcbiAgICAgICAgICAgIDxkaXY+XHJcbiAgICAgICAgICAgICAgICB7e2NvbW1lbnQuYm9keX19XHJcbiAgICAgICAgICAgIDwvZGl2PlxyXG4gICAgICAgIDwvZGl2PlxyXG4gICAgPC9kaXY+XHJcbiAgICA8ZGl2IGNsYXNzPVwicm93XCI+XHJcbiAgICAgICAgPGRpdiBjbGFzcz1cImNvbC14cy0yXCI+XHJcbiAgICAgICAgICAgIDxidXR0b24gY2xhc3M9XCJidXR0b25cIiAoY2xpY2spPVwib25SZXBseSgpXCI+XHJcbiAgICAgICAgICAgICAgICBSZXBseVxyXG4gICAgICAgICAgICA8L2J1dHRvbj5cclxuICAgICAgICA8L2Rpdj5cclxuICAgICAgICA8ZGl2IGNsYXNzPVwiY29sLXhzLTEwXCIgKm5nSWY9XCJjb21tZW50LnVzZXIgPT09IGF1dGhTZXJ2aWNlLnVzZXIuaWRcIj4mbmJzcDt8XHJcbiAgICAgICAgICAgIDxidXR0b24gKm5nSWY9XCJjb21tZW50LnVzZXIgPT0gYXV0aFNlcnZpY2UudXNlci5pZCB8fCBhdXRoU2VydmljZS5pc0FkbWluKClcIiBjbGFzcz1cImJ1dHRvbiBidG4gYnRuLWRlZmF1bHRcIiAoY2xpY2spPVwib25EZWxldGUoY29tbWVudC5pZClcIj5cclxuICAgICAgICAgICAgICAgIERlbGV0ZVxyXG4gICAgICAgICAgICA8L2J1dHRvbj5cclxuICAgICAgICA8L2Rpdj5cclxuICAgIDwvZGl2PlxyXG4gICAgPGFwcC1NYWtlQ29tbWVudCBbc2hvd109XCJzaG93UmVwbHlcIiBbdG9wY29tbWVudF09XCJmYWxzZVwiIFtwb3N0XT1cInBvc3RcIiBbY29tbWVudF09XCJjb21tZW50XCI+PC9hcHAtTWFrZUNvbW1lbnQ+XHJcbiAgICA8ZGl2ICpuZ0Zvcj1cImxldCBjb21tZW50IG9mIGNoaWxkQ29tbWVudHNcIj5cclxuICAgICAgICA8YXBwLWNvbW1lbnQgW2NvbW1lbnRdPVwiY29tbWVudFwiIFtwb3N0XT1cInBvc3RcIiAgW2NvbW1lbnRzXT1cImNvbW1lbnRzXCIgW3RvcGNvbW1lbnRdPVwidHJ1ZVwiPjwvYXBwLWNvbW1lbnQ+XHJcbiAgICA8L2Rpdj5cclxuPC9kaXY+IiwiPGFwcC1jb21tZW50PjwvYXBwLWNvbW1lbnQ+Il0sIm1hcHBpbmdzIjoiQUFBQTs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7OztvQkNLWTtNQUFBO01BQUE7SUFBQTtJQUFBO0lBQ3dDO01BQUE7TUFBQTtJQUFBO0lBRHhDO0VBQUEsZ0NBQzJEO01BQzNEO1VBQUE7VUFBQSw0Q0FDZ0M7VUFBQTs7O29CQUVoQztNQUFBO01BQUE7SUFBQTtJQUFBO0lBQzBDO01BQUE7TUFBQTtJQUFBO0lBRDFDO0VBQUEsZ0NBQzZEO01BQzdEO1VBQUE7VUFBQSw0Q0FDZ0M7VUFBQTs7O29CQXFCaEM7TUFBQTtJQUFBO0lBQUE7SUFBNEc7TUFBQTtNQUFBO0lBQUE7SUFBNUc7RUFBQSxnQ0FBMkk7Ozs7b0JBRC9JO01BQUE7TUFBb0Usd0RBQ2hFO1VBQUEsNkVBQUE7VUFBQTtjQUFBLHdCQUVTOzs7UUFGRDtRQUFSLFdBQVEsU0FBUjs7OztvQkFNUjtNQUFBLHdFQUEyQzthQUFBLG1DQUN2QztNQUFBO3lEQUFBLFVBQUE7TUFBQTtVQUFBO01BQXdHOztJQUF2RTtJQUFwQjtJQUF5RDtJQUF0QjtJQUFoRCxXQUFpQyxVQUFwQixVQUF5RCxVQUF0QixTQUFoRDs7OztvQkF4Q1I7TUFBQTtNQUE2Qyw4Q0FDekM7VUFBQTtVQUFBLDhCQUFpQjtNQUNiO1VBQUE7TUFBNkIsc0VBRXpCO2lCQUFBO2FBQUE7VUFBQSxpQ0FJUztNQUNUO2FBQUE7VUFBQSxpQ0FJUztNQUNQLGtEQUNOO1VBQUE7VUFBQSw0Q0FBdUI7VUFBQSxxQkFDbkI7VUFBQTtVQUFBLGdCQUFLO01BQ0Q7VUFBQTtRQUFBO1FBQUE7VUFBQTtjQUFBO1VBQUE7UUFBQTtRQUFBO01BQUEsdUNBQUE7VUFBQTtVQUFBLHNCQUFHLE9BQTJDO1VBQUEsd0JBRTFDO01BQ0Ysc0RBQ047VUFBQTtVQUFBLDhCQUFLO1VBQUEsb0JBRUMsa0RBQ0o7aUJBQUEsK0JBQ0o7TUFDTjtVQUFBO01BQWlCLGtEQUNiO1VBQUE7VUFBQSw0Q0FBc0I7VUFBQSxxQkFDbEI7VUFBQTt1QkFBQTtZQUFBO1lBQUE7WUFBdUI7Y0FBQTtjQUFBO1lBQUE7WUFBdkI7VUFBQSxnQ0FBMkM7TUFFbEMsa0RBQ1A7VUFBQSxpQkFDTjtVQUFBLCtDQUFBO2tCQUFBO01BSU0sOENBQ0o7VUFBQSxhQUNOO1VBQUE7NENBQUEsVUFBQTtVQUFBO2NBQUE7TUFBNkcsOENBQzdHO1VBQUEsK0RBQUE7VUFBQTtVQUFBLHVDQUVNO1VBQUE7O0lBckNVO0lBQVIsV0FBUSxTQUFSO0lBS1E7SUFBUixZQUFRLFNBQVI7SUFRTztJQUFILFlBQUcsU0FBSDtJQWVlO0lBQXZCLFlBQXVCLFNBQXZCO0lBTXFEO0lBQXJCO0lBQW1DO0lBQXREO0lBQWpCLFlBQXlELFVBQXJCLFdBQW1DLFdBQXRELFVBQWpCO0lBQ0s7SUFBTCxZQUFLLFVBQUw7OztJQXJDaUM7SUFBQTtJQWVyQjtJQUFBO0lBQUEsWUFBQSxtQkFBQTtJQUE4QztJQUFBO0lBSTdDO0lBQUE7Ozs7b0JBdEJqQiwwQ0FDQTtNQUFBLDZFQUFBO01BQUE7VUFBQTs7SUFBSztJQUFMLFdBQUssU0FBTDs7OztvQkNEQTtNQUFBO2lDQUFBLFVBQUE7TUFBQTtJQUFBOzs7OzsifQ==
+    i3.CommentComponent,View_CommentComponent_Host_0,{post:'post',thiscomment:'thiscomment',
+        topcomment:'topcomment',comments:'comments',page:'page',parentComment:'parentComment'},
+    {},([] as any[]));
+//# sourceMappingURL=data:application/json;base64,eyJmaWxlIjoiQzovVXNlcnMvUkRWL0Rlc2t0b3AvTWVhblByb2plY3QvYXNzZXRzL2FwcC9jb21tZW50L2NvbW1lbnQuY29tcG9uZW50Lm5nZmFjdG9yeS50cyIsInZlcnNpb24iOjMsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIm5nOi8vL0M6L1VzZXJzL1JEVi9EZXNrdG9wL01lYW5Qcm9qZWN0L2Fzc2V0cy9hcHAvY29tbWVudC9jb21tZW50LmNvbXBvbmVudC50cyIsIm5nOi8vL0M6L1VzZXJzL1JEVi9EZXNrdG9wL01lYW5Qcm9qZWN0L2Fzc2V0cy9hcHAvY29tbWVudC9jb21tZW50LmNvbXBvbmVudC5odG1sIiwibmc6Ly8vQzovVXNlcnMvUkRWL0Rlc2t0b3AvTWVhblByb2plY3QvYXNzZXRzL2FwcC9jb21tZW50L2NvbW1lbnQuY29tcG9uZW50LnRzLkNvbW1lbnRDb21wb25lbnRfSG9zdC5odG1sIl0sInNvdXJjZXNDb250ZW50IjpbIiAiLCJcclxuPGRpdiAqbmdJZj1cInRoaXNjb21tZW50XCIgY2xhc3M9XCJjb21tZW50XCI+XHJcbiAgICA8ZGl2IGNsYXNzPVwicm93XCI+XHJcbiAgICAgICAgPGRpdiBjbGFzcz1cImNvbC14cy0xIG51bWJlclwiPlxyXG4gICAgICAgICAgICB7e3RoaXNjb21tZW50Lmxpa2VzLmxlbmd0aH19XHJcbiAgICAgICAgICAgIDxidXR0b24gKm5nSWY9XCJ0aGlzY29tbWVudC5saWtlcy5pbmRleE9mKGF1dGhTZXJ2aWNlLnVzZXIuaWQpICE9IC0xICYmIGF1dGhTZXJ2aWNlLmlzTG9nZ2VkSW4oKVwiIHR5cGU9XCJidXR0b25cIlxyXG4gICAgICAgICAgICAgICAgICAgIGNsYXNzPVwidXB2b3RlZCBidG4gYnRuLWRlZmF1bHRcIiAoY2xpY2spPVwidXB2b3RlKClcIj5cclxuICAgICAgICAgICAgPHNwYW4gY2xhc3M9XCJnbHlwaGljb24gZ2x5cGhpY29uLWFycm93LXVwIHNtXCJcclxuICAgICAgICAgICAgICAgICAgYXJpYS1oaWRkZW49XCJ0cnVlXCI+PC9zcGFuPlxyXG4gICAgICAgICAgICA8L2J1dHRvbj5cclxuICAgICAgICAgICAgPGJ1dHRvbiAqbmdJZj1cInRoaXNjb21tZW50Lmxpa2VzLmluZGV4T2YoYXV0aFNlcnZpY2UudXNlci5pZCkgPT0gLTEgJiYgYXV0aFNlcnZpY2UuaXNMb2dnZWRJbigpXCIgdHlwZT1cImJ1dHRvblwiXHJcbiAgICAgICAgICAgICAgICAgICAgY2xhc3M9XCJ1blVwdm90ZWQgYnRuIGJ0bi1kZWZhdWx0XCIgKGNsaWNrKT1cInVwdm90ZSgpXCI+XHJcbiAgICAgICAgICAgIDxzcGFuIGNsYXNzPVwiZ2x5cGhpY29uIGdseXBoaWNvbi1hcnJvdy11cCBzbVwiXHJcbiAgICAgICAgICAgICAgICAgIGFyaWEtaGlkZGVuPVwidHJ1ZVwiPjwvc3Bhbj5cclxuICAgICAgICAgICAgPC9idXR0b24+XHJcbiAgICAgICAgPC9kaXY+XHJcbiAgICAgICAgPGRpdiBjbGFzcz1cImNvbC14cy0xMVwiPlxyXG4gICAgICAgICAgICA8ZGl2PlxyXG4gICAgICAgICAgICAgICAgPGEgW3JvdXRlckxpbmtdPVwiWycvcHJvZmlsZS8nLCB0aGlzY29tbWVudC51c2VyXVwiPlxyXG4gICAgICAgICAgICAgICAgICAgIHt7IHVzZXJOYW1lIH19XHJcbiAgICAgICAgICAgICAgICA8L2E+XHJcbiAgICAgICAgICAgIDwvZGl2PlxyXG4gICAgICAgICAgICA8ZGl2PlxyXG4gICAgICAgICAgICAgICAge3t0aGlzY29tbWVudC5ib2R5fX1cclxuICAgICAgICAgICAgPC9kaXY+XHJcbiAgICAgICAgPC9kaXY+XHJcbiAgICA8L2Rpdj5cclxuICAgIDxkaXYgY2xhc3M9XCJyb3dcIj5cclxuICAgICAgICA8ZGl2IGNsYXNzPVwiY29sLXhzLTJcIj5cclxuICAgICAgICAgICAgPGJ1dHRvbiBjbGFzcz1cImJ1dHRvblwiIChjbGljayk9XCJvblJlcGx5KClcIj5cclxuICAgICAgICAgICAgICAgIFJlcGx5XHJcbiAgICAgICAgICAgIDwvYnV0dG9uPlxyXG4gICAgICAgIDwvZGl2PlxyXG4gICAgICAgIDxkaXYgY2xhc3M9XCJjb2wteHMtMlwiICpuZ0lmPVwidGhpc2NvbW1lbnQudXNlciA9PT0gYXV0aFNlcnZpY2UudXNlci5pZFwiPiZuYnNwO3xcclxuICAgICAgICAgICAgPGJ1dHRvbiAqbmdJZj1cInRoaXNjb21tZW50LnVzZXIgPT0gYXV0aFNlcnZpY2UudXNlci5pZCB8fCBpc0FkbWluXCIgY2xhc3M9XCJidXR0b24gYnRuIGJ0bi1kZWZhdWx0XCIgKGNsaWNrKT1cIm9uRGVsZXRlKHRoaXNjb21tZW50LmlkKVwiPlxyXG4gICAgICAgICAgICAgICAgRGVsZXRlXHJcbiAgICAgICAgICAgIDwvYnV0dG9uPiB8XHJcbiAgICAgICAgICAgIDxidXR0b24gKm5nSWY9XCJ0aGlzY29tbWVudC51c2VyID09IGF1dGhTZXJ2aWNlLnVzZXIuaWRcIiBjbGFzcz1cImJ1dHRvbiBidG4gYnRuLWRlZmF1bHRcIiAoY2xpY2spPVwib25FZGl0KClcIj5cclxuICAgICAgICAgICAgICAgIEVkaXRcclxuICAgICAgICAgICAgPC9idXR0b24+XHJcbiAgICAgICAgPC9kaXY+XHJcbiAgICA8L2Rpdj5cclxuICAgIDxhcHAtTWFrZUNvbW1lbnQgW3Nob3ddPVwic2hvd1JlcGx5XCIgW3RvcGNvbW1lbnRdPVwiZmFsc2VcIiBbcG9zdF09XCJwb3N0XCIgW2NvbW1lbnRdPVwidGhpc2NvbW1lbnRcIiBbRWRpdF09XCJlZGl0XCI+PC9hcHAtTWFrZUNvbW1lbnQ+XHJcbiAgICA8ZGl2ICpuZ0Zvcj1cImxldCBjb21tZW50IG9mIGNoaWxkQ29tbWVudHNcIj5cclxuICAgICAgICA8YXBwLWNvbW1lbnQgW3RoaXNjb21tZW50XT1cImNvbW1lbnRcIiBbcG9zdF09XCJwb3N0XCIgIFtjb21tZW50c109XCJjb21tZW50c1wiIFt0b3Bjb21tZW50XT1cInRydWVcIiBbcGFyZW50Q29tbWVudF09XCJ0aGlzY29tbWVudFwiPjwvYXBwLWNvbW1lbnQ+XHJc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

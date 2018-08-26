@@ -10,11 +10,12 @@ import * as i0 from './pageMods.component.css.shim.ngstyle';
 import * as i1 from '@angular/core';
 import * as i2 from '@angular/router';
 import * as i3 from '@angular/common';
-import * as i4 from './pageMods.component';
-import * as i5 from '@angular/platform-browser';
-import * as i6 from '../service/auth.service';
-import * as i7 from '../service/pagina.service';
-import * as i8 from '../service/post.service';
+import * as i4 from '@angular/forms';
+import * as i5 from './pageMods.component';
+import * as i6 from '@angular/platform-browser';
+import * as i7 from '../service/auth.service';
+import * as i8 from '../service/pagina.service';
+import * as i9 from '../service/post.service';
 const styles_PageModsComponent:any[] = [i0.styles];
 export const RenderType_PageModsComponent:i1.RendererType2 = i1.ɵcrt({encapsulation:0,
     styles:styles_PageModsComponent,data:{}});
@@ -24,7 +25,7 @@ function View_PageModsComponent_3(_l:any):i1.ɵViewDefinition {
     var ad:boolean = true;
     var _co:any = _v.component;
     if (('click' === en)) {
-      const pd_0:any = ((<any>_co.removeMod()) !== false);
+      const pd_0:any = ((<any>_co.removeMod((<any>_v.parent).context.$implicit)) !== false);
       ad = (pd_0 && ad);
     }
     return ad;
@@ -76,9 +77,9 @@ function View_PageModsComponent_2(_l:any):i1.ɵViewDefinition {
     var _co:any = _v.component;
     const currVal_2:any = _ck(_v,6,0,'/profile/',_v.context.$implicit.id);
     _ck(_v,5,0,currVal_2);
-    const currVal_4:boolean = !_co.isOwner();
+    const currVal_4:boolean = !_co.isOwner(_v.context.$implicit);
     _ck(_v,13,0,currVal_4);
-    const currVal_5:any = _co.isOwner();
+    const currVal_5:any = _co.isOwner(_v.context.$implicit);
     _ck(_v,16,0,currVal_5);
   },(_ck,_v) => {
     const currVal_0:any = i1.ɵnov(_v,5).target;
@@ -88,8 +89,80 @@ function View_PageModsComponent_2(_l:any):i1.ɵViewDefinition {
     _ck(_v,7,0,currVal_3);
   });
 }
+function View_PageModsComponent_6(_l:any):i1.ɵViewDefinition {
+  return i1.ɵvid(0,[(_l()(),i1.ɵeld(0,0,(null as any),(null as any),1,'button',[['class',
+      'btn']],(null as any),[[(null as any),'click']],(_v,en,$event) => {
+    var ad:boolean = true;
+    var _co:any = _v.component;
+    if (('click' === en)) {
+      const pd_0:any = ((<any>_co.makeMod((<any>_v.parent).context.$implicit)) !== false);
+      ad = (pd_0 && ad);
+    }
+    return ad;
+  },(null as any),(null as any))),(_l()(),i1.ɵted(-1,(null as any),['Make Mod']))],
+      (null as any),(null as any));
+}
+function View_PageModsComponent_7(_l:any):i1.ɵViewDefinition {
+  return i1.ɵvid(0,[(_l()(),i1.ɵeld(0,0,(null as any),(null as any),1,'p',([] as any[]),
+      (null as any),(null as any),(null as any),(null as any),(null as any))),(_l()(),
+      i1.ɵted(-1,(null as any),['owner\n                    ']))],(null as any),(null as any));
+}
+function View_PageModsComponent_8(_l:any):i1.ɵViewDefinition {
+  return i1.ɵvid(0,[(_l()(),i1.ɵeld(0,0,(null as any),(null as any),1,'p',([] as any[]),
+      (null as any),(null as any),(null as any),(null as any),(null as any))),(_l()(),
+      i1.ɵted(-1,(null as any),['Mod']))],(null as any),(null as any));
+}
+function View_PageModsComponent_5(_l:any):i1.ɵViewDefinition {
+  return i1.ɵvid(0,[(_l()(),i1.ɵeld(0,0,(null as any),(null as any),20,'tr',([] as any[]),
+      (null as any),(null as any),(null as any),(null as any),(null as any))),(_l()(),
+      i1.ɵted(-1,(null as any),['\n                '])),(_l()(),i1.ɵeld(2,0,(null as any),
+      (null as any),6,'td',([] as any[]),(null as any),(null as any),(null as any),
+      (null as any),(null as any))),(_l()(),i1.ɵted(-1,(null as any),['\n                    '])),
+      (_l()(),i1.ɵeld(4,0,(null as any),(null as any),3,'a',([] as any[]),[[1,'target',
+          0],[8,'href',4]],[[(null as any),'click']],(_v,en,$event) => {
+        var ad:boolean = true;
+        if (('click' === en)) {
+          const pd_0:any = ((<any>i1.ɵnov(_v,5).onClick($event.button,$event.ctrlKey,
+              $event.metaKey,$event.shiftKey)) !== false);
+          ad = (pd_0 && ad);
+        }
+        return ad;
+      },(null as any),(null as any))),i1.ɵdid(5,671744,(null as any),0,i2.RouterLinkWithHref,
+          [i2.Router,i2.ActivatedRoute,i3.LocationStrategy],{routerLink:[0,'routerLink']},
+          (null as any)),i1.ɵpad(6,2),(_l()(),i1.ɵted(7,(null as any),['',''])),(_l()(),
+          i1.ɵted(-1,(null as any),['\n\n                '])),(_l()(),i1.ɵted(-1,(null as any),
+          ['\n                '])),(_l()(),i1.ɵeld(10,0,(null as any),(null as any),
+          9,'td',([] as any[]),(null as any),(null as any),(null as any),(null as any),
+          (null as any))),(_l()(),i1.ɵted(-1,(null as any),['\n                    '])),
+      (_l()(),i1.ɵand(16777216,(null as any),(null as any),1,(null as any),View_PageModsComponent_6)),
+      i1.ɵdid(13,16384,(null as any),0,i3.NgIf,[i1.ViewContainerRef,i1.TemplateRef],
+          {ngIf:[0,'ngIf']},(null as any)),(_l()(),i1.ɵted(-1,(null as any),['\n                    '])),
+      (_l()(),i1.ɵand(16777216,(null as any),(null as any),1,(null as any),View_PageModsComponent_7)),
+      i1.ɵdid(16,16384,(null as any),0,i3.NgIf,[i1.ViewContainerRef,i1.TemplateRef],
+          {ngIf:[0,'ngIf']},(null as any)),(_l()(),i1.ɵand(16777216,(null as any),
+          (null as any),1,(null as any),View_PageModsComponent_8)),i1.ɵdid(18,16384,
+          (null as any),0,i3.NgIf,[i1.ViewContainerRef,i1.TemplateRef],{ngIf:[0,'ngIf']},
+          (null as any)),(_l()(),i1.ɵted(-1,(null as any),['\n                '])),
+      (_l()(),i1.ɵted(-1,(null as any),['\n            ']))],(_ck,_v) => {
+    var _co:any = _v.component;
+    const currVal_2:any = _ck(_v,6,0,'/profile',_v.context.$implicit.id);
+    _ck(_v,5,0,currVal_2);
+    const currVal_4:boolean = (!_co.isOwner(_v.context.$implicit) && !_co.isMod(_v.context.$implicit));
+    _ck(_v,13,0,currVal_4);
+    const currVal_5:any = _co.isOwner(_v.context.$implicit);
+    _ck(_v,16,0,currVal_5);
+    const currVal_6:any = (_co.isMod(_v.context.$implicit) && !_co.isOwner(_v.context.$implicit));
+    _ck(_v,18,0,currVal_6);
+  },(_ck,_v) => {
+    const currVal_0:any = i1.ɵnov(_v,5).target;
+    const currVal_1:any = i1.ɵnov(_v,5).href;
+    _ck(_v,4,0,currVal_0,currVal_1);
+    const currVal_3:any = _v.context.$implicit.username;
+    _ck(_v,7,0,currVal_3);
+  });
+}
 function View_PageModsComponent_1(_l:any):i1.ɵViewDefinition {
-  return i1.ɵvid(0,[(_l()(),i1.ɵeld(0,0,(null as any),(null as any),41,'div',[['class',
+  return i1.ɵvid(0,[(_l()(),i1.ɵeld(0,0,(null as any),(null as any),68,'div',[['class',
       'container-full']],(null as any),(null as any),(null as any),(null as any),(null as any))),
       (_l()(),i1.ɵted(-1,(null as any),['\n    '])),(_l()(),i1.ɵeld(2,0,(null as any),
           (null as any),16,'header',[['class','row']],(null as any),(null as any),
@@ -111,7 +184,7 @@ function View_PageModsComponent_1(_l:any):i1.ɵViewDefinition {
           (null as any),['By: ',''])),(_l()(),i1.ɵted(-1,(null as any),['\n            '])),
       (_l()(),i1.ɵted(-1,(null as any),['\n        '])),(_l()(),i1.ɵted(-1,(null as any),
           ['\n    '])),(_l()(),i1.ɵted(-1,(null as any),['\n    '])),(_l()(),i1.ɵeld(20,
-          0,(null as any),(null as any),20,'div',[['class','col-xs-12']],(null as any),
+          0,(null as any),(null as any),20,'div',[['class','col-xs-10']],(null as any),
           (null as any),(null as any),(null as any),(null as any))),(_l()(),i1.ɵted(-1,
           (null as any),['\n        '])),(_l()(),i1.ɵeld(22,0,(null as any),(null as any),
           17,'div',[['class','row']],(null as any),(null as any),(null as any),(null as any),
@@ -136,23 +209,124 @@ function View_PageModsComponent_1(_l:any):i1.ɵViewDefinition {
           {ngForOf:[0,'ngForOf']},(null as any)),(_l()(),i1.ɵted(-1,(null as any),
           ['\n                '])),(_l()(),i1.ɵted(-1,(null as any),['\n            '])),
       (_l()(),i1.ɵted(-1,(null as any),['\n        '])),(_l()(),i1.ɵted(-1,(null as any),
-          ['\n    '])),(_l()(),i1.ɵted(-1,(null as any),['\n']))],(_ck,_v) => {
-    var _co:any = _v.component;
-    const currVal_2:any = _co.mods;
-    _ck(_v,36,0,currVal_2);
-  },(_ck,_v) => {
-    var _co:any = _v.component;
-    const currVal_0:any = _co.thispage.naam;
-    _ck(_v,9,0,currVal_0);
-    const currVal_1:any = _co.owner.username;
-    _ck(_v,15,0,currVal_1);
-  });
+          ['\n    '])),(_l()(),i1.ɵted(-1,(null as any),['\n    '])),(_l()(),i1.ɵeld(42,
+          0,(null as any),(null as any),25,'div',[['class','col-xs-2']],(null as any),
+          (null as any),(null as any),(null as any),(null as any))),(_l()(),i1.ɵted(-1,
+          (null as any),['\n        '])),(_l()(),i1.ɵeld(44,0,(null as any),(null as any),
+          15,'div',([] as any[]),(null as any),(null as any),(null as any),(null as any),
+          (null as any))),(_l()(),i1.ɵted(-1,(null as any),['\n            '])),(_l()(),
+          i1.ɵeld(46,0,(null as any),(null as any),12,'form',[['novalidate','']],[[2,
+              'ng-untouched',(null as any)],[2,'ng-touched',(null as any)],[2,'ng-pristine',
+              (null as any)],[2,'ng-dirty',(null as any)],[2,'ng-valid',(null as any)],
+              [2,'ng-invalid',(null as any)],[2,'ng-pending',(null as any)]],[[(null as any),
+              'submit'],[(null as any),'reset']],(_v,en,$event) => {
+            var ad:boolean = true;
+            if (('submit' === en)) {
+              const pd_0:any = ((<any>i1.ɵnov(_v,48).onSubmit($event)) !== false);
+              ad = (pd_0 && ad);
+            }
+            if (('reset' === en)) {
+              const pd_1:any = ((<any>i1.ɵnov(_v,48).onReset()) !== false);
+              ad = (pd_1 && ad);
+            }
+            return ad;
+          },(null as any),(null as any))),i1.ɵdid(47,16384,(null as any),0,i4.ɵbf,
+          ([] as any[]),(null as any),(null as any)),i1.ɵdid(48,540672,(null as any),
+          0,i4.FormGroupDirective,[[8,(null as any)],[8,(null as any)]],{form:[0,'form']},
+          (null as any)),i1.ɵprd(2048,(null as any),i4.ControlContainer,(null as any),
+          [i4.FormGroupDirective]),i1.ɵdid(50,16384,(null as any),0,i4.NgControlStatusGroup,
+          [i4.ControlContainer],(null as any),(null as any)),(_l()(),i1.ɵted(-1,(null as any),
+          ['\n                '])),(_l()(),i1.ɵeld(52,0,(null as any),(null as any),
+          5,'input',[['autocomplete','off'],['class','form-control'],['formControlName',
+              'username'],['id','username'],['placeholder','Search pages...']],[[2,
+              'ng-untouched',(null as any)],[2,'ng-touched',(null as any)],[2,'ng-pristine',
+              (null as any)],[2,'ng-dirty',(null as any)],[2,'ng-valid',(null as any)],
+              [2,'ng-invalid',(null as any)],[2,'ng-pending',(null as any)]],[[(null as any),
+              'input'],[(null as any),'blur'],[(null as any),'compositionstart'],[(null as any),
+              'compositionend']],(_v,en,$event) => {
+            var ad:boolean = true;
+            var _co:any = _v.component;
+            if (('input' === en)) {
+              const pd_0:any = ((<any>i1.ɵnov(_v,53)._handleInput($event.target.value)) !== false);
+              ad = (pd_0 && ad);
+            }
+            if (('blur' === en)) {
+              const pd_1:any = ((<any>i1.ɵnov(_v,53).onTouched()) !== false);
+              ad = (pd_1 && ad);
+            }
+            if (('compositionstart' === en)) {
+              const pd_2:any = ((<any>i1.ɵnov(_v,53)._compositionStart()) !== false);
+              ad = (pd_2 && ad);
+            }
+            if (('compositionend' === en)) {
+              const pd_3:any = ((<any>i1.ɵnov(_v,53)._compositionEnd($event.target.value)) !== false);
+              ad = (pd_3 && ad);
+            }
+            if (('input' === en)) {
+              const pd_4:any = ((<any>_co.setUsers()) !== false);
+              ad = (pd_4 && ad);
+            }
+            return ad;
+          },(null as any),(null as any))),i1.ɵdid(53,16384,(null as any),0,i4.DefaultValueAccessor,
+          [i1.Renderer2,i1.ElementRef,[2,i4.COMPOSITION_BUFFER_MODE]],(null as any),
+          (null as any)),i1.ɵprd(1024,(null as any),i4.NG_VALUE_ACCESSOR,(p0_0:any) => {
+        return [p0_0];
+      },[i4.DefaultValueAccessor]),i1.ɵdid(55,671744,(null as any),0,i4.FormControlName,
+          [[3,i4.ControlContainer],[8,(null as any)],[8,(null as any)],[2,i4.NG_VALUE_ACCESSOR]],
+          {name:[0,'name']},(null as any)),i1.ɵprd(2048,(null as any),i4.NgControl,
+          (null as any),[i4.FormControlName]),i1.ɵdid(57,16384,(null as any),0,i4.NgControlStatus,
+          [i4.NgControl],(null as any),(null as any)),(_l()(),i1.ɵted(-1,(null as any),
+          ['\n            '])),(_l()(),i1.ɵted(-1,(null as any),['\n        '])),(_l()(),
+          i1.ɵted(-1,(null as any),['\n        '])),(_l()(),i1.ɵeld(61,0,(null as any),
+          (null as any),5,'table',[['class','col-xs-12 table table-striped']],(null as any),
+          (null as any),(null as any),(null as any),(null as any))),(_l()(),i1.ɵted(-1,
+          (null as any),['\n            '])),(_l()(),i1.ɵeld(63,0,(null as any),(null as any),
+          3,'tbody',([] as any[]),(null as any),(null as any),(null as any),(null as any),
+          (null as any))),(_l()(),i1.ɵand(16777216,(null as any),(null as any),1,(null as any),
+          View_PageModsComponent_5)),i1.ɵdid(65,802816,(null as any),0,i3.NgForOf,
+          [i1.ViewContainerRef,i1.TemplateRef,i1.IterableDiffers],{ngForOf:[0,'ngForOf']},
+          (null as any)),(_l()(),i1.ɵted(-1,(null as any),['\n        '])),(_l()(),
+          i1.ɵted(-1,(null as any),['\n    '])),(_l()(),i1.ɵted(-1,(null as any),['\n']))],
+      (_ck,_v) => {
+        var _co:any = _v.component;
+        const currVal_2:any = _co.mods;
+        _ck(_v,36,0,currVal_2);
+        const currVal_10:any = _co.myForm;
+        _ck(_v,48,0,currVal_10);
+        const currVal_18:any = 'username';
+        _ck(_v,55,0,currVal_18);
+        const currVal_19:any = _co.users;
+        _ck(_v,65,0,currVal_19);
+      },(_ck,_v) => {
+        var _co:any = _v.component;
+        const currVal_0:any = _co.thispage.naam;
+        _ck(_v,9,0,currVal_0);
+        const currVal_1:any = _co.owner.username;
+        _ck(_v,15,0,currVal_1);
+        const currVal_3:any = i1.ɵnov(_v,50).ngClassUntouched;
+        const currVal_4:any = i1.ɵnov(_v,50).ngClassTouched;
+        const currVal_5:any = i1.ɵnov(_v,50).ngClassPristine;
+        const currVal_6:any = i1.ɵnov(_v,50).ngClassDirty;
+        const currVal_7:any = i1.ɵnov(_v,50).ngClassValid;
+        const currVal_8:any = i1.ɵnov(_v,50).ngClassInvalid;
+        const currVal_9:any = i1.ɵnov(_v,50).ngClassPending;
+        _ck(_v,46,0,currVal_3,currVal_4,currVal_5,currVal_6,currVal_7,currVal_8,currVal_9);
+        const currVal_11:any = i1.ɵnov(_v,57).ngClassUntouched;
+        const currVal_12:any = i1.ɵnov(_v,57).ngClassTouched;
+        const currVal_13:any = i1.ɵnov(_v,57).ngClassPristine;
+        const currVal_14:any = i1.ɵnov(_v,57).ngClassDirty;
+        const currVal_15:any = i1.ɵnov(_v,57).ngClassValid;
+        const currVal_16:any = i1.ɵnov(_v,57).ngClassInvalid;
+        const currVal_17:any = i1.ɵnov(_v,57).ngClassPending;
+        _ck(_v,52,0,currVal_11,currVal_12,currVal_13,currVal_14,currVal_15,currVal_16,
+            currVal_17);
+      });
 }
 export function View_PageModsComponent_0(_l:any):i1.ɵViewDefinition {
   return i1.ɵvid(0,[(_l()(),i1.ɵand(16777216,(null as any),(null as any),1,(null as any),
       View_PageModsComponent_1)),i1.ɵdid(1,16384,(null as any),0,i3.NgIf,[i1.ViewContainerRef,
       i1.TemplateRef],{ngIf:[0,'ngIf']},(null as any))],(_ck,_v) => {
-    var _co:i4.PageModsComponent = _v.component;
+    var _co:i5.PageModsComponent = _v.component;
     const currVal_0:any = (_co.thispage != (null as any));
     _ck(_v,1,0,currVal_0);
   },(null as any));
@@ -160,12 +334,12 @@ export function View_PageModsComponent_0(_l:any):i1.ɵViewDefinition {
 export function View_PageModsComponent_Host_0(_l:any):i1.ɵViewDefinition {
   return i1.ɵvid(0,[(_l()(),i1.ɵeld(0,0,(null as any),(null as any),1,'app-pageMods',
       ([] as any[]),(null as any),(null as any),(null as any),View_PageModsComponent_0,
-      RenderType_PageModsComponent)),i1.ɵdid(1,114688,(null as any),0,i4.PageModsComponent,
-      [i5.DomSanitizer,i2.ActivatedRoute,i6.AuthService,i7.PaginaService,i8.PostService],
+      RenderType_PageModsComponent)),i1.ɵdid(1,114688,(null as any),0,i5.PageModsComponent,
+      [i6.DomSanitizer,i2.ActivatedRoute,i7.AuthService,i8.PaginaService,i9.PostService],
       (null as any),(null as any))],(_ck,_v) => {
     _ck(_v,1,0);
   },(null as any));
 }
-export const PageModsComponentNgFactory:i1.ComponentFactory<i4.PageModsComponent> = i1.ɵccf('app-pageMods',
-    i4.PageModsComponent,View_PageModsComponent_Host_0,{},{},([] as any[]));
-//# sourceMappingURL=data:application/json;base64,eyJmaWxlIjoiQzovVXNlcnMvcm9ieWQvRG9jdW1lbnRzL1NjaG9vbC9EaXRKYWFyL01FQU4vUFJPSkVDVC9hc3NldHMvYXBwL3BhZ2luYS9wYWdlTW9kcy5jb21wb25lbnQubmdmYWN0b3J5LnRzIiwidmVyc2lvbiI6Mywic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsibmc6Ly8vQzovVXNlcnMvcm9ieWQvRG9jdW1lbnRzL1NjaG9vbC9EaXRKYWFyL01FQU4vUFJPSkVDVC9hc3NldHMvYXBwL3BhZ2luYS9wYWdlTW9kcy5jb21wb25lbnQudHMiLCJuZzovLy9DOi9Vc2Vycy9yb2J5ZC9Eb2N1bWVudHMvU2Nob29sL0RpdEphYXIvTUVBTi9QUk9KRUNUL2Fzc2V0cy9hcHAvcGFnaW5hL3BhZ2VNb2RzLmNvbXBvbmVudC5odG1sIiwibmc6Ly8vQzovVXNlcnMvcm9ieWQvRG9jdW1lbnRzL1NjaG9vbC9EaXRKYWFyL01FQU4vUFJPSkVDVC9hc3NldHMvYXBwL3BhZ2luYS9wYWdlTW9kcy5jb21wb25lbnQudHMuUGFnZU1vZHNDb21wb25lbnRfSG9zdC5odG1sIl0sInNvdXJjZXNDb250ZW50IjpbIiAiLCI8ZGl2IGNsYXNzPVwiY29udGFpbmVyLWZ1bGxcIiAqbmdJZj1cInRoaXNwYWdlICE9IG51bGxcIj5cclxuICAgIDxoZWFkZXIgY2xhc3M9XCJyb3dcIj5cclxuXHJcbiAgICAgICAgPG5hdiBjbGFzcz1cImNvbC1tZC0xMlwiPlxyXG4gICAgICAgICAgICA8ZGl2IGNsYXNzPVwibmF2IG5hdi1icmFuZCBuYXYtaGVhZGVyXCI+XHJcbiAgICAgICAgICAgICAgICA8aDE+e3t0aGlzcGFnZS5uYWFtfX06IEVkaXQgbW9kczwvaDE+XHJcbiAgICAgICAgICAgIDwvZGl2PlxyXG4gICAgICAgICAgICA8ZGl2PlxyXG4gICAgICAgICAgICAgICAgPHA+Qnk6IHt7b3duZXIudXNlcm5hbWV9fTwvcD5cclxuICAgICAgICAgICAgPC9kaXY+XHJcbiAgICAgICAgPC9uYXY+XHJcbiAgICA8L2hlYWRlcj5cclxuICAgIDxkaXYgY2xhc3M9XCJjb2wteHMtMTJcIj5cclxuICAgICAgICA8ZGl2IGNsYXNzPVwicm93XCI+XHJcbiAgICAgICAgICAgIDxkaXYgPlxyXG4gICAgICAgICAgICAgICAgPHRhYmxlIGNsYXNzPVwidGFibGVcIj5cclxuICAgICAgICAgICAgICAgICAgICA8dHI+XHJcbiAgICAgICAgICAgICAgICAgICAgICAgIDx0aD5cclxuICAgICAgICAgICAgICAgICAgICAgICAgICAgIFVzZXIgTmFtZVxyXG4gICAgICAgICAgICAgICAgICAgICAgICA8L3RoPlxyXG5cclxuICAgICAgICAgICAgICAgICAgICA8L3RyPlxyXG4gICAgICAgICAgICAgICAgICAgIDx0ciAqbmdGb3I9XCJsZXQgbW9kIG9mIG1vZHNcIj5cclxuICAgICAgICAgICAgICAgICAgICAgICAgPHRkPlxyXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgPGEgW3JvdXRlckxpbmtdPVwiWycvcHJvZmlsZS8nLCBtb2QuaWRdXCI+XHJcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAge3ttb2QudXNlcm5hbWV9fVxyXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgPC9hPlxyXG4gICAgICAgICAgICAgICAgICAgICAgICA8L3RkPlxyXG4gICAgICAgICAgICAgICAgICAgICAgICA8dGQ+XHJcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICA8YnV0dG9uIGNsYXNzPVwiYnRuXCIgKm5nSWY9XCIhaXNPd25lcigpXCIgKGNsaWNrKT1cInJlbW92ZU1vZCgpXCI+UmVtb3ZlIGZyb20gbW9kbGlzdDwvYnV0dG9uPlxyXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgPHAgKm5nSWY9XCJpc093bmVyKClcIj57e21vZC51c2VybmFtZX19IGlzIHRoZSBvd25lciBvZiB7e3RoaXNwYWdlLm5hYW19fSwgY2Fubm90IGJlIHJlbW92ZWQ8L3A+XHJcbiAgICAgICAgICAgICAgICAgICAgICAgIDwvdGQ+XHJcbiAgICAgICAgICAgICAgICAgICAgPC90cj5cclxuICAgICAgICAgICAgICAgIDwvdGFibGU+XHJcbiAgICAgICAgICAgIDwvZGl2PlxyXG4gICAgICAgIDwvZGl2PlxyXG4gICAgPC9kaXY+XHJcbjwvZGl2PiIsIjxhcHAtcGFnZU1vZHM+PC9hcHAtcGFnZU1vZHM+Il0sIm1hcHBpbmdzIjoiQUFBQTs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O29CQzZCNEI7TUFBQTtJQUFBO0lBQUE7SUFBdUM7TUFBQTtNQUFBO0lBQUE7SUFBdkM7RUFBQSxnQ0FBNkQ7Ozs7b0JBQzdEO01BQUEsd0VBQXFCO2FBQUE7OztRQUFBO1FBQUE7UUFBQTs7OztvQkFSN0I7TUFBQSx3RUFBNkI7YUFBQSxtREFDekI7TUFBQTtNQUFBLDRDQUFJO01BQUEscUNBQ0E7TUFBQTtNQUFBO1FBQUE7UUFBQTtVQUFBO2NBQUE7VUFBQTtRQUFBO1FBQUE7TUFBQSx1Q0FBQTtNQUFBO01BQUEsc0JBQUcsTUFBcUM7TUFBQSxvQ0FFcEM7TUFDSCxrRUFDTDtVQUFBO1VBQUEsNENBQUk7VUFBQSxxQ0FDQTtVQUFBLGdFQUFBO1VBQUE7VUFBQSxlQUF5RjtNQUN6RjthQUFBO1VBQUEsaUNBQThGO01BQzdGOztJQVBFO0lBQUgsV0FBRyxTQUFIO0lBS29CO0lBQXBCLFlBQW9CLFNBQXBCO0lBQ0c7SUFBSCxZQUFHLFNBQUg7O0lBTkE7SUFBQTtJQUFBLFdBQUEsbUJBQUE7SUFBd0M7SUFBQTs7OztvQkF4QnBFO01BQUE7TUFBcUQsOENBQ2pEO1VBQUE7VUFBQSw0Q0FBb0I7VUFBQSxtQkFFaEI7VUFBQTtVQUFBLGdCQUF1QixzREFDbkI7aUJBQUE7Y0FBQTtNQUFzQywwREFDbEM7VUFBQTtVQUFBLDRDQUFJO1VBQUEscUJBQWlDO01BQ25DLHNEQUNOO1VBQUE7VUFBQSw4QkFBSztNQUNEO1VBQUEsMERBQUc7VUFBQSw0QkFBMEI7TUFDM0Isa0RBQ0o7VUFBQSxhQUNELDhDQUNUO1VBQUE7VUFBQSwwREFBdUI7VUFBQSwrQkFDbkI7VUFBQTtVQUFBLGdCQUFpQixzREFDYjtpQkFBQTtjQUFBLDBEQUFNO1VBQUEsdUNBQ0Y7VUFBQTtVQUFBLDRDQUFxQjtVQUFBLDZCQUNqQjtVQUFBO1VBQUE7VUFBQTtNQUFJLGtFQUNBO1VBQUE7VUFBQSw0Q0FBSTtVQUFBO01BRUMsZ0VBRUo7VUFBQSwyQ0FDTDtVQUFBLGdFQUFBO1VBQUE7VUFBQSx1Q0FVSztVQUFBLHlCQUNEO01BQ04sa0RBQ0o7VUFBQSxhQUNKOztJQWRjO0lBQUosWUFBSSxTQUFKOzs7SUFqQkE7SUFBQTtJQUdEO0lBQUE7Ozs7b0JBUm5CO01BQUEsa0NBQUE7b0JBQUE7O0lBQTRCO0lBQTVCLFdBQTRCLFNBQTVCOzs7O29CQ0FBO01BQUE7a0NBQUEsVUFBQTtNQUFBO01BQUE7SUFBQTs7OzsifQ==
+export const PageModsComponentNgFactory:i1.ComponentFactory<i5.PageModsComponent> = i1.ɵccf('app-pageMods',
+    i5.PageModsComponent,View_PageModsComponent_Host_0,{},{},([] as any[]));
+//# sourceMappingURL=data:application/json;base64,eyJmaWxlIjoiQzovVXNlcnMvUkRWL0Rlc2t0b3AvTWVhblByb2plY3QvYXNzZXRzL2FwcC9wYWdpbmEvcGFnZU1vZHMuY29tcG9uZW50Lm5nZmFjdG9yeS50cyIsInZlcnNpb24iOjMsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIm5nOi8vL0M6L1VzZXJzL1JEVi9EZXNrdG9wL01lYW5Qcm9qZWN0L2Fzc2V0cy9hcHAvcGFnaW5hL3BhZ2VNb2RzLmNvbXBvbmVudC50cyIsIm5nOi8vL0M6L1VzZXJzL1JEVi9EZXNrdG9wL01lYW5Qcm9qZWN0L2Fzc2V0cy9hcHAvcGFnaW5hL3BhZ2VNb2RzLmNvbXBvbmVudC5odG1sIiwibmc6Ly8vQzovVXNlcnMvUkRWL0Rlc2t0b3AvTWVhblByb2plY3QvYXNzZXRzL2FwcC9wYWdpbmEvcGFnZU1vZHMuY29tcG9uZW50LnRzLlBhZ2VNb2RzQ29tcG9uZW50X0hvc3QuaHRtbCJdLCJzb3VyY2VzQ29udGVudCI6WyIgIiwiPGRpdiBjbGFzcz1cImNvbnRhaW5lci1mdWxsXCIgKm5nSWY9XCJ0aGlzcGFnZSAhPSBudWxsXCI+XHJcbiAgICA8aGVhZGVyIGNsYXNzPVwicm93XCI+XHJcblxyXG4gICAgICAgIDxuYXYgY2xhc3M9XCJjb2wtbWQtMTJcIj5cclxuICAgICAgICAgICAgPGRpdiBjbGFzcz1cIm5hdiBuYXYtYnJhbmQgbmF2LWhlYWRlclwiPlxyXG4gICAgICAgICAgICAgICAgPGgxPnt7dGhpc3BhZ2UubmFhbX19OiBFZGl0IG1vZHM8L2gxPlxyXG4gICAgICAgICAgICA8L2Rpdj5cclxuICAgICAgICAgICAgPGRpdj5cclxuICAgICAgICAgICAgICAgIDxwPkJ5OiB7e293bmVyLnVzZXJuYW1lfX08L3A+XHJcbiAgICAgICAgICAgIDwvZGl2PlxyXG4gICAgICAgIDwvbmF2PlxyXG4gICAgPC9oZWFkZXI+XHJcbiAgICA8ZGl2IGNsYXNzPVwiY29sLXhzLTEwXCI+XHJcbiAgICAgICAgPGRpdiBjbGFzcz1cInJvd1wiPlxyXG4gICAgICAgICAgICA8ZGl2ID5cclxuICAgICAgICAgICAgICAgIDx0YWJsZSBjbGFzcz1cInRhYmxlXCI+XHJcbiAgICAgICAgICAgICAgICAgICAgPHRyPlxyXG4gICAgICAgICAgICAgICAgICAgICAgICA8dGg+XHJcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICBVc2VyIE5hbWVcclxuICAgICAgICAgICAgICAgICAgICAgICAgPC90aD5cclxuXHJcbiAgICAgICAgICAgICAgICAgICAgPC90cj5cclxuICAgICAgICAgICAgICAgICAgICA8dHIgKm5nRm9yPVwibGV0IG1vZCBvZiBtb2RzXCI+XHJcbiAgICAgICAgICAgICAgICAgICAgICAgIDx0ZD5cclxuICAgICAgICAgICAgICAgICAgICAgICAgICAgIDxhIFtyb3V0ZXJMaW5rXT1cIlsnL3Byb2ZpbGUvJywgbW9kLmlkXVwiPlxyXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHt7bW9kLnVzZXJuYW1lfX1cclxuICAgICAgICAgICAgICAgICAgICAgICAgICAgIDwvYT5cclxuICAgICAgICAgICAgICAgICAgICAgICAgPC90ZD5cclxuICAgICAgICAgICAgICAgICAgICAgICAgPHRkPlxyXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgPGJ1dHRvbiBjbGFzcz1cImJ0blwiICpuZ0lmPVwiIWlzT3duZXIobW9kKVwiIChjbGljayk9XCJyZW1vdmVNb2QobW9kKVwiPlJlbW92ZSBmcm9tIG1vZGxpc3Q8L2J1dHRvbj5cclxuICAgICAgICAgICAgICAgICAgICAgICAgICAgIDxwICpuZ0lmPVwiaXNPd25lcihtb2QpXCI+e3ttb2QudXNlcm5hbWV9fSBpcyB0aGUgb3duZXIgb2Yge3t0aGlzcGFnZS5uYWFtfX0sIGNhbm5vdCBiZSByZW1vdmVkPC9wPlxyXG4gICAgICAgICAgICAgICAgICAgICAgICA8L3RkPlxyXG4gICAgICAgICAgICAgICAgICAgIDwvdHI+XHJcbiAgICAgICAgICAgICAgICA8L3RhYmxlPlxyXG4gICAgICAgICAgICA8L2Rpdj5cclxuICAgICAgICA8L2Rpdj5cclxuICAgIDwvZGl2PlxyXG4gICAgPGRpdiBjbGFzcz1cImNvbC14cy0yXCI+XHJcbiAgICAgICAgPGRpdj5cclxuICAgICAgICAgICAgPGZvcm0gW2Zvcm1Hcm91cF09XCJteUZvcm1cIj5cclxuICAgICAgICAgICAgICAgIDxpbnB1dCBpZD1cInVzZXJuYW1lXCIgY2xhc3M9XCJmb3JtLWNvbnRyb2xcIiBmb3JtQ29udHJvbE5hbWU9XCJ1c2VybmFtZVwiIHBsYWNlaG9sZGVyPVwiU2VhcmNoIHBhZ2VzLi4uXCIgKGlucHV0KT1cInNldFVzZXJzKClcIiBhdXRvY29tcGxldGU9XCJvZmZcIi8+XHJcbiAgICAgICAgICAgIDwvZm9ybT5cclxuICAgICAgICA8L2Rpdj5cclxuICAgICAgICA8dGFibGUgY2xhc3M9XCJjb2wteHMtMTIgdGFibGUgdGFibGUtc3RyaXBlZFwiID5cclxuICAgICAgICAgICAgPHRyICpuZ0Zvcj1cImxldCB1c2VyMSBvZiB1c2Vyc1wiPlxyXG4gICAgICAgICAgICAgICAgPHRkPlxyXG4gICAgICAgICAgICAgICAgICAgIDxhIFtyb3V0ZXJMaW5rXT1cIlsnL3Byb2ZpbGUnLCB1c2VyMS5pZF1cIj57e3VzZXIxLnVzZXJuYW1lfX08L2E+XHJcblxyXG4gICAgICAgICAgICAgICAgPC90ZD5cclxuICAgICAgICAgICAgICAgIDx0ZD5cclxuICAgICAgICAgICAgICAgICAgICA8YnV0dG9uIGNsYXNzPVwiYnRuXCIgKm5nSWY9XCIhaXNPd25lcih1c2VyMSkgJiYgIWlzTW9kKHVzZXIxKVwiIChjbGljayk9XCJtYWtlTW9kKHVzZXIxKVwiPk1ha2UgTW9kPC9idXR0b24+XHJcbiAgICAgICAgICAgICAgICAgICAgPHAgKm5nSWY9XCJpc093bmVyKHVzZXIxKVwiPm93bmVyXHJcbiAgICAgICAgICAgICAgICAgICAgPHAgKm5nSWY9XCJpc01vZCh1c2VyMSkgJiYgIWlzT3duZXIodXNlcjEpXCI+TW9kPC9wPlxyXG4gICAgICAgICAgICAgICAgPC90ZD5cclxuICAgICAgICAgICAgPC90cj5cclxuICAgICAgICA8L3RhYmxlPlxyXG4gICAgPC9kaXY+XHJcbjwvZGl2PiIsIjxhcHAtcGFnZU1vZHM+PC9hcHAtcGFnZU1vZHM+Il0sIm1hcHBpbmdzIjoiQUFBQTs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7OztvQkM2QjRCO01BQUE7SUFBQTtJQUFBO0lBQTBDO01BQUE7TUFBQTtJQUFBO0lBQTFDO0VBQUEsZ0NBQW1FOzs7O29CQUNuRTtNQUFBLHdFQUF3QjthQUFBOzs7UUFBQTtRQUFBO1FBQUE7Ozs7b0JBUmhDO01BQUEsd0VBQTZCO2FBQUEsbURBQ3pCO01BQUE7TUFBQSw0Q0FBSTtNQUFBLHFDQUNBO01BQUE7TUFBQTtRQUFBO1FBQUE7VUFBQTtjQUFBO1VBQUE7UUFBQTtRQUFBO01BQUEsdUNBQUE7TUFBQTtNQUFBLHNCQUFHLE1BQXFDO01BQUEsb0NBRXBDO01BQ0gsa0VBQ0w7VUFBQTtVQUFBLDRDQUFJO1VBQUEscUNBQ0E7VUFBQSxnRUFBQTtVQUFBO1VBQUEsZUFBK0Y7TUFDL0Y7YUFBQTtVQUFBLGlDQUFpRztNQUNoRzs7SUFQRTtJQUFILFdBQUcsU0FBSDtJQUtvQjtJQUFwQixZQUFvQixTQUFwQjtJQUNHO0lBQUgsWUFBRyxTQUFIOztJQU5BO0lBQUE7SUFBQSxXQUFBLG1CQUFBO0lBQXdDO0lBQUE7Ozs7b0JBMEJoRDtNQUFBO0lBQUE7SUFBQTtJQUE2RDtNQUFBO01BQUE7SUFBQTtJQUE3RDtFQUFBLGdDQUFzRjs7OztvQkFDdEY7TUFBQSx3RUFBMEI7YUFBQTs7O29CQUMxQjtNQUFBLHdFQUEyQzthQUFBOzs7b0JBUm5EO01BQUEsd0VBQWdDO2FBQUEsMkNBQzVCO01BQUE7TUFBQSw4QkFBSTtNQUNBO1VBQUE7UUFBQTtRQUFBO1VBQUE7Y0FBQTtVQUFBO1FBQUE7UUFBQTtNQUFBLHVDQUFBO1VBQUE7VUFBQSxzQkFBRyxNQUFzQywwQ0FBc0I7aUJBQUEsNkNBRTlEO1VBQUEseUJBQ0w7VUFBQTtVQUFBLGdCQUFJO01BQ0E7YUFBQTtVQUFBLGlDQUF1RztNQUN2RzthQUFBO1VBQUEsaUNBQ0E7VUFBQSxnRUFBQTtVQUFBO1VBQUEsZUFBa0Q7TUFDakQ7O0lBUEU7SUFBSCxXQUFHLFNBQUg7SUFJb0I7SUFBcEIsWUFBb0IsU0FBcEI7SUFDRztJQUFILFlBQUcsU0FBSDtJQUNHO0lBQUgsWUFBRyxTQUFIOztJQU5BO0lBQUE7SUFBQSxXQUFBLG1CQUFBO0lBQXlDO0lBQUE7Ozs7b0JBOUM3RDtNQUFBO01BQXFELDhDQUNqRDtVQUFBO1VBQUEsNENBQW9CO1VBQUEsbUJBRWhCO1VBQUE7VUFBQSxnQkFBdUIsc0RBQ25CO2lCQUFBO2NBQUE7TUFBc0MsMERBQ2xDO1VBQUE7VUFBQSw0Q0FBSTtVQUFBLHFCQUFpQztNQUNuQyxzREFDTjtVQUFBO1VBQUEsOEJBQUs7TUFDRDtVQUFBLDBEQUFHO1VBQUEsNEJBQTBCO01BQzNCLGtEQUNKO1VBQUEsYUFDRCw4Q0FDVDtVQUFBO1VBQUEsMERBQXVCO1VBQUEsK0JBQ25CO1VBQUE7VUFBQSxnQkFBaUIsc0RBQ2I7aUJBQUE7Y0FBQSwwREFBTTtVQUFBLHVDQUNGO1VBQUE7VUFBQSw0Q0FBcUI7VUFBQSw2QkFDakI7VUFBQTtVQUFBO1VBQUE7TUFBSSxrRUFDQTtVQUFBO1VBQUEsNENBQUk7VUFBQTtNQUVDLGdFQUVKO1VBQUEsMkNBQ0w7VUFBQSxnRUFBQTtVQUFBO1VBQUEsdUNBVUs7VUFBQSx5QkFDRDtNQUNOLGtEQUNKO1VBQUEsYUFDSiw4Q0FDTjtVQUFBO1VBQUEsMERBQXNCO1VBQUEsK0JBQ2xCO1VBQUE7VUFBQSxnQkFBSyxzREFDRDtpQkFBQTtjQUFBO2NBQUE7Y0FBQTtjQUFBO1lBQUE7WUFBQTtjQUFBO2NBQUE7WUFBQTtZQUFBO2NBQUE7Y0FBQTtZQUFBO1lBQUE7VUFBQSx1Q0FBQTtVQUFBLGtEQUFBO1VBQUE7VUFBQSxzQkFBQTtVQUFBLGdDQUFBO1VBQUEsbURBQTJCO1VBQUEseUJBQ3ZCO1VBQUE7Y0FBQTtjQUFBO2NBQUE7Y0FBQTtjQUFBO2NBQUE7WUFBQTtZQUFBO1lBQUE7Y0FBQTtjQUFBO1lBQUE7WUFBQTtjQUFBO2NBQUE7WUFBQTtZQUFBO2NBQUE7Y0FBQTtZQUFBO1lBQUE7Y0FBQTtjQUFBO1lBQUE7WUFBbUc7Y0FBQTtjQUFBO1lBQUE7WUFBbkc7VUFBQSx1Q0FBQTtVQUFBO1VBQUEsc0JBQUE7UUFBQTtNQUFBLG9DQUFBO1VBQUE7VUFBQSx3Q0FBQTtVQUFBLDJDQUFBO1VBQUEsNENBQTRJO1VBQUEscUJBQ3pJLGtEQUNMO2lCQUFBLG1DQUNOO1VBQUE7VUFBQSwwREFBOEM7VUFBQSxtQ0FDMUM7VUFBQTtVQUFBO1VBQUEsa0NBQUE7VUFBQTtVQUFBLGVBVUssa0RBQ0Q7aUJBQUEsK0JBQ047OztRQWxDYztRQUFKLFlBQUksU0FBSjtRQWlCRjtRQUFOLFlBQU0sVUFBTjtRQUM4QztRQUExQyxZQUEwQyxVQUExQztRQUlBO1FBQUosWUFBSSxVQUFKOzs7UUF2Q1E7UUFBQTtRQUdEO1FBQUE7UUErQlA7UUFBQTtRQUFBO1FBQUE7UUFBQTtRQUFBO1FBQUE7UUFBQSxZQUFBLHFFQUFBO1FBQ0k7UUFBQTtRQUFBO1FBQUE7UUFBQTtRQUFBO1FBQUE7UUFBQSxZQUFBO1lBQUEsVUFBQTs7OztvQkF4Q2hCO01BQUEsa0NBQUE7b0JBQUE7O0lBQTRCO0lBQTVCLFdBQTRCLFNBQTVCOzs7O29CQ0FBO01BQUE7a0NBQUEsVUFBQTtNQUFBO01BQUE7SUFBQTs7OzsifQ==
