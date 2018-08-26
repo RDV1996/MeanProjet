@@ -14,6 +14,10 @@
                 <li *ngIf="subscribed && !isOwner() && authService.isLoggedIn()" (click)="unsubscribe()"><a>unubscribe</a>
                 </li>
                 <li *ngIf="ingelogd" [routerLink]="['/p/makepost', thsiID]"><a>Make Post</a></li>
+
+            </ul>
+            <ul class="nav nav-pills float-right">
+                <li *ngIf="isAdmin" (click)="deletePage()" class="btn-danger float-right"><a>DELETE PAGE</a></li>
             </ul>
         </nav>
     </header>

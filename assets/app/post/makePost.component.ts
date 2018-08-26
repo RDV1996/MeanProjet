@@ -15,7 +15,7 @@ import {PostService} from "../service/post.service";
 export class MakePostComponent implements OnInit {
 
     makePostForm: FormGroup;
-    paginaId;
+    paginaId: string = "";
     error = "";
 
     constructor(public paginaService: PaginaService, public router: Router, public authService: AuthService, public postService: PostService, public route: ActivatedRoute) {

@@ -1,14 +1,14 @@
 
-<div *ngIf="comment" class="comment">
+<div *ngIf="thiscomment" class="comment">
     <div class="row">
         <div class="col-xs-1 number">
-            {{comment.likes.length}}
-            <button *ngIf="comment.likes.indexOf(authService.user.id) != -1 && authService.isLoggedIn()" type="button"
+            {{thiscomment.likes.length}}
+            <button *ngIf="thiscomment.likes.indexOf(authService.user.id) != -1 && authService.isLoggedIn()" type="button"
                     class="upvoted btn btn-default" (click)="upvote()">
             <span class="glyphicon glyphicon-arrow-up sm"
                   aria-hidden="true"></span>
             </button>
-            <button *ngIf="comment.likes.indexOf(authService.user.id) == -1 && authService.isLoggedIn()" type="button"
+            <button *ngIf="thiscomment.likes.indexOf(authService.user.id) == -1 && authService.isLoggedIn()" type="button"
                     class="unUpvoted btn btn-default" (click)="upvote()">
             <span class="glyphicon glyphicon-arrow-up sm"
                   aria-hidden="true"></span>
@@ -16,12 +16,12 @@
         </div>
         <div class="col-xs-11">
             <div>
-                <a [routerLink]="['/profile/', comment.user]">
+                <a [routerLink]="['/profile/', thiscomment.user]">
                     {{ userName }}
                 </a>
             </div>
             <div>
-                {{comment.body}}
+                {{thiscomment.body}}
             </div>
         </div>
     </div>
@@ -31,17 +31,17 @@
                 Reply
             </button>
         </div>
-        <div class="col-xs-2" *ngIf="comment.user === authService.user.id">&nbsp;|
-            <button *ngIf="comment.user == authService.user.id || authService.isAdmin()" class="button btn btn-default" (click)="onDelete(comment.id)">
+        <div class="col-xs-2" *ngIf="thiscomment.user === authService.user.id">&nbsp;|
+            <button *ngIf="thiscomment.user == authService.user.id || isAdmin" class="button btn btn-default" (click)="onDelete(thiscomment.id)">
                 Delete
             </button> |
-            <button *ngIf="comment.user == authService.user.id || authService.isAdmin()" class="button btn btn-default" (click)="onEdit()">
+            <button *ngIf="thiscomment.user == authService.user.id" class="button btn btn-default" (click)="onEdit()">
                 Edit
             </button>
         </div>
     </div>
-    <app-MakeComment [show]="showReply" [topcomment]="false" [post]="post" [comment]="comment" [Edit]="edit"></app-MakeComment>
+    <app-MakeComment [show]="showReply" [topcomment]="false" [post]="post" [comment]="thiscomment" [Edit]="edit"></app-MakeComment>
     <div *ngFor="let comment of childComments">
-        <app-comment [comment]="comment" [post]="post"  [comments]="comments" [topcomment]="true" ></app-comment>
+        <app-comment [thiscomment]="comment" [post]="post"  [comments]="comments" [topcomment]="true" [parentComment]="thiscomment"></app-comment>
     </div>
 </div>

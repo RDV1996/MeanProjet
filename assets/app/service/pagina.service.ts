@@ -96,4 +96,14 @@ export class PaginaService {
                 return Observable.throw(error.json())
             });
     }
+
+    deletePagine(page:Pagina){
+        const headers = new Headers({'Content-Type': 'application/json'});
+        return this.http.delete('https://postsite.herokuapp.com/pagina/' + page.id, {headers: headers})
+            .map((response: Response) =>
+                response.json())
+            .catch((error: Response) => {
+                return Observable.throw(error.json())
+            });
+    }
 }

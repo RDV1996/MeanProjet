@@ -15,11 +15,12 @@ export class SignupComponent implements OnInit{
         const user = new User(
             this.myForm.value.email,
             this.myForm.value.password,
-            this.myForm.value.username
+            this.myForm.value.username,
+            "",
+            "5a4d0a24ed2eb028a03f6543"
         );
         this.authService.signup(user)
             .subscribe(
-              data => console.log(data),
                 error => console.error(error)
             );
         this.myForm.reset();

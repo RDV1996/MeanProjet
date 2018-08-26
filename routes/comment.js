@@ -94,5 +94,19 @@ router.delete('/:id', function (req, res, next) {
     });
 });
 
+router.delete('/post/:id', function (req, res, next) {
+    Comment.remove({post: req.params.id}, function (err, post) {
+        if (err) {
+            return res.status(500).json({
+                title: 'Er heeft zich een fout voorgedaan',
+                error: err
+            });
+        }
+        res.send({
+            message: "Done!"
+        });
+    });
+});
+
 
 module.exports = router;

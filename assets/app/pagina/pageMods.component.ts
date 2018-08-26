@@ -15,12 +15,12 @@ import {FormControl, FormGroup} from "@angular/forms";
     styleUrls: ['./pageMods.component.css']
 })
 export class PageModsComponent implements OnInit {
-    thispage: Pagina;
-    ingelogd: boolean;
-    owner: User;
-    mods:User[];
-    thsiID;
-    users:User[];
+    thispage: Pagina = new Pagina("","","",[],"");
+    ingelogd: boolean = false;
+    owner: User = new User("","","","","",[],[],[]);
+    mods:User[] = new Array();
+    thsiID: string = "";
+    users:User[]= new Array();
     myForm: FormGroup;
 
     constructor(public sanitizer: DomSanitizer,public route: ActivatedRoute, public authService: AuthService, public paginaService: PaginaService, public postService: PostService){}

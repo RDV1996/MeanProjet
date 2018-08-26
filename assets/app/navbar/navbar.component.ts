@@ -14,12 +14,12 @@ import {User} from "../model/user.model";
 })
 export class NavbarComponent implements OnInit{
     //used to check if person is logged in and if they are admin
-    isAdmin: boolean;
-    isLoggedin: boolean;
-    naam: string;
-    subscribed: Pagina[];
-    user: User;
-    users:User[];
+    isAdmin: boolean = false;
+    isLoggedin: boolean = false;
+    naam: string = "";
+    subscribed: Pagina[] = new Array();
+    user: User = new User("","","","","",[],[],[]);
+    users:User[] = new Array();
     myForm: FormGroup;
 
     ngOnInit(){

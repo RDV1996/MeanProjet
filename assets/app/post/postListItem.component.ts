@@ -5,6 +5,9 @@ import {Router} from "@angular/router";
 import {AuthService} from "../service/auth.service";
 import {PostService} from "../service/post.service";
 import {PaginaService} from "../service/pagina.service";
+import {Pagina} from "../model/pagina.model";
+import {TypeGebruikerService} from "../service/typeGebruiker.service";
+import {CommentService} from "../service/comment.service";
 
 @Component({
     selector: 'app-postListItem',
@@ -13,11 +16,13 @@ import {PaginaService} from "../service/pagina.service";
 })
 export class PostListItemComponent implements OnInit{
     @Input() post: Post;
-    userName;
-    pageName;
+    userName ="";
+    page: Pagina = new Pagina("","","",[],"");
     hasupvoted: boolean = true;
+    isAdmin: boolean = false;
 
-    constructor(public sanitizer: DomSanitizer, public router: Router, public postService: PostService, public authService: AuthService, private paginaService: PaginaService) {
+
+    constructor(public commentService: CommentService,public typegrebruiker : TypeGebruikerService ,public sanitizer: DomSanitizer, public router: Router, public postService: PostService, public authService: AuthService, private paginaService: PaginaService) {
 
 
         this.userhasupv();
@@ -26,9 +31,14 @@ export class PostListItemComponent implements OnInit{
         this.authService.getName(this.post.user).subscribe(data => {
             this.userName = data;
         });
-        this.paginaService.getName(this.post.pagina).subscribe(data => {
-            this.pageName = data;
+        this.paginaService.getPageById(this.post.pagina).subscribe(data => {
+            this.page = this.paginaService.setPagina(data.pagina);
         });
+        this.typegrebruiker.TypeGebruikerChanged.subscribe(data =>{
+            if(this.typegrebruiker.currentType.typeNaaam){
+                this.isAdmin = this.typegrebruiker.currentType.typeNaaam.toLowerCase().includes("admin");
+            }
+        })
     }
 
     userhasupv() {
@@ -38,6 +48,11 @@ export class PostListItemComponent implements OnInit{
         return false;
     }
 
+    isMod() {
+        if(this.page){
+            return this.page.moderators.includes(this.authService.user.id);
+        }
+    }
 
     upvote() {
         if (this.post.likes.length == 0) {
@@ -59,6 +74,9 @@ export class PostListItemComponent implements OnInit{
     }
 
     onDelete(id){
+        this.commentService.deletecommentsprompost(this.post.id).subscribe(data=>{
+
+        });
         this.postService.deletePost(id).subscribe(data =>{
         this.post=null;
         });

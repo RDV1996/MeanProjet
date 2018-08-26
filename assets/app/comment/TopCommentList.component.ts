@@ -8,7 +8,7 @@ import {Post} from "../model/post.model";
     selector: 'app-topComments',
     template: `
         <div *ngFor="let comment of comments">
-            <app-comment [comment]="comment" [post]="post" *ngIf="comment.isTopComment" [comments]="comments" [topcomment]="true"></app-comment>
+            <app-comment [thiscomment]="comment" [post]="post" *ngIf="comment.isTopComment" [comments]="comments" [topcomment]="true" [page]="pagina"></app-comment>
         </div>
     `,
     styles: [``]
@@ -16,10 +16,10 @@ import {Post} from "../model/post.model";
 export class TopCommentsComponent implements OnInit{
     @Input() comments: Comment[];
     @Input() post:Post;
+    @Input() pagina:Pagina;
 
     constructor(){
     }
 ngOnInit(){
-    console.log(this.comments);
 }
 }

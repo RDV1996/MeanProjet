@@ -83,4 +83,13 @@ export class CommentService {
                 return Observable.throw(error.json())
             });
     }
+    deletecommentsprompost(id){
+        const headers = new Headers({'Content-Type': 'application/json'});
+        return this.http.delete('https://postsite.herokuapp.com/comment/page/' + id, {headers: headers})
+            .map((response: Response) =>
+                response.json())
+            .catch((error: Response) => {
+                return Observable.throw(error.json())
+            });
+    }
 }

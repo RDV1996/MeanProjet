@@ -2,7 +2,7 @@
     <div class="panel-heading">
         <h1>
             <a [routerLink]="['/p/', post.pagina]">
-                {{pageName}}
+                {{pagina.naam}}
             </a>
         </h1>
         <h2>
@@ -53,5 +53,5 @@
         <hr/>
         <app-MakeComment *ngIf="authService.isLoggedIn()" [post]="post" [topcomment]="true"></app-MakeComment>
     </footer>
-    <app-topComments [comments]="comments" [post]="post"></app-topComments>
+    <app-topComments [comments]="comments" [post]="post" [pagina]="pagina"></app-topComments>
 </article>

@@ -5,6 +5,7 @@ import {Http, Headers, Response} from "@angular/http";
 import 'rxjs/Rx';
 import {Observable} from "rxjs/Observable";
 import {TypeGebruikerService} from "./typeGebruiker.service";
+import {typeGebruiker} from "../model/typeGebruiker.model";
 
 @Injectable()
 export class AuthService {
@@ -39,7 +40,8 @@ export class AuthService {
         this.user.username = data.user.username;
         this.user.wachtwoord = data.user.wachtwoord;
         this.user.id = data.user._id;
-        this.isUserAdmin();
+
+        this.isUserAdmin()
     }
 
     setTempUser(data){
@@ -92,13 +94,9 @@ export class AuthService {
     }
 
     isUserAdmin() {
-        this.typegebruikerService.getTypeById(this.user.typeGebruiker).subscribe(data => {
-            if (this.isLoggedIn() && data.typeNaam == "ADMIN") {
-                this.isAdmin = true;
-            }
-            else {
-                this.isAdmin = false;
-            }
+       return this.typegebruikerService.getTypeById(this.user.typeGebruiker).subscribe(data => {
+            this.typegebruikerService.currentType = new typeGebruiker(data._id,data.typeNaam, data.omschrijving);
+           this.typegebruikerService.TypeGebruikerChanged.emit()
         });
     }
 

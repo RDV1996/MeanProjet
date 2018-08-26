@@ -4,9 +4,14 @@ import {Http, Headers, Response} from "@angular/http";
 //om .map en andere operators mogelijk te maken
 import 'rxjs/Rx';
 import {Observable} from "rxjs/Observable";
+import {typeGebruiker} from "../model/typeGebruiker.model";
 
 @Injectable()
 export class TypeGebruikerService{
+
+    TypeGebruikerChanged: EventEmitter<User> = new EventEmitter();
+    public currentType : typeGebruiker;
+
     constructor(private http: Http) {
     }
 

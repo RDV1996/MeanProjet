@@ -7,6 +7,8 @@ import {AuthService} from "../service/auth.service";
 import {PaginaService} from "../service/pagina.service";
 import {PostService} from "../service/post.service";
 import {User} from "../model/user.model";
+import {TypeGebruikerService} from "../service/typeGebruiker.service";
+import {CommentService} from '../service/comment.service';
 
 @Component({
     selector: 'app-pagina',
@@ -14,17 +16,18 @@ import {User} from "../model/user.model";
     styleUrls: ['./pagina.component.css']
 })
 export class PaginaComponent implements OnInit {
-    thispage: Pagina;
-    posts:Post[];
-    subscribed: boolean;
-    ingelogd: boolean;
-    owner: User;
-    mods:User[];
-    thsiID;
+    thispage: Pagina = new Pagina("","","",[],"");
+    posts:Post[] = new Array();
+    subscribed: boolean = false;
+    ingelogd: boolean = false;
+    owner: User = new User("","","","","",[],[],[]);
+    mods:User[] = new Array();
+    thsiID: string = "";
     maxpages=0;
     pagina =1;
+    isAdmin: Boolean = false;
 
-    constructor(public sanitizer: DomSanitizer,public route: ActivatedRoute, public authService: AuthService, public paginaService: PaginaService, public postService: PostService){}
+    constructor(private router: Router, public commentService: CommentService,public typegrebruiker: TypeGebruikerService ,public sanitizer: DomSanitizer,public route: ActivatedRoute, public authService: AuthService, public paginaService: PaginaService, public postService: PostService){}
     ngOnInit() {
         this.route.params.subscribe(params => {
             this.thsiID = params['id'];
@@ -39,6 +42,9 @@ export class PaginaComponent implements OnInit {
             );
         });
         this.ingelogd = this.authService.isLoggedIn();
+        this.typegrebruiker.TypeGebruikerChanged.subscribe(data =>{
+            this.isAdmin = this.typegrebruiker.currentType.typeNaaam.toLowerCase().includes("admin");
+        })
     }
     getPosts(){
         this.postService.getPostsBySub(this.thsiID, this.pagina).subscribe(data => {
@@ -91,5 +97,18 @@ export class PaginaComponent implements OnInit {
     }
     isMod(){
         return this.thispage.moderators.includes(this.authService.user.id)
+    }
+    deletePage(){
+        let id = new Array();
+        for(let i=0; i< this.posts.length;i++){
+            this.commentService.deletecommentsprompost(this.posts[i].id).subscribe(data=>{
+
+            });
+        }
+        this.postService.deleteAllPostsFromPage(this.thispage.id).subscribe(data=>{
+            this.paginaService.deletePagine(this.thispage).subscribe(data=>{
+                this.router.navigate(['/']);
+            });
+        });
     }
 }

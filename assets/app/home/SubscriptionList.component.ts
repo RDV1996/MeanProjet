@@ -26,7 +26,7 @@ import {FormControl, FormGroup, Validators} from "@angular/forms";
 })
 export class SubscriptionListComponent implements OnInit{
     myForm: FormGroup;
-    pages: Pagina[];
+    pages: Pagina[] = new Array();
     constructor(private paginaService: PaginaService){
 
     }

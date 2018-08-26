@@ -6,6 +6,7 @@ import {PostService} from "../service/post.service";
 import {Comment} from "../model/comment.model";
 import {AuthService} from "../service/auth.service";
 import {CommentService} from "../service/comment.service";
+import {TypeGebruikerService} from "../service/typeGebruiker.service";
 
 @Component({
     selector: 'app-comment',
@@ -14,30 +15,41 @@ import {CommentService} from "../service/comment.service";
 })
 export class CommentComponent implements OnInit {
     @Input() post: Post;
-    @Input() comment: Comment;
+    @Input() thiscomment: Comment;
     @Input() topcomment: boolean;
     @Input() comments: Comment[];
-    userName: string;
+    @Input() page:Pagina;
+    @Input() parentComment:Comment;
+
+
+    userName: string= "";
     hasupvoted: boolean = true;
     showReply: boolean = false;
     childComments: Comment[];
     edit: boolean = false;
+    isAdmin: boolean = false;
 
-    constructor(private authService: AuthService, public commentService: CommentService) {
+    constructor(public typegrebruiker : TypeGebruikerService, private authService: AuthService, public commentService: CommentService) {
     }
 
     ngOnInit() {
-        this.authService.getName(this.comment.user).subscribe(data => {
+        this.authService.getName(this.thiscomment.user).subscribe(data => {
             this.userName = data;
             this.getChildComments();
         });
+        this.typegrebruiker.TypeGebruikerChanged.subscribe(data =>{
+                this.isAdmin = this.typegrebruiker.currentType.typeNaaam.toLowerCase().includes("admin");
+        })
+    }
+    isMod() {
+            return this.page.moderators.includes(this.authService.user.id);
     }
 
     getChildComments(){
-        if(this.comment.childComments.length != 0){
+        if(this.thiscomment.childComments.length != 0){
             this.childComments = new Array();
-            for (var i = 0; i <= this.comment.childComments.length; i++) {
-                this.commentService.getComment(this.comment.childComments[i]).subscribe(data => {
+            for (var i = 0; i <= this.thiscomment.childComments.length -1; i++) {
+                this.commentService.getComment(this.thiscomment.childComments[i]).subscribe(data => {
                     this.childComments.push(this.commentService.setComment(data));
                 })
             }
@@ -45,19 +57,19 @@ export class CommentComponent implements OnInit {
     }
 
     userhasupv() {
-        if (this.comment != null) {
-            return this.comment.likes.indexOf(this.authService.user.id) == -1;
+        if (this.thiscomment != null) {
+            return this.thiscomment.likes.indexOf(this.authService.user.id) == -1;
         }
         return false;
     }
 
 
     upvote() {
-        if (this.comment.likes.length == 0) {
-            this.comment.likes = new Array();
+        if (this.thiscomment.likes.length == 0) {
+            this.thiscomment.likes = new Array();
         }
         if (this.userhasupv()) {
-            this.comment.likes.push(this.authService.user.id);
+            this.thiscomment.likes.push(this.authService.user.id);
             this.hasupvoted = true;
         }
         else {
@@ -67,15 +79,20 @@ export class CommentComponent implements OnInit {
             }
             this.hasupvoted = false;
         }
-        this.commentService.saveComment(this.comment).subscribe(data => {
+        this.commentService.saveComment(this.thiscomment).subscribe(data => {
         });
     }
 
     onDelete() {
-        this.commentService.deleteComment(this.comment).subscribe(data => {
+        if(this.parentComment){
+            this.parentComment.childComments.splice(this.parentComment.childComments.indexOf(this.thiscomment.id),1);
+            this.commentService.saveComment(this.parentComment).subscribe(data=>{
+            })
+        }
+        this.commentService.deleteComment(this.thiscomment).subscribe(data => {
 
         });
-        this.comment = null;
+        this.thiscomment = null;
 
     }
 

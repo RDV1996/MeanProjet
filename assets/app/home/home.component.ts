@@ -10,10 +10,10 @@ import {PostService} from "../service/post.service";
     styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-    posts = [];
+    posts : Post[]  = new Array();
     page = 1;
     maxpages = 0;
-    pages = [];
+    pages: Pagina[]  = new Array();
 
 
     constructor(private paginaService: PaginaService, public postService: PostService) {

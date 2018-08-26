@@ -127,5 +127,13 @@ export class PostService {
                 return Observable.throw(error.json())
             });
     }
+    deleteAllPostsFromPage(id){
+        const headers = new Headers({'Content-type': 'application/json'});
+        return this.http.delete('https://postsite.herokuapp.com/post/page/' + id, {headers: headers})
+            .map((response: Response) => response.json())
+            .catch((error: Response) => {
+                return Observable.throw(error.json())
+            });
+    }
 
 }

@@ -33,7 +33,7 @@
             <div class="row">
                 <div class="page">
                     <a [routerLink]="['/p/', post.pagina]">
-                        {{pageName}}
+                        {{page.naam}}
                     </a>
                 </div>
             </div>
@@ -43,7 +43,7 @@
                         {{ userName }}
                     </a>
                 </div>
-                <div *ngIf="post.user === authService.user.id || authService.isAdmin" class="config">&nbsp;|
+                <div *ngIf="post.user === authService.user.id || isAdmin || isMod()" class="config">&nbsp;|
                     <button class="button" (click)="onDelete(post.id)">
                         Delete
                     </button>
