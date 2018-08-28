@@ -9,7 +9,9 @@ router.post('/', function (req, res, next) {
     var user = new User({
         email: req.body.email.toLowerCase(),
         wachtwoord:  bcrypt.hashSync(req.body.wachtwoord,10),
-        username: req.body.username
+        username: req.body.username,
+        about: req.body.about,
+        typeGebruiker: req.body.typeGebruiker
     });
     user.save(function (err, result) {
         if (err) {
